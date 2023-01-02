@@ -1,0 +1,32 @@
+.accordion {
+	margin-bottom: 3rem;
+}
+.accordion-icon {
+	.card-body {
+		padding-left: 5.5rem !important;
+	}
+}
+.accordion-plus {
+	.card-title {
+		a {
+			&:before {
+				content: '\f28e';
+			}
+		}
+		a.collapsed {
+			&:before {
+				content: '\f2c2';
+			}
+		}
+	}
+}
+.accordion-rounded {
+	.card {
+		&:first-child {
+			border-radius: .3rem .3rem 0 0;
+		}
+		&:last-child {
+			border-radius: 0 0 .3rem .3rem;
+		}
+	}
+}

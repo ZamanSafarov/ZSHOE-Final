@@ -1,0 +1,112 @@
+.icon-box {
+	color: $color_8;
+	font-weight: 300;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	letter-spacing: -.01em;
+	margin-bottom: 2rem;
+}
+.icon-box.icon-box-sm {
+	font-size: 1.4rem;
+	line-height: 1.86;
+}
+.icon-box-title {
+	color: $color_9;
+	font-weight: 400;
+	font-size: 1.8rem;
+	letter-spacing: -.025em;
+	margin-bottom: .9rem;
+}
+.icon-box-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: $color_4;
+	font-size: 4rem;
+	line-height: 1;
+	margin-bottom: 2rem;
+	color: $color_3;
+	font-size: 3.4rem;
+}
+.icon-box-content {
+	p {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+.icon-box-left {
+	position: relative;
+	padding-left: 70px;
+	.icon-box-icon {
+		position: absolute;
+		left: 0;
+		top: -1rem;
+	}
+}
+.icon-box-circle {
+	.icon-box-icon {
+		width: 7rem;
+		height: 7rem;
+		border-radius: 50%;
+		color: $color_2;
+		background-color: $background-color_2;
+	}
+}
+.icon-box-circle.icon-box-left {
+	padding-left: 100px;
+	.icon-box-icon {
+		left: 1rem;
+	}
+}
+.icon-box-card {
+	background-color: $background-color_5;
+	padding: 6.5rem 2rem 6rem;
+	background-color: $background-color_13;
+	padding: 2rem;
+	.icon-box-title {
+		font-weight: 600;
+	}
+	.icon-box-icon {
+		margin-bottom: 1.3rem;
+	}
+}
+.icon-boxes-container {
+	background-color: $background-color_20;
+	padding-top: 2.8rem;
+	padding-bottom: 2.8rem;
+	margin-bottom: 0;
+}
+.icon-boxes-container.bg-dark {
+	.icon-box-icon {
+		color: $color_1;
+	}
+	.icon-box-title {
+		color: $color_2;
+	}
+}
+.icon-box-side {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	margin-bottom: 0;
+	p {
+		margin-bottom: 0;
+	}
+	.icon-box-icon {
+		display: inline-block;
+		line-height: 0;
+		min-width: 7rem;
+		text-align: center;
+		margin-bottom: 0;
+	}
+	.icon-box-title {
+		font-weight: 500;
+		font-size: 1.6rem;
+		letter-spacing: -.01em;
+		margin-top: .2rem;
+		margin-bottom: 0;
+	}
+}

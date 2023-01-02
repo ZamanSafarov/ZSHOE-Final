@@ -1,0 +1,12 @@
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\bin\Debug\net5.0\ZSHOE.Domain.deps.json
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\bin\Debug\net5.0\ZSHOE.Domain.dll
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\bin\Debug\net5.0\ZSHOE.Domain.pdb
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.csproj.AssemblyReference.cache
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.AssemblyInfoInputs.cache
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.AssemblyInfo.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.csproj.CoreCompileInputs.cache
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.dll
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\refint\ZSHOE.Domain.dll
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.pdb
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ref\ZSHOE.Domain.dll

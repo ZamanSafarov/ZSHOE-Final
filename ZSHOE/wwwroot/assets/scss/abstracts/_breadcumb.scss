@@ -1,0 +1,104 @@
+.breadcrumb-nav {
+	margin-bottom: 4rem;
+	border-bottom: 0.1rem solid rgba(235,235,235,0.55);
+	.container {
+		padding-top: 1.4rem;
+		padding-bottom: 1.4rem;
+	}
+	.container-fluid {
+		padding-top: 1.4rem;
+		padding-bottom: 1.4rem;
+	}
+}
+.breadcrumb-with-filter {
+	.container {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	.container-fluid {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+}
+.breadcrumb {
+	background-color: $background-color_13;
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+}
+.breadcrumb-item {
+	font-weight: 300;
+	font-size: 1.4rem;
+	line-height: 1.5;
+	letter-spacing: 0;
+	text-transform: capitalize;
+	i {
+		font-size: 1.3rem;
+		vertical-align: top;
+		margin-top: -.2rem;
+		&::before {
+			margin: 0;
+		}
+	}
+	a {
+		color: $color_8;
+		&:hover {
+			color: $color_4;
+		}
+		&:focus {
+			color: $color_4;
+		}
+	}
+}
+.breadcrumb-item.active {
+	color: $color_9;
+}
+.breadcrumb-item+.breadcrumb-item {
+	padding-left: 1rem;
+	&:before {
+		color: $color_13;
+		content: '\f112';
+		font-family: $font-family_1;
+		padding-right: .7rem;
+		font-size: 1.1rem;
+		vertical-align: middle;
+		margin-top: -.1rem;
+	}
+}
+
+.page-header {
+	padding: 4.6rem 0 5rem;
+	background-color: $background-color_10;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	h1 {
+		color: $color_3;
+		font: normal 400 3.2rem/1.1 "Poppins",sans-serif;
+		letter-spacing: -.025em;
+		margin-bottom: 0;
+		span {
+			display: block;
+			color: $color_4;
+			font-size: 1.6rem;
+			margin-top: .8rem;
+		}
+	}
+}
+.page-header.page-header-big {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 250px;
+	margin-bottom: 5rem;
+	h1 {
+		span {
+			font-size: 1.6rem;
+			margin-top: .4rem;
+			letter-spacing: 0;
+		}
+	}
+}

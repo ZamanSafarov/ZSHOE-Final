@@ -1,0 +1,127 @@
+.bg-light {
+	background-color: $background-color_3 !important;
+}
+.bg-light-2 {
+	background-color: $background-color_4 !important;
+}
+.bg-lighter {
+	background-color: $background-color_5 !important;
+}
+.bg-gray {
+	background-color: $background-color_6 !important;
+}
+.bg-primary {
+	background-color: $background-color_2 !important;
+}
+.bg-secondary {
+	background-color: $background-color_7 !important;
+}
+.bg-image {
+	background-color: $background-color_8;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	.btn-wrap {
+		>span {
+			color: $color_8;
+		}
+	}
+	.btn-link-dark {
+		color: $color_2;
+		&:hover {
+			color: $color_4;
+			border-color: $border-color_4;
+		}
+		&:focus {
+			color: $color_4;
+			border-color: $border-color_4;
+		}
+	}
+	.btn-outline-primary {
+		&:hover {
+			color: $color_2;
+			background-color: $background-color_2;
+			border-color: $border-color_4;
+		}
+		&:focus {
+			color: $color_2;
+			background-color: $background-color_2;
+			border-color: $border-color_4;
+		}
+		&:not(:disabled) {
+			&:not(.disabled) {
+				&:active {
+					color: $color_2;
+					background-color: $background-color_2;
+					border-color: $border-color_4;
+				}
+			}
+			&:not(.disabled).active {
+				color: $color_2;
+				background-color: $background-color_2;
+				border-color: $border-color_4;
+			}
+		}
+	}
+	.btn-outline-primary.focus {
+		color: $color_2;
+		background-color: $background-color_2;
+		border-color: $border-color_4;
+	}
+	.btn-outline-dark {
+		color: $color_2;
+		border-color: $border-color_11;
+		&:hover {
+			color: $color_4;
+			background-color: $background-color_1;
+			border-color: $border-color_11;
+		}
+		&:focus {
+			color: $color_4;
+			background-color: $background-color_1;
+			border-color: $border-color_11;
+		}
+		&:not(:disabled) {
+			&:not(.disabled) {
+				&:active {
+					color: $color_4;
+					background-color: $background-color_1;
+					border-color: $border-color_11;
+				}
+			}
+			&:not(.disabled).active {
+				color: $color_4;
+				background-color: $background-color_1;
+				border-color: $border-color_11;
+			}
+		}
+	}
+	.btn-outline-dark.focus {
+		color: $color_4;
+		background-color: $background-color_1;
+		border-color: $border-color_11;
+	}
+}
+.bg-overlay {
+	position: relative;
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		z-index: 1;
+		opacity: .3;
+		background-color: $background-color_9;
+	}
+	.container {
+		position: relative;
+		z-index: 2;
+	}
+	.container-fluid {
+		position: relative;
+		z-index: 2;
+	}
+}
