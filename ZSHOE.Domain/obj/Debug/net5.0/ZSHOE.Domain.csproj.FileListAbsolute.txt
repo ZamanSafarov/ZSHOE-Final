@@ -1,4 +1,6 @@
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\bin\Debug\net5.0\ZSHOE.Domain.deps.json
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\bin\Debug\net5.0\ZSHOE.Domain.runtimeconfig.json
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\bin\Debug\net5.0\ZSHOE.Domain.runtimeconfig.dev.json
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\bin\Debug\net5.0\ZSHOE.Domain.dll
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\bin\Debug\net5.0\ZSHOE.Domain.pdb
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.csproj.AssemblyReference.cache
@@ -9,4 +11,5 @@ D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domai
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.dll
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\refint\ZSHOE.Domain.dll
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.pdb
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ZSHOE.Domain.genruntimeconfig.cache
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE.Domain\obj\Debug\net5.0\ref\ZSHOE.Domain.dll
