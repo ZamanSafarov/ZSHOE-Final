@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -24,13 +25,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             this.mediator = mediator;
         }
 
-        // GET: Admin/AboutCustomers
+        [Authorize(Policy = "admin.aboutcustomers.index")]
         public async Task<IActionResult> Index()
         {
             return View(await db.AboutCustomers.ToListAsync());
         }
 
-        // GET: Admin/AboutCustomers/Details/5
+        [Authorize(Policy = "admin.aboutcustomers.details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -48,15 +49,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutCustomer);
         }
 
-        // GET: Admin/AboutCustomers/Create
+        [Authorize(Policy = "admin.aboutcustomers.create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/AboutCustomers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.aboutcustomers.create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AboutCustomerPostCommand command)
@@ -78,7 +77,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(command);
         }
 
-        // GET: Admin/AboutCustomers/Edit/5
+        [Authorize(Policy = "admin.aboutcustomers.edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -94,9 +93,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutCustomer);
         }
 
-        // POST: Admin/AboutCustomers/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.aboutcustomers.edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ImagePath,Description,Name,Position,Id,CreatedDate,DeletedDate")] AboutCustomer aboutCustomer)
@@ -129,7 +126,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutCustomer);
         }
 
-        // GET: Admin/AboutCustomers/Delete/5
+        [Authorize(Policy = "admin.aboutcustomers.delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -147,7 +144,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutCustomer);
         }
 
-        // POST: Admin/AboutCustomers/Delete/5
+        [Authorize(Policy = "admin.aboutcustomers.delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

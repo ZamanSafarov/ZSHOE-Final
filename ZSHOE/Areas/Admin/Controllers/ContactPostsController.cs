@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -23,13 +24,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             this.emailService = emailService;
         }
 
-        // GET: Admin/ContactPosts
+        [Authorize(Policy = "admin.contactposts.index")]
         public async Task<IActionResult> Index()
         {
             return View(await db.ContactPosts.ToListAsync());
         }
 
-        // GET: Admin/ContactPosts/Details/5
+        [Authorize(Policy = "admin.contactposts.details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,6 +47,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
 
             return View(contactPost);
         }
+        [Authorize(Policy = "admin.contactposts.reply")]
         public async Task<IActionResult> Reply(int? id)
         {
             if (id == null)
@@ -61,7 +63,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
 
             return View(contactPost);
         }
-
+        [Authorize(Policy = "admin.contactposts.reply")]
         [HttpPost]
         public async Task<IActionResult> Reply(int id, [FromForm][Bind("Name, Email, Phone, Content, Subject, Answer, EmailAnswer")] ContactPost model)
         {
@@ -90,7 +92,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             });
         }
 
-        // GET: Admin/ContactPosts/Delete/5
+        [Authorize(Policy = "admin.contactposts.delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -108,7 +110,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(contactPost);
         }
 
-        // POST: Admin/ContactPosts/Delete/5
+        [Authorize(Policy = "admin.contactposts.delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

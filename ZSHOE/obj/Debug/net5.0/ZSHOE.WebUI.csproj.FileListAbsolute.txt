@@ -206,3 +206,5 @@ D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\AboutCustomers\Details.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\AboutCustomers\Edit.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\AboutCustomers\Index.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\Details.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\Index.cshtml.g.cs

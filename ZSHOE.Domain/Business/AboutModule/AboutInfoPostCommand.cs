@@ -10,10 +10,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using ZSHOE.Domain.Models.DataContexts;
-using ZSHOE.Domain.AppCode.Infrastructure;
-using ZSHOE.Domain.Models.Entities;
-using ZSHOE.Domain.AppCode.Extensions;
 
 namespace ZSHOE.Domain.Business.BlogPostModule
 {

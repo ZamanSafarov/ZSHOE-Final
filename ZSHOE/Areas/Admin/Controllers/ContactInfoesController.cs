@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,13 +21,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/ContactInfoes
+        [Authorize(Policy = "admin.contactinfoes.index")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.ContactInfos.ToListAsync());
         }
 
-        // GET: Admin/ContactInfoes/Details/5
+        [Authorize(Policy = "admin.contactinfoes.details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,15 +45,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(contactInfo);
         }
 
-        // GET: Admin/ContactInfoes/Create
+        [Authorize(Policy = "admin.contactinfoes.create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/ContactInfoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.contactinfoes.create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Location,PhoneNumber,CompanyEmail,Id,CreatedDate,DeletedDate")] ContactInfo contactInfo)
@@ -66,7 +65,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(contactInfo);
         }
 
-        // GET: Admin/ContactInfoes/Edit/5
+        [Authorize(Policy = "admin.contactinfoes.edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,9 +81,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(contactInfo);
         }
 
-        // POST: Admin/ContactInfoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.contactinfoes.edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Location,PhoneNumber,CompanyEmail,Id,CreatedDate,DeletedDate")] ContactInfo contactInfo)
@@ -117,7 +114,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(contactInfo);
         }
 
-        // GET: Admin/ContactInfoes/Delete/5
+        [Authorize(Policy = "admin.contactinfoes.delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,7 +132,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(contactInfo);
         }
 
-        // POST: Admin/ContactInfoes/Delete/5
+        [Authorize(Policy = "admin.contactinfoes.delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

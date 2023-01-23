@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,13 +22,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/AboutBrands
+        [Authorize(Policy = "admin.aboutbrands.index")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.AboutBrands.ToListAsync());
         }
 
-        // GET: Admin/AboutBrands/Details/5
+        [Authorize(Policy = "admin.aboutbrands.details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,15 +46,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutBrand);
         }
 
-        // GET: Admin/AboutBrands/Create
+        [Authorize(Policy = "admin.aboutbrands.create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/AboutBrands/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.aboutbrands.create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Description,Body,ImagePath,Id,CreatedDate,DeletedDate")] AboutBrand aboutBrand)
@@ -67,7 +66,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutBrand);
         }
 
-        // GET: Admin/AboutBrands/Edit/5
+        [Authorize(Policy = "admin.aboutbrands.edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,9 +82,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutBrand);
         }
 
-        // POST: Admin/AboutBrands/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.aboutbrands.edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Description,Body,ImagePath,Id,CreatedDate,DeletedDate")] AboutBrand aboutBrand)
@@ -118,7 +115,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutBrand);
         }
 
-        // GET: Admin/AboutBrands/Delete/5
+        [Authorize(Policy = "admin.aboutbrands.delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,7 +133,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutBrand);
         }
 
-        // POST: Admin/AboutBrands/Delete/5
+        [Authorize(Policy = "admin.aboutbrands.delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

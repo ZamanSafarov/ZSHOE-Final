@@ -79,10 +79,19 @@ namespace ZSHOE.Domain.Models.DataContext
         public static void SeedUserRole(RoleManager<ZSHOERole> roleManager)
         {
 
-            if (!roleManager.RoleExistsAsync("user").Result)
+            if (!roleManager.RoleExistsAsync("User").Result)
             {
                 ZSHOERole role = new ZSHOERole();
-                role.Name = "user";
+                role.Name = "User";
+
+                IdentityResult roleResult = roleManager.
+
+                CreateAsync(role).Result;
+            }
+            if (!roleManager.RoleExistsAsync("Moderator").Result)
+            {
+                ZSHOERole role = new ZSHOERole();
+                role.Name = "Moderator";
 
                 IdentityResult roleResult = roleManager.
 

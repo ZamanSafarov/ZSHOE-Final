@@ -12,6 +12,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
     [AllowAnonymous]
     public class DashboardController : Controller
     {
+        [Authorize(Policy = "admin.dashboard.index")]
         public IActionResult Index()
         {
             return View();

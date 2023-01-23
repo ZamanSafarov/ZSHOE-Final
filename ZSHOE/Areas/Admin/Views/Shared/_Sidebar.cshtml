@@ -2,48 +2,69 @@
     <div class="pcoded-inner-navbar main-menu">
         <div class="pcoded-navigatio-lavel">Management</div>
         <ul class="pcoded-item pcoded-left-item">
-            <li>
-                <a asp-controller="dashboard" asp-action="index">
-                    <span class="pcoded-micon">
-                        <i class="feather icon-home"></i>
-                    </span>
-                    <span class="pcoded-mtext">Homepage</span>
-                </a>
-            </li>
-            <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
-                <a href="javascript:void(0)">
-                    <span class="pcoded-micon"><i class="fa-solid fa-info"></i></span>
-                    <span class="pcoded-mtext">About</span>
-                    <span class="pcoded-mcaret"></span>
-                </a>
-                <ul class="pcoded-submenu">
-                    <li>
-                        <a asp-controller="AboutInfoes" asp-action="index">
-                            <span class="pcoded-mtext">Entry</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="AboutWhoWeAres" asp-action="index">
-                            <span class="pcoded-mtext">Who we are</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="AboutBrands" asp-action="index">
-                            <span class="pcoded-mtext">Brands</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="AboutTeams" asp-action="index">
-                            <span class="pcoded-mtext">Our Team</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="AboutCustomers" asp-action="index">
-                            <span class="pcoded-mtext">Customers</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+            @if (User.HasAccess("admin.dashboard.index")){
+                <li>
+                    <a asp-controller="dashboard" asp-action="index">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-home"></i>
+                        </span>
+                        <span class="pcoded-mtext">Homepage</span>
+                    </a>
+                </li>
+            }
+            @if (User.HasAccess("admin.aboutinfoes.index") || User.HasAccess("admin.aboutwhoweares.index") || User.HasAccess("admin.aboutbrands.index") || User.HasAccess("admin.aboutteams.index") || User.HasAccess("admin.aboutcustomers.index"))
+            {
+                <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
+                    <a href="javascript:void(0)">
+                        <span class="pcoded-micon"><i class="fa-solid fa-info"></i></span>
+                        <span class="pcoded-mtext">About</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        @if (User.HasAccess("admin.aboutinfoes.index"))
+                        {
+                            <li>
+                                <a asp-controller="AboutInfoes" asp-action="index">
+                                    <span class="pcoded-mtext">Entry</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.HasAccess("admin.aboutwhoweares.index"))
+                        {
+                            <li>
+                                <a asp-controller="AboutWhoWeAres" asp-action="index">
+                                    <span class="pcoded-mtext">Who we are</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.HasAccess("admin.aboutbrands.index"))
+                        {
+                            <li>
+                                <a asp-controller="AboutBrands" asp-action="index">
+                                    <span class="pcoded-mtext">Brands</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.HasAccess("admin.aboutteams.index"))
+                        {
+                            <li>
+                                <a asp-controller="AboutTeams" asp-action="index">
+                                    <span class="pcoded-mtext">Our Team</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.HasAccess("admin.aboutcustomers.index"))
+                        {
+                            <li>
+                                <a asp-controller="AboutCustomers" asp-action="index">
+                                    <span class="pcoded-mtext">Customers</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            
           
              <li>
                 <a asp-controller="faqs" asp-action="index">

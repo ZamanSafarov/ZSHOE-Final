@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -24,13 +25,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             this.mediator = mediator;
         }
 
-        // GET: Admin/AboutTeams
+        [Authorize(Policy = "admin.aboutteams.index")]
         public async Task<IActionResult> Index()
         {
             return View(await db.AboutTeam.ToListAsync());
         }
 
-        // GET: Admin/AboutTeams/Details/5
+        [Authorize(Policy = "admin.aboutteams.details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -48,15 +49,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutTeam);
         }
 
-        // GET: Admin/AboutTeams/Create
+        [Authorize(Policy = "admin.aboutteams.create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/AboutTeams/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.aboutteams.create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AboutTeamPostCommand command)
@@ -78,7 +77,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(command);
         }
 
-        // GET: Admin/AboutTeams/Edit/5
+        [Authorize(Policy = "admin.aboutteams.edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -94,9 +93,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutTeam);
         }
 
-        // POST: Admin/AboutTeams/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.aboutteams.edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Name,Position,Description,FacebookLink,InstagramLink,TwitterLink,Id,CreatedDate,DeletedDate")] AboutTeam aboutTeam)
@@ -129,7 +126,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutTeam);
         }
 
-        // GET: Admin/AboutTeams/Delete/5
+        [Authorize(Policy = "admin.aboutteams.delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -147,7 +144,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutTeam);
         }
 
-        // POST: Admin/AboutTeams/Delete/5
+        [Authorize(Policy = "admin.aboutteams.delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

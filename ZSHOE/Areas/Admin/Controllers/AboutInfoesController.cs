@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -26,13 +27,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             this.mediator = mediator;
         }
 
-        // GET: Admin/AboutInfoes
+        [Authorize(Policy = "admin.aboutinfoes.index")]
         public async Task<IActionResult> Index()
         {
             return View(await db.AboutInfos.ToListAsync());
         }
 
-        // GET: Admin/AboutInfoes/Details/5
+        [Authorize(Policy = "admin.aboutinfoes.details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -50,33 +51,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutInfo);
         }
 
-        // GET: Admin/AboutInfoes/Create
+        [Authorize(Policy = "admin.aboutinfoes.create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/AboutInfoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("ImagePath,OurVision,OurMission,Id,CreatedDate,DeletedDate")] AboutInfo aboutInfo)
-        //{
-
-        //    if (aboutInfo.ImagePath == null)
-        //    {
-        //        ModelState.AddModelError("ImagePath", "Shekil Gonderilmelidir");
-        //    }
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Add(aboutInfo);
-        //        await db.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(aboutInfo);
-        //}
+        [Authorize(Policy = "admin.aboutinfoes.create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AboutInfoPostCommand command)
@@ -98,7 +79,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(command);
         }
 
-        // GET: Admin/AboutInfoes/Edit/5
+        [Authorize(Policy = "admin.aboutinfoes.edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -114,9 +95,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutInfo);
         }
 
-        // POST: Admin/AboutInfoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.aboutinfoes.edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ImagePath,OurVision,OurMission,Id,CreatedDate,DeletedDate")] AboutInfo aboutInfo)
@@ -149,7 +128,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutInfo);
         }
 
-        // GET: Admin/AboutInfoes/Delete/5
+        [Authorize(Policy = "admin.aboutinfoes.delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -167,7 +146,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(aboutInfo);
         }
 
-        // POST: Admin/AboutInfoes/Delete/5
+        [Authorize(Policy = "admin.aboutinfoes.delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

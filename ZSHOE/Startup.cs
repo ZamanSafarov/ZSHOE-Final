@@ -17,6 +17,8 @@ using ZSHOE.Domain.Models.Entities.Membership;
 using ZSHOE.Domain.Models.DataContext;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using ZSHOE.Domain.AppCode.Providers;
+using ZSHOE.Domain.AppCode.Extensions;
 
 namespace ZSHOE.WebUI
 {
@@ -75,10 +77,25 @@ namespace ZSHOE.WebUI
 
 
             services.AddAuthentication();
-            services.AddAuthorization();
+            services.AddAuthorization(cfg =>
+            {
+                foreach (var policyName in Extension.policies)
+                {
+                    cfg.AddPolicy(policyName, p =>
+                    {
+                        p.RequireAssertion(handler =>
+                        {
+                            return handler.User.IsInRole("SuperAdmin") ||
+                            handler.User.HasClaim(policyName, "1");
+                        });
+                    });
+
+                }
+            });
 
             services.AddScoped<UserManager<ZSHOEUser>>();
             services.AddScoped<SignInManager<ZSHOEUser>>();
+            services.AddScoped<RoleManager<ZSHOERole>>();
 
 
             services.Configure<EmailServiceOptions>(cfg =>
@@ -91,7 +108,7 @@ namespace ZSHOE.WebUI
 
 
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-            //services.AddScoped<IClaimsTransformation, AppClaimProvider>();
+            services.AddScoped<IClaimsTransformation, AppClaimProvider>();
 
             services.AddRouting(cfg =>   
             {

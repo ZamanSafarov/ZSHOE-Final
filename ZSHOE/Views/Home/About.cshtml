@@ -64,23 +64,21 @@
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="brands-text">
-                                 @foreach(var item in Model.AboutBrands){
-                                       <h2 class="title">@item.Description</h2>
-                                       <p>@item.Body</p>
-                                 }
+                                 <h2 class="title">@Model.AboutBrands?.Description</h2>
+                                 <p>@Model.AboutBrands?.Body</p>
                               
                             </div><!-- End .brands-text -->
                         </div><!-- End .col-lg-5 -->
                         <div class="col-lg-7">
                             <div class="brands-display">
                                 <div class="row justify-content-center">
-                                  @foreach(var item in Model.AboutBrands){
+                                 @* @foreach(var item in Model.AboutBrandImages){
                                        <div class="col-6 col-sm-4">
                                            <a href="#" class="brand">
                                                 <img src="~/uploads/images/@item.ImagePath" alt="Brand Name">
                                            </a>
                                        </div>
-                                  }
+                                  }*@
 
                                 </div><!-- End .row -->
                             </div><!-- End .brands-display -->
