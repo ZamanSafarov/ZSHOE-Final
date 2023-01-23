@@ -24,4 +24,8 @@
 	  <ProjectReference Include="..\ZSHOE.Domain\ZSHOE.Domain.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="wwwroot\uploads\images\" />
+	</ItemGroup>
+
 </Project>

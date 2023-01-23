@@ -47,7 +47,7 @@
                                 <ul>
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                     <li><a href="wishlist.html"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
-                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a asp-controller="home" asp-action="about">About Us</a></li>
                                     <li><a asp-controller="home" asp-action="contact">Contact Us</a></li>
                                     <li><a asp-controller="account" asp-action="signin" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
                                 </ul>
@@ -64,7 +64,7 @@
                             <span class="sr-only">Toggle mobile menu</span>
                             <i class="icon-bars"></i>
                         </button>
-                        <a href="index.html" class="logo">
+                        <a asp-controller="home" asp-action="index" class="logo">
                             <img src="~/assets/images/zshoe.png" alt="zshoe Logo" width="120" height="25">
 
                         </a>
@@ -72,7 +72,7 @@
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
                                 <li class="megamenu-container active">
-                                    <a href="index.html">Home</a>
+                                    <a asp-controller="home" asp-action="index">Home</a>
 
 
                                 </li>
@@ -124,7 +124,7 @@
 
                                     <ul>
                                         <li>
-                                            <a href="about.html">About</a>
+                                            <a asp-controller="home" asp-action="about">About</a>
 
 
                                         </li>
@@ -133,7 +133,7 @@
 
                                         </li>
                                         <li><a asp-controller="account" asp-action="signin">Login</a></li>
-                                        <li><a href="faq.html">FAQs</a></li>
+                                        <li><a asp-controller="home" asp-action="faq">FAQs</a></li>
                                         <li><a href="404.html">Error 404</a></li>
                                         <li><a href="coming-soon.html">Coming Soon</a></li>
                                     </ul>
@@ -272,9 +272,9 @@
                                 <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
                                 <ul class="widget-list">
-                                    <li><a href="about.html">About Molla</a></li>
-                                    <li><a href="#">How to shop on Molla</a></li>
-                                    <li><a href="#">FAQ</a></li>
+                                    <li><a asp-controller="home" asp-action="about">About ZSHOE</a></li>
+                                    <li><a href="#">How to shop on ZSHOE</a></li>
+                                    <li><a asp-controller="home" asp-action="faq">FAQ</a></li>
                                     <li><a asp-controller="home" asp-action="contact">Contact us</a></li>
                                     <li><a asp-controller="account" asp-action="signin">Log in</a></li>
                                 </ul><!-- End .widget-list -->
@@ -301,7 +301,7 @@
                                 <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
 
                                 <ul class="widget-list">
-                                    <li><a href="#">Sign In</a></li>
+                                    <li><a asp-controller="account" asp-action="signin">Sign In</a></li>
                                     <li><a href="cart.html">View Cart</a></li>
                                     <li><a href="#">My Wishlist</a></li>
                                     <li><a href="#">Track My Order</a></li>
@@ -340,7 +340,7 @@
             <nav class="mobile-nav">
                 <ul class="mobile-menu">
                     <li class="active">
-                        <a href="index.html">Home</a>
+                        <a asp-controller="home" asp-action="index">Home</a>
                     </li>
                     <li>
                         <a href="category.html" class="sf-with-ul">Shop</a>
@@ -358,13 +358,13 @@
                         <a href="#" class="sf-with-ul">Pages</a>
                         <ul>
                             <li>
-                                <a href="about.html">About</a>
+                                <a asp-controller="home" asp-action="about">About</a>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a asp-controller="home" asp-action="contact">Contact</a>
                             </li>
                             <li><a asp-controller="account" asp-action="signin">Login</a></li>
-                            <li><a href="faq.html">FAQs</a></li>
+                            <li><a asp-controller="home" asp-action="faq">FAQs</a></li>
                             <li><a href="404.html">Error 404</a></li>
                             <li><a href="coming-soon.html">Coming Soon</a></li>
                         </ul>

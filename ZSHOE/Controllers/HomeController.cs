@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using ZSHOE.Domain.AppCode.Extensions;
@@ -71,5 +72,29 @@ namespace ZSHOE.WebUI.Controllers
             return View(data);
 
         }
+
+        [AllowAnonymous]
+        public IActionResult MyAccount()
+        {
+            return View();
+        }
+        public async Task<IActionResult> About()
+        {
+            var aboutBrand = db.AboutBrands.Where(ab => ab.DeletedDate == null).ToList();
+            var aboutInfo = await db.AboutInfos.FirstOrDefaultAsync(ai => ai.DeletedDate == null);
+            var aboutTeam = db.AboutTeam.Where(at => at.DeletedDate == null).ToList();
+            var aboutCustomer = db.AboutCustomers.Where(ac => ac.DeletedDate == null).ToList();
+            var aboutWhoWeAre = await db.AboutWhoWeAre.FirstOrDefaultAsync(aw => aw.DeletedDate == null);
+            var vm = new AboutViewModel
+            {
+                AboutInfos = aboutInfo,
+                AboutWhoWeAre = aboutWhoWeAre,
+                AboutBrands = aboutBrand,
+                AboutCustomers = aboutCustomer,
+                AboutTeam = aboutTeam
+            };
+            return View(vm);
+        }
+
     }
 }

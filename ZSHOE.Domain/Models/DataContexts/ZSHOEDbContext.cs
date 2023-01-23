@@ -59,5 +59,10 @@ namespace ZSHOE.Domain.Models.DataContexts
         public DbSet<ContactPost> ContactPosts { get; set; }
         public DbSet<ContactInfo> ContactInfos { get; set; }
         public DbSet<Faq> Faqs { get; set; }
+        public DbSet<AboutBrand> AboutBrands { get; set; }
+        public DbSet<AboutInfo> AboutInfos { get; set; }
+        public DbSet<AboutTeam> AboutTeam { get; set; }
+        public DbSet<AboutCustomer> AboutCustomers { get; set; }
+        public DbSet<AboutWhoWeAre> AboutWhoWeAre { get; set; }
     }
 }

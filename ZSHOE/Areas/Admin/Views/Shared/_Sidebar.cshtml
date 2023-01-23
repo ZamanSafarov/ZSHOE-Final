@@ -10,14 +10,41 @@
                     <span class="pcoded-mtext">Homepage</span>
                 </a>
             </li>
-            <li>
-                <a asp-controller="Abouts" asp-action="index">
-                    <span class="pcoded-micon">
-                        <i class="fa-solid fa-address-card"></i>
-                    </span>
-                    <span class="pcoded-mtext">About Me</span>
+            <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="fa-solid fa-info"></i></span>
+                    <span class="pcoded-mtext">About</span>
+                    <span class="pcoded-mcaret"></span>
                 </a>
+                <ul class="pcoded-submenu">
+                    <li>
+                        <a asp-controller="AboutInfoes" asp-action="index">
+                            <span class="pcoded-mtext">Entry</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="AboutWhoWeAres" asp-action="index">
+                            <span class="pcoded-mtext">Who we are</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="AboutBrands" asp-action="index">
+                            <span class="pcoded-mtext">Brands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="AboutTeams" asp-action="index">
+                            <span class="pcoded-mtext">Our Team</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="AboutCustomers" asp-action="index">
+                            <span class="pcoded-mtext">Customers</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
+          
              <li>
                 <a asp-controller="faqs" asp-action="index">
                     <span class="pcoded-micon">
@@ -109,95 +136,3 @@
 
 
 
-
-@*<nav class="pcoded-navbar">
-    <div class="pcoded-inner-navbar main-menu">
-        <div class="pcoded-navigatio-lavel">Management</div>
-        <ul class="pcoded-item pcoded-left-item">
-            <li>
-                <a asp-controller="dashboard" asp-action="index">
-                    <span class="pcoded-micon">
-                        <i class="feather icon-home"></i>
-                    </span>
-                    <span class="pcoded-mtext">Homepage</span>
-                </a>
-            </li>
-            <li>
-                <a asp-controller="Abouts" asp-action="index">
-                    <span class="pcoded-micon">
-                        <i class="feather icon-user"></i>
-                    </span>
-                    <span class="pcoded-mtext">About</span>
-                </a>
-            </li>
-            <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
-                <a href="javascript:void(0)">
-                    <span class="pcoded-micon"><i class="feather icon-inbox"></i></span>
-                    <span class="pcoded-mtext">Form</span>
-                    <span class="pcoded-mcaret"></span>
-                </a>
-                <ul class="pcoded-submenu">
-                    <li>
-                        <a asp-controller="blogposts" asp-action="index">
-                            <span class="pcoded-mtext">Paylaşımlar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="blogposts" asp-action="deletedposts">
-                            <span class="pcoded-mtext">Silinmiş paylaşımlar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="brands" asp-action="index">
-                            <span class="pcoded-mtext">Qadağa edilmiş sözlər</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="brands" asp-action="index">
-                            <span class="pcoded-mtext">Rəy funksionallıqları</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
-                <a href="javascript:void(0)">
-                    <span class="pcoded-micon"><i class="feather icon-inbox"></i></span>
-                    <span class="pcoded-mtext">Resume</span>
-                    <span class="pcoded-mcaret"></span>
-                </a>
-                <ul class="pcoded-submenu">
-                    <li>
-                        <a asp-controller="resumebios" asp-action="index">
-                            <span class="pcoded-mtext">Bio</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="resumeskills" asp-action="index">
-                            <span class="pcoded-mtext">Skills</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="resumeexperiences" asp-action="index">
-                            <span class="pcoded-mtext">Experience</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="ResumeDiploms" asp-action="index">
-                            <span class="pcoded-mtext">Diploma</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a asp-controller="ContactPosts" asp-action="index">
-                    <span class="pcoded-micon">
-                        <i class="feather icon-mail"></i>
-                    </span>
-                    <span class="pcoded-mtext">Applications</span>
-                </a>
-            </li>
-            
-        
-        </ul>
-    </div>
-</nav>*@
