@@ -1,0 +1,47 @@
+﻿
+@model PagedViewModel<BlogPost>
+@foreach (var item in Model.Items)
+{
+<article class="entry">
+    <figure class="entry-media">
+            <a asp-controller="blog" asp-action="details" asp-route-id="@item.Id" asp-route-slug="@item.Slug">
+                <img src="~/uploads/images/@item.ImagePath" alt="image desc">
+        </a>
+    </figure><!-- End .entry-media -->
+
+    <div class="entry-body">
+        <div class="entry-meta">
+            <a href="#">@item.PublishedDate?.ToString("MMM dd, yyyy")</a>
+            <span class="meta-separator">|</span>
+            <a href="#">2 Comments</a>
+        </div><!-- End .entry-meta -->
+
+        <h2 class="entry-title">
+                <a asp-controller="blog" asp-action="details" asp-route-id="@item.Id" asp-route-slug="@item.Slug">@item.Title</a>
+        </h2><!-- End .entry-title -->
+
+        <div class="entry-cats">
+                in  @foreach (var tag in item.TagCloud)
+                {
+                    <li>
+                        <a class="blog-tag__link d-inline-block" href="#">
+                            @tag.Tag.Text
+                        </a>
+                    </li>
+                }
+        </div><!-- End .entry-cats -->
+
+        <div class="entry-content">
+                <p>@Html.Raw(item.Body)</p>
+                <a asp-controller="blog" asp-action="details" asp-route-id="@item.Id" asp-route-slug="@item.Slug" class="read-more">Continue Reading</a>
+        </div><!-- End .entry-content -->
+    </div><!-- End .entry-body -->
+</article><!-- End .entry -->
+}
+
+<!-- Pagination -->
+<div class="div mb-40" style="text-align:center">
+    <div class="col-12">
+        @Model.GetPager(Url, "Index", paginateFunction: "goPage")
+    </div>
+</div>

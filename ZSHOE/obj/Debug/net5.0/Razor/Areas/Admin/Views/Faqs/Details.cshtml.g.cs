@@ -33,8 +33,22 @@ using ZSHOE.Domain.AppCode.Infrastructure;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Areas\Admin\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Business.BlogPostModule;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Areas\Admin\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Business.CategoryModule;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"88609f8da2ae745a47410ff9d037c9d7dc94eb0c", @"/Areas/Admin/Views/Faqs/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c65365342b658160a5ec1f0f5c1bc7bbd0c609b5", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"24052f3053e0b1e1e21e1f8279c0143e774c61f0", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Admin_Views_Faqs_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Faq>
     #nullable disable
@@ -96,7 +110,7 @@ using ZSHOE.Domain.AppCode.Infrastructure;
                 <ul class=""breadcrumb-title"">
                     <li class=""breadcrumb-item"" style=""float: left;"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88609f8da2ae745a47410ff9d037c9d7dc94eb0c5491", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88609f8da2ae745a47410ff9d037c9d7dc94eb0c5907", async() => {
                 WriteLiteral(" <i class=\"feather icon-home\"></i> ");
             }
             );
@@ -114,7 +128,7 @@ using ZSHOE.Domain.AppCode.Infrastructure;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </li>\r\n                    <li class=\"breadcrumb-item\" style=\"float: left;\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88609f8da2ae745a47410ff9d037c9d7dc94eb0c7013", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88609f8da2ae745a47410ff9d037c9d7dc94eb0c7429", async() => {
                 WriteLiteral("Faqs");
             }
             );
@@ -162,7 +176,7 @@ using ZSHOE.Domain.AppCode.Infrastructure;
             <div>
                 <div class=""form-group row"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88609f8da2ae745a47410ff9d037c9d7dc94eb0c9086", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88609f8da2ae745a47410ff9d037c9d7dc94eb0c9502", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();

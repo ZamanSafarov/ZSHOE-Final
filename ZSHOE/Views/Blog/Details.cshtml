@@ -1,0 +1,375 @@
+﻿@model BlogPost
+
+@{
+    ViewData["Title"] = "Details";
+
+    IEnumerable<BlogPostComment> GetComments(BlogPostComment parent)
+    {
+        if (parent.ParentId != null)
+            yield return parent;
+
+        foreach (var item in parent.Children.SelectMany(c => GetComments(c)))
+        {
+            yield return item;
+        }
+
+    }
+}
+
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <div class="container">
+            <h1 class="page-title">Single Post <span>Blog</span></h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Blog Single</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <article class="entry single-entry">
+                        <figure class="entry-media">
+                            <img src="~/uploads/images/@Model.ImagePath" alt="">
+                        </figure><!-- End .entry-media -->
+
+                        <div class="entry-body">
+                            <div class="entry-meta">
+                                <span class="entry-author">
+                                    by <a href="#">Zaman Safarov</a>
+                                </span>
+                                <span class="meta-separator">|</span>
+                                <a href="#">@Model.PublishedDate?.ToString("MMM dd, yyyy")</a>
+                                <span class="meta-separator">|</span>
+                                <a href="#">@Model.Comments.Count() Comments</a>
+                            </div><!-- End .entry-meta -->
+
+                            <h2 class="entry-title">
+                               @Model.Title
+                            </h2><!-- End .entry-title -->
+
+                            <div class="entry-cats">
+                                in  @foreach (var tag in Model.TagCloud)
+                                {
+                                    <li>
+                                        <a class="blog-tag__link d-inline-block" href="#">
+                                            @tag.Tag.Text
+                                        </a>
+                                    </li>
+                                }
+                            </div><!-- End .entry-cats -->
+
+                            <div class="entry-content editor-content">
+                                <p>@Html.Raw(Model.Body)</p>
+
+                                <div class="pb-1"></div><!-- End .mb-1 -->
+
+
+                                <blockquote>
+                                  <p>"@Html.Raw(Model.ShortDescription)"</p>
+                                </blockquote>
+
+                            </div><!-- End .entry-content -->
+
+                            <div class="entry-footer row no-gutters flex-column flex-md-row">
+                                <div class="col-md">
+                                    <div class="entry-tags">
+                                        <span>Tags:</span>
+                                        @foreach (var tag in Model.TagCloud)
+                                        { 
+                                            <a href="#">@tag.Tag.Text</a> 
+                                         }
+                                    </div><!-- End .entry-tags -->
+                                </div><!-- End .col -->
+
+                                <div class="col-md-auto mt-2 mt-md-0">
+                                    <div class="social-icons social-icons-color">
+                                        <span class="social-label">Share this post:</span>
+                                        <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                                        <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                                        <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                                        <a href="#" class="social-icon social-linkedin" title="Linkedin" target="_blank"><i class="icon-linkedin"></i></a>
+                                    </div><!-- End .soial-icons -->
+                                </div><!-- End .col-auto -->
+                            </div><!-- End .entry-footer row no-gutters -->
+                        </div><!-- End .entry-body -->
+
+                        
+                    </article><!-- End .entry -->
+
+                    <nav class="pager-nav" aria-label="Page navigation">
+                        <a class="pager-link pager-link-prev" href="#" aria-label="Previous" tabindex="-1">
+                            Previous Post
+                            <span class="pager-link-title">Cras iaculis ultricies nulla</span>
+                        </a>
+
+                        <a class="pager-link pager-link-next" href="#" aria-label="Next" tabindex="-1">
+                            Next Post
+                            <span class="pager-link-title">Praesent placerat risus</span>
+                        </a>
+                    </nav><!-- End .pager-nav -->
+
+                    <div class="related-posts">
+                        <h3 class="title">Recent Posts</h3><!-- End .title -->
+
+                        <div class="owl-carousel owl-simple" data-toggle="owl"
+                             data-owl-options='{
+                                        "nav": false,
+                                        "dots": true,
+                                        "margin": 20,
+                                        "loop": false,
+                                        "responsive": {
+                                            "0": {
+                                                "items":1
+                                            },
+                                            "480": {
+                                                "items":2
+                                            },
+                                            "768": {
+                                                "items":3
+                                            }
+                                        }
+                                    }'>
+                            <article class="entry entry-grid">
+                                <figure class="entry-media">
+                                    <a href="single.html">
+                                        <img src="assets/images/blog/grid/3cols/post-1.jpg" alt="image desc">
+                                    </a>
+                                </figure><!-- End .entry-media -->
+
+                                <div class="entry-body">
+                                    <div class="entry-meta">
+                                        <a href="#">Nov 22, 2018</a>
+                                        <span class="meta-separator">|</span>
+                                        <a href="#">2 Comments</a>
+                                    </div><!-- End .entry-meta -->
+
+                                    <h2 class="entry-title">
+                                        <a href="single.html">Cras ornare tristique elit.</a>
+                                    </h2><!-- End .entry-title -->
+
+                                    <div class="entry-cats">
+                                        in <a href="#">Lifestyle</a>,
+                                        <a href="#">Shopping</a>
+                                    </div><!-- End .entry-cats -->
+                                </div><!-- End .entry-body -->
+                            </article><!-- End .entry -->
+
+                            <article class="entry entry-grid">
+                                <figure class="entry-media">
+                                    <a href="single.html">
+                                        <img src="assets/images/blog/grid/3cols/post-2.jpg" alt="image desc">
+                                    </a>
+                                </figure><!-- End .entry-media -->
+
+                                <div class="entry-body">
+                                    <div class="entry-meta">
+                                        <a href="#">Nov 21, 2018</a>
+                                        <span class="meta-separator">|</span>
+                                        <a href="#">0 Comments</a>
+                                    </div><!-- End .entry-meta -->
+
+                                    <h2 class="entry-title">
+                                        <a href="single.html">Vivamus ntulla necante.</a>
+                                    </h2><!-- End .entry-title -->
+
+                                    <div class="entry-cats">
+                                        in <a href="#">Lifestyle</a>
+                                    </div><!-- End .entry-cats -->
+                                </div><!-- End .entry-body -->
+                            </article><!-- End .entry -->
+
+                            <article class="entry entry-grid">
+                                <figure class="entry-media">
+                                    <a href="single.html">
+                                        <img src="assets/images/blog/grid/3cols/post-3.jpg" alt="image desc">
+                                    </a>
+                                </figure><!-- End .entry-media -->
+
+                                <div class="entry-body">
+                                    <div class="entry-meta">
+                                        <a href="#">Nov 18, 2018</a>
+                                        <span class="meta-separator">|</span>
+                                        <a href="#">3 Comments</a>
+                                    </div><!-- End .entry-meta -->
+
+                                    <h2 class="entry-title">
+                                        <a href="single.html">Utaliquam sollicitudin leo.</a>
+                                    </h2><!-- End .entry-title -->
+
+                                    <div class="entry-cats">
+                                        in <a href="#">Fashion</a>,
+                                        <a href="#">Lifestyle</a>
+                                    </div><!-- End .entry-cats -->
+                                </div><!-- End .entry-body -->
+                            </article><!-- End .entry -->
+
+                            <article class="entry entry-grid">
+                                <figure class="entry-media">
+                                    <a href="single.html">
+                                        <img src="assets/images/blog/grid/3cols/post-4.jpg" alt="image desc">
+                                    </a>
+                                </figure><!-- End .entry-media -->
+
+                                <div class="entry-body">
+                                    <div class="entry-meta">
+                                        <a href="#">Nov 15, 2018</a>
+                                        <span class="meta-separator">|</span>
+                                        <a href="#">4 Comments</a>
+                                    </div><!-- End .entry-meta -->
+
+                                    <h2 class="entry-title">
+                                        <a href="single.html">Fusce pellentesque suscipit.</a>
+                                    </h2><!-- End .entry-title -->
+
+                                    <div class="entry-cats">
+                                        in <a href="#">Travel</a>
+                                    </div><!-- End .entry-cats -->
+                                </div><!-- End .entry-body -->
+                            </article><!-- End .entry -->
+                        </div><!-- End .owl-carousel -->
+                    </div><!-- End .related-posts -->
+
+                    <div class="comments">
+                        <h3 class="title">@Model.Comments.Count() Comments</h3><!-- End .title -->
+                       
+                        <ul class="commentAppend">
+                            @foreach (var comment in Model.Comments.Where(c => c.ParentId == null))
+                            {
+                            <li>
+                                <div class="comment" id="c-@comment.Id" data-comment-id="@comment.Id">
+                                    <div class="comment-body">
+                                        <a class="comment-reply">Reply</a>
+                                        <div class="comment-user">
+                                            <h4>@($"{comment.CreatedByUser?.Name} {comment.CreatedByUser?.Surname}")</h4>
+                                            <span class="comment-date">@comment.CreatedDate.ToString("MMMM d, yyyy HH:mm")</span>
+                                        </div><!-- End .comment-user -->
+
+                                        <div class="comment-content">
+                                            <p>@comment.Text</p>
+                                        </div><!-- End .comment-content -->
+                                    </div><!-- End .comment-body -->
+                                </div><!-- End .comment -->
+                                @foreach (var subComment in GetComments(comment))
+                                {
+                                <ul>
+                                    <li>
+                                        <div class="comment" id="c-@subComment.Id" data-comment-id="@subComment.Id">
+                                            <div class="comment-body">
+                                                <a class="comment-reply">Reply</a>
+                                                <div class="comment-user">
+                                                    <h4>@($"{subComment.CreatedByUser?.Name} {subComment.CreatedByUser?.Surname}")</h4>
+                                                    <span class="comment-date">@subComment.CreatedDate.ToString("MMMM d, yyyy HH:mm")</span>
+                                                </div><!-- End .comment-user -->
+
+                                                <div class="comment-content">
+                                                     <p> @subComment.Text</p>
+                                                </div><!-- End .comment-content -->
+                                            </div><!-- End .comment-body -->
+                                        </div><!-- End .comment -->
+                                    </li>
+                                </ul>
+                                }
+                            </li>
+                            }
+                        </ul>
+                       
+                    </div><!-- End .comments -->
+                    <div class="reply">
+                        <div class="heading">
+                            <h3 class="title">Leave A Reply</h3><!-- End .title -->
+                            <p class="title-desc">Your email address will not be published. Required fields are marked *</p>
+                        </div><!-- End .heading -->
+
+                        <form method="post" id="replyForm">
+
+                            <div id="replyToComment"></div>
+                            <input type="hidden" name="postId" value="@Model.Id" />
+                            <div class="comment mb-30">
+                                <textarea name="Comment"
+                                          class="form-control"
+                                          id="comment-text"
+                                          placeholder="Comment *"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary-2">
+                                <span>POST COMMENT</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div><!-- End .reply -->
+                </div><!-- End .col-lg-9 -->
+
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
+
+@section addjs{
+    <script>
+        $(document).ready(function () {
+            $(".comment-reply").click(function (e) {
+                e.preventDefault();
+
+                $("#replyToComment").html("<a href='javascript:removeSelectedReply()' class='remove-selected-comment' >&times</a>").append($(e.currentTarget).closest(".comment").clone());
+            })
+
+            $("#replyForm").submit(function (e) {
+                e.preventDefault();
+
+                let formData = new FormData(e.currentTarget);
+
+                let toCommentId = $(`#replyToComment div.comment`).data("comment-id");
+
+
+                //console.log("commentId",toCommentId);
+
+                if (toCommentId != undefined) {
+                    formData.set("commentId", toCommentId);
+                }
+
+
+                $.ajax({
+                    url: `@Url.Action("PostComment", "Blog")`,
+                    type: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    dataType: "json",
+                    success: function (res) {
+                        //console.log(res);
+                    },
+                    error: function (response) {
+
+                        if (response.statusText == "parsererror") {
+                            if (toCommentId != undefined) {
+                                $(response.responseText).insertAfter($(`#c-${toCommentId}`));
+
+                                $("#replyToComment").html("")
+                                e.currentTarget.reset();
+                                $("#comment-text").val("");
+                            }
+                            else {
+                                $("div.comments ul.commentAppend").append($(response.responseText))
+                                $("#comment-text").val("");
+                            }
+                        }
+
+                        console.warn(response);
+                    }
+                });
+            })
+        })
+
+        function removeSelectedReply(el) {
+            $("#replyToComment").html("");
+        }
+    </script>
+}

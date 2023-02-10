@@ -33,8 +33,22 @@ using ZSHOE.Domain.AppCode.Infrastructure;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Areas\Admin\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Business.BlogPostModule;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Areas\Admin\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Business.CategoryModule;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"667228794587975c665d7a62303cc363d3b90164", @"/Areas/Admin/Views/AboutCustomers/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c65365342b658160a5ec1f0f5c1bc7bbd0c609b5", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"24052f3053e0b1e1e21e1f8279c0143e774c61f0", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Admin_Views_AboutCustomers_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<ZSHOE.Domain.Models.Entities.AboutCustomer>>
     #nullable disable
@@ -87,7 +101,7 @@ using ZSHOE.Domain.AppCode.Infrastructure;
 #line hidden
 #nullable disable
             WriteLiteral("    <p>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "667228794587975c665d7a62303cc363d3b901645417", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "667228794587975c665d7a62303cc363d3b901645833", async() => {
                 WriteLiteral("Create New");
             }
             );
@@ -176,7 +190,7 @@ using ZSHOE.Domain.AppCode.Infrastructure;
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "667228794587975c665d7a62303cc363d3b901649521", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "667228794587975c665d7a62303cc363d3b901649937", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -256,7 +270,7 @@ AddHtmlAttributeValue("", 1204, item.ImagePath, 1204, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "667228794587975c665d7a62303cc363d3b9016413261", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "667228794587975c665d7a62303cc363d3b9016413677", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -303,7 +317,7 @@ AddHtmlAttributeValue("", 1204, item.ImagePath, 1204, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "667228794587975c665d7a62303cc363d3b9016415947", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "667228794587975c665d7a62303cc363d3b9016416363", async() => {
                 WriteLiteral("Details");
             }
             );
@@ -350,7 +364,7 @@ AddHtmlAttributeValue("", 1204, item.ImagePath, 1204, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "667228794587975c665d7a62303cc363d3b9016418638", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "667228794587975c665d7a62303cc363d3b9016419054", async() => {
                 WriteLiteral("Delete");
             }
             );

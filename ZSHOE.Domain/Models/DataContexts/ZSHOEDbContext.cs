@@ -55,11 +55,15 @@ namespace ZSHOE.Domain.Models.DataContexts
                 e.ToTable("UserTokens", "Membership");
             });
         }
+        public DbSet<BlogPost> BlogPosts { get; set; }
+        public DbSet<BlogPostComment> BlogPostComments { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<BlogPostTagItem> BlogPostTagCloud { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public DbSet<ContactPost> ContactPosts { get; set; }
         public DbSet<ContactInfo> ContactInfos { get; set; }
         public DbSet<Faq> Faqs { get; set; }
-        public DbSet<AboutBrand> AboutBrands { get; set; }
         public DbSet<AboutInfo> AboutInfos { get; set; }
         public DbSet<AboutTeam> AboutTeam { get; set; }
         public DbSet<AboutCustomer> AboutCustomers { get; set; }

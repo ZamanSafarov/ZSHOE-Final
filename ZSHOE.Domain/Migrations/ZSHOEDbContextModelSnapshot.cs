@@ -19,33 +19,6 @@ namespace ZSHOE.Domain.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.AboutBrand", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Body")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AboutBrands");
-                });
-
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.AboutCustomer", b =>
                 {
                     b.Property<int>("Id")
@@ -179,6 +152,143 @@ namespace ZSHOE.Domain.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AboutWhoWeAre");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPost", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PublishedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Slug")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("BlogPosts");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPostComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogPostId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogPostId");
+
+                    b.HasIndex("CreatedByUserId");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("BlogPostComments");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPostTagItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogPostId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogPostId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("BlogPostTagCloud");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.ContactInfo", b =>
@@ -484,6 +594,90 @@ namespace ZSHOE.Domain.Migrations
                     b.ToTable("UserTokens", "Membership");
                 });
 
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPost", b =>
+                {
+                    b.HasOne("ZSHOE.Domain.Models.Entities.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPostComment", b =>
+                {
+                    b.HasOne("ZSHOE.Domain.Models.Entities.BlogPost", "BlogPost")
+                        .WithMany("Comments")
+                        .HasForeignKey("BlogPostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ZSHOE.Domain.Models.Entities.Membership.ZSHOEUser", "CreatedByUser")
+                        .WithMany()
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ZSHOE.Domain.Models.Entities.BlogPostComment", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("BlogPost");
+
+                    b.Navigation("CreatedByUser");
+
+                    b.Navigation("Parent");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPostTagItem", b =>
+                {
+                    b.HasOne("ZSHOE.Domain.Models.Entities.BlogPost", "BlogPost")
+                        .WithMany("TagCloud")
+                        .HasForeignKey("BlogPostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ZSHOE.Domain.Models.Entities.Tag", "Tag")
+                        .WithMany("TagCloud")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BlogPost");
+
+                    b.Navigation("Tag");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Category", b =>
+                {
+                    b.HasOne("ZSHOE.Domain.Models.Entities.Category", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("Parent");
+                });
+
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Membership.ZSHOERoleClaim", b =>
                 {
                     b.HasOne("ZSHOE.Domain.Models.Entities.Membership.ZSHOERole", null)
@@ -533,6 +727,28 @@ namespace ZSHOE.Domain.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPost", b =>
+                {
+                    b.Navigation("Comments");
+
+                    b.Navigation("TagCloud");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPostComment", b =>
+                {
+                    b.Navigation("Children");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Category", b =>
+                {
+                    b.Navigation("Children");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Tag", b =>
+                {
+                    b.Navigation("TagCloud");
                 });
 #pragma warning restore 612, 618
         }

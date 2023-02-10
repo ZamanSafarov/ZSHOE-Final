@@ -1,0 +1,38 @@
+﻿@model BlogPostComment
+
+@if (Model.ParentId != null){
+    <ul>
+        <li>
+            <div class="comment" id="c-@Model.Id" data-comment-id="@Model.Id">
+                <div class="comment-body">
+                    <a class="comment-reply">Reply</a>
+                    <div class="comment-user">
+                        <h4>@($"{Model.CreatedByUser?.Name} {Model.CreatedByUser?.Surname}")</h4>
+                        <span class="comment-date">@Model.CreatedDate.ToString("MMMM d, yyyy HH:mm")</span>
+                    </div><!-- End .comment-user -->
+
+                    <div class="comment-content">
+                        <p> @Model.Text</p>
+                    </div><!-- End .comment-content -->
+                </div><!-- End .comment-body -->
+            </div><!-- End .comment -->
+        </li>
+    </ul>
+}
+else{
+    <li>
+        <div class="comment" id="c-@Model.Id" data-comment-id="@Model.Id">
+            <div class="comment-body">
+                <a class="comment-reply">Reply</a>
+                <div class="comment-user">
+                    <h4>@($"{Model.CreatedByUser?.Name} {Model.CreatedByUser?.Surname}")</h4>
+                    <span class="comment-date">@Model.CreatedDate.ToString("MMMM d, yyyy HH:mm")</span>
+                </div><!-- End .comment-user -->
+
+                <div class="comment-content">
+                    <p> @Model.Text</p>
+                </div><!-- End .comment-content -->
+            </div><!-- End .comment-body -->
+        </div><!-- End .comment -->
+    </li>
+}

@@ -8,7 +8,6 @@ namespace ZSHOE.Domain.Models.Entities.ViewModels
 {
     public class AboutViewModel
     {
-        public AboutBrand AboutBrands { get; set; }
         public AboutInfo AboutInfos { get; set; }
         public ICollection<AboutTeam> AboutTeam { get; set; }
         public AboutWhoWeAre AboutWhoWeAre { get; set; }

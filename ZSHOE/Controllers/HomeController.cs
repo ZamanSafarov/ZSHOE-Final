@@ -80,7 +80,6 @@ namespace ZSHOE.WebUI.Controllers
         }
         public async Task<IActionResult> About()
         {
-            var aboutBrand = await db.AboutBrands.FirstOrDefaultAsync(ab => ab.DeletedDate == null);
             var aboutInfo = await db.AboutInfos.FirstOrDefaultAsync(ai => ai.DeletedDate == null);
             var aboutTeam = db.AboutTeam.Where(at => at.DeletedDate == null).ToList();
             var aboutCustomer = db.AboutCustomers.Where(ac => ac.DeletedDate == null).ToList();
@@ -89,7 +88,6 @@ namespace ZSHOE.WebUI.Controllers
             {
                 AboutInfos = aboutInfo,
                 AboutWhoWeAre = aboutWhoWeAre,
-                AboutBrands = aboutBrand,
                 AboutCustomers = aboutCustomer,
                 AboutTeam = aboutTeam
             };

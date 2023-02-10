@@ -91,17 +91,20 @@
                             <span class="pcoded-mtext">Silinmiş paylaşımlar</span>
                         </a>
                     </li>
-                    <li>
-                        <a asp-controller="brands" asp-action="index">
-                            <span class="pcoded-mtext">Qadağa edilmiş sözlər</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="brands" asp-action="index">
-                            <span class="pcoded-mtext">Rəy funksionallıqları</span>
-                        </a>
-                    </li>
+                  
                 </ul>
+            </li>
+             <li>
+                @if (User.HasAccess("admin.categories.index"))
+                {
+                    <a asp-controller="categories" asp-action="index">
+                        <span class="pcoded-micon">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </span>
+                        <span class="pcoded-mtext">Categories</span>
+                    </a>
+                }
+
             </li>
          
             <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">

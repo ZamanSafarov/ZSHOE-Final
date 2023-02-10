@@ -40,8 +40,15 @@ using ZSHOE.Domain.Models.FormModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.AppCode.Infrastructure;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bd4a7930ffff1e03ba91454f444a26720b3b8714", @"/Views/Account/Signin.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0e1cc150df484d38439bcc4c4be59de5cd3393f2", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"44f7b35d88b37c975eae9949a4ab8c13b1780a6a", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Account_Signin : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LoginFormModel>
     #nullable disable
@@ -113,7 +120,7 @@ using ZSHOE.Domain.Models.FormModels;
 					<ul class=""nav nav-pills nav-fill"" role=""tablist"">
 						<li class=""nav-item"">
 							");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd4a7930ffff1e03ba91454f444a26720b3b87148941", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd4a7930ffff1e03ba91454f444a26720b3b87149136", async() => {
                 WriteLiteral("Sign In");
             }
             );
@@ -133,7 +140,7 @@ using ZSHOE.Domain.Models.FormModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"nav-item\">\r\n\t\t\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd4a7930ffff1e03ba91454f444a26720b3b871410543", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd4a7930ffff1e03ba91454f444a26720b3b871410738", async() => {
                 WriteLiteral("Register");
             }
             );
@@ -153,7 +160,7 @@ using ZSHOE.Domain.Models.FormModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<div class=\"tab-content\">\r\n\t\t\t\t\t\t<div class=\"tab-pane fade show active\" id=\"signin-2\" role=\"tabpanel\" aria-labelledby=\"signin-tab-2\">\r\n\t\t\t\t\t\t\t \r\n\t\t\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd4a7930ffff1e03ba91454f444a26720b3b871412311", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd4a7930ffff1e03ba91454f444a26720b3b871412506", async() => {
                 WriteLiteral("\r\n");
 #nullable restore
 #line 34 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\Account\Signin.cshtml"
@@ -180,7 +187,7 @@ using ZSHOE.Domain.Models.FormModels;
 #line hidden
 #nullable disable
                 WriteLiteral("\t\t\t\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t\t\t\t<label for=\"singin-email-2\">Email address *</label>\r\n\t\t\t\t\t\t\t\t\t");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "bd4a7930ffff1e03ba91454f444a26720b3b871413640", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "bd4a7930ffff1e03ba91454f444a26720b3b871413835", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -203,7 +210,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n\t\t\t\t\t\t\t\t</div><!-- End .form-group -->\r\n\r\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t\t\t\t<label for=\"singin-password-2\">Password *</label>\r\n\t\t\t\t\t\t\t\t\t");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "bd4a7930ffff1e03ba91454f444a26720b3b871415487", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "bd4a7930ffff1e03ba91454f444a26720b3b871415682", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

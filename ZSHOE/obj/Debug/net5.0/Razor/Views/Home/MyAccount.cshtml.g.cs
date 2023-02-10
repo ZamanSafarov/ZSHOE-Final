@@ -41,6 +41,13 @@ using ZSHOE.Domain.Models.FormModels;
 #line hidden
 #nullable disable
 #nullable restore
+#line 5 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.AppCode.Infrastructure;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\Home\MyAccount.cshtml"
 using ZSHOE.Domain.AppCode.Extensions;
 
@@ -48,7 +55,7 @@ using ZSHOE.Domain.AppCode.Extensions;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"105a3f374c1fb188bb09cf0a2758fb43a4b85eaa", @"/Views/Home/MyAccount.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0e1cc150df484d38439bcc4c4be59de5cd3393f2", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"44f7b35d88b37c975eae9949a4ab8c13b1780a6a", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_MyAccount : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<RegisterFormModel>
     #nullable disable
@@ -141,7 +148,7 @@ using ZSHOE.Domain.AppCode.Extensions;
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t\t\t<li class=\"nav-item\">\r\n\t\t\t\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "105a3f374c1fb188bb09cf0a2758fb43a4b85eaa7943", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "105a3f374c1fb188bb09cf0a2758fb43a4b85eaa8138", async() => {
                 WriteLiteral("Sign Out");
             }
             );
@@ -231,7 +238,7 @@ using ZSHOE.Domain.AppCode.Extensions;
 
 							<div class=""tab-pane fade"" id=""tab-account"" role=""tabpanel"" aria-labelledby=""tab-account-link"">
 								");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "105a3f374c1fb188bb09cf0a2758fb43a4b85eaa12722", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "105a3f374c1fb188bb09cf0a2758fb43a4b85eaa12917", async() => {
                 WriteLiteral("\r\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\r\n\t\t\t\t\t\t\t\t\t\t\t<label>First Name *</label>\r\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"");
                 BeginWriteAttribute("value", " value=\"", 5395, "\"", 5403, 0);
                 EndWriteAttribute();
