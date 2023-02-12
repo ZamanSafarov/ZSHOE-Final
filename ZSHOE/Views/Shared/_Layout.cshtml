@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="~/assets/css/plugins/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="~/assets/css/plugins/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="~/assets/css/plugins/nouislider/nouislider.css">
+    <link rel="stylesheet" href="~/libs/toastr.js/toastr.min.css" />
+    <link rel="stylesheet" href="~/libs/toastr.js/toastr.css" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/cf7085364a.css" crossorigin="anonymous">
     @RenderSection("addcss",required:false)
 </head>
@@ -260,7 +262,7 @@
                                 <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
 
                                 <!-- Subscribe Form -->
-                               @* <partial name="_SubscribeForm" />*@
+                                
                                 <!-- Subscribe Form  End-->
                                 <div class="social-icons">
                                     <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
@@ -275,7 +277,7 @@
                         <div class="col-sm-6 col-lg-3">
                             <div class="widget">
                                 <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
-
+                                <partial name="_SubscribeForm" />
                                 <ul class="widget-list">
                                     <li><a asp-controller="home" asp-action="about">About ZSHOE</a></li>
                                     <li><a href="#">How to shop on ZSHOE</a></li>
@@ -456,7 +458,38 @@
     <script src="~/libs/toastr.js/toastr.customize.js"></script>
     <!-- Main JS File -->
     <script src="~/assets/js/main.js"></script>
-  
+   <script class="removable">
+        $(document).ready(function () {
+            $("#newsletter-subscribe").submit(function (e) {
+                e.preventDefault();
+
+                let formData = new FormData(e.currentTarget);
+
+
+                $.ajax({
+                    url: '@Url.Action("Subscribe","Home")',
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+
+                        if (response.error == false) {
+                            toastr["success"](response.message, "Uğur")
+                        }
+
+                        if (response.error == true) {
+                            toastr["error"](response.message, "Xəta");
+                        }
+
+                        e.currentTarget.reset();
+                    }
+                });
+            });
+        });
+
+
+    </script>
     <script class="removable">
         $(document).ready(function () {
             $.ajaxSetup({

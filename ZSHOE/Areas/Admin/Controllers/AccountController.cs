@@ -22,13 +22,12 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
 
 
         [Authorize(Policy = "admin.account.signin")]
-        [AllowAnonymous]
+   
         public IActionResult Signin()
         {
             return View();
         }
 
-        [AllowAnonymous]
         [HttpPost]
         [Authorize(Policy = "admin.account.signin")]
         public async Task<IActionResult> Signin(LoginFormModel user)
