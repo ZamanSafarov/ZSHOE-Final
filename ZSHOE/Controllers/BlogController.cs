@@ -1,10 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 using ZSHOE.Domain.AppCode.Extensions;
 using ZSHOE.Domain.Business.BlogPostModule;
 using ZSHOE.Domain.Models.DataContexts;
+using ZSHOE.Domain.Models.Entities.ViewModels;
 
 namespace ZSHOE.WebUI.Controllers
 {
@@ -36,14 +39,22 @@ namespace ZSHOE.WebUI.Controllers
         [Route("/blog/{slug}")]
         public async Task<IActionResult> Details(BlogPostSingleQuery query)
         {
-            var entity = await mediator.Send(query);
+            var blogPost = await mediator.Send(query);
 
-            if (entity == null)
+            var blogPostLikes = await db.BlogPostLikes.Where(bpl => bpl.BlogPostId == blogPost.Id).ToListAsync();
+
+            var vm = new BlogPostItemsViewModel()
+            {
+                BlogPost = blogPost,
+                BlogPostLikes = blogPostLikes
+            };
+
+            if (blogPost == null)
             {
                 return NotFound();
             }
 
-            return View(entity);
+            return View(vm);
         }
 
         [HttpPost]
@@ -70,6 +81,20 @@ namespace ZSHOE.WebUI.Controllers
 
             }
 
+        }
+
+        [HttpPost]
+        [Route("/like-unlike-blog-post")]
+        public async Task<IActionResult> LikeUnlikeBlogPost(BlogPostLikeUnlikeCommand command)
+        {
+            var response = await mediator.Send(command);
+
+            if (response == null)
+            {
+                return NotFound();
+            }
+
+            return Json(response);
         }
     }
 }

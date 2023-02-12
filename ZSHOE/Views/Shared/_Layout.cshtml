@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="~/assets/css/plugins/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="~/assets/css/plugins/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="~/assets/css/plugins/nouislider/nouislider.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/cf7085364a.css" crossorigin="anonymous">
     @RenderSection("addcss",required:false)
 </head>
 <body>
+    
     <div class="page-wrapper">
         <header class="header">
             <div class="header-top">
@@ -49,7 +51,7 @@
                                     <li><a href="wishlist.html"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
                                     <li><a asp-controller="home" asp-action="about">About Us</a></li>
                                     <li><a asp-controller="home" asp-action="contact">Contact Us</a></li>
-                                    <li><a asp-controller="account" asp-action="signin" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
+                                    <li><a asp-controller="account" asp-action="signin"><i class="icon-user"></i>Login</a></li>
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
@@ -257,6 +259,9 @@
                                 <img src="~/assets/images/zshoe.png" class="footer-logo" alt="zshoe Logo" width="120" height="25">
                                 <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
 
+                                <!-- Subscribe Form -->
+                               @* <partial name="_SubscribeForm" />*@
+                                <!-- Subscribe Form  End-->
                                 <div class="social-icons">
                                     <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
                                     <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
@@ -384,8 +389,8 @@
         </div><!-- End .mobile-menu-wrapper -->
     </div><!-- End .mobile-menu-container -->
 
-    <!-- Sign in / Register Modal -->
-    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+ <!-- Sign in / Register Modal -->
+    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -399,21 +404,18 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
-                                </li>
                             </ul>
                             <div class="tab-content" id="tab-content-5">
                                 <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
-                                    <form action="#">
+                                    <form method="post" id="loginModal">
                                         <div class="form-group">
                                             <label for="singin-email">Username or email address *</label>
-                                            <input type="text" class="form-control" id="singin-email" name="singin-email" required>
+                                            <input type="text" class="form-control" id="singin-email" name="Username">
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="singin-password">Password *</label>
-                                            <input type="password" class="form-control" id="singin-password" name="singin-password" required>
+                                            <input type="password" class="form-control" id="singin-password" name="Password">
                                         </div><!-- End .form-group -->
 
                                         <div class="form-footer">
@@ -421,73 +423,11 @@
                                                 <span>LOG IN</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </button>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="signin-remember">
-                                                <label class="custom-control-label" for="signin-remember">Remember Me</label>
-                                            </div><!-- End .custom-checkbox -->
-
-                                            <a href="#" class="forgot-link">Forgot Your Password?</a>
                                         </div><!-- End .form-footer -->
                                     </form>
-                                    <div class="form-choice">
-                                        <p class="text-center">or sign in with</p>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-g">
-                                                    <i class="icon-google"></i>
-                                                    Login With Google
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-f">
-                                                    <i class="icon-facebook-f"></i>
-                                                    Login With Facebook
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                        </div><!-- End .row -->
-                                    </div><!-- End .form-choice -->
-                                </div><!-- .End .tab-pane -->
-                                <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                                    <form action="#">
-                                        <div class="form-group">
-                                            <label for="register-email">Your email address *</label>
-                                            <input type="email" class="form-control" id="register-email" name="register-email" required>
-                                        </div><!-- End .form-group -->
-
-                                        <div class="form-group">
-                                            <label for="register-password">Password *</label>
-                                            <input type="password" class="form-control" id="register-password" name="register-password" required>
-                                        </div><!-- End .form-group -->
-
-                                        <div class="form-footer">
-                                            <button type="submit" class="btn btn-outline-primary-2">
-                                                <span>SIGN UP</span>
-                                                <i class="icon-long-arrow-right"></i>
-                                            </button>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="register-policy" required>
-                                                <label class="custom-control-label" for="register-policy">I agree to the <a href="#">privacy policy</a> *</label>
-                                            </div><!-- End .custom-checkbox -->
-                                        </div><!-- End .form-footer -->
-                                    </form>
-                                    <div class="form-choice">
-                                        <p class="text-center">or sign in with</p>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-g">
-                                                    <i class="icon-google"></i>
-                                                    Login With Google
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login  btn-f">
-                                                    <i class="icon-facebook-f"></i>
-                                                    Login With Facebook
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                        </div><!-- End .row -->
+                                    <div class="form-choice text-center">
+                                        <a asp-controller="account" asp-action="register" class="text-center">Create an account</a>
+                                      
                                     </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
                             </div><!-- End .tab-content -->
@@ -497,6 +437,9 @@
             </div><!-- End .modal-content -->
         </div><!-- End .modal-dialog -->
     </div><!-- End .modal -->
+
+
+    <script src="https://kit.fontawesome.com/cf7085364a.js" crossorigin="anonymous"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/assets/js/jquery.min.js"></script>
@@ -509,8 +452,55 @@
     <script src="~/assets/js/bootstrap-input-spinner.js"></script>
     <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="~/assets/js/nouislider.min.js"></script>
+    <script src="~/libs/toastr.js/toastr.min.js"></script>
+    <script src="~/libs/toastr.js/toastr.customize.js"></script>
     <!-- Main JS File -->
     <script src="~/assets/js/main.js"></script>
+  
+    <script class="removable">
+        $(document).ready(function () {
+            $.ajaxSetup({
+                statusCode: {
+                    401: function () {
+                        $('#modalLoginForm').modal({
+                            //backdrop: 'static',
+                            keyboard: true
+                        }).modal('show');
+                    }
+                }
+            });
+
+            $("#postComment").click(function () {
+            })
+
+
+            $('#loginModal').submit(function (e) {
+                e.preventDefault();
+
+                var formData = new FormData(e.currentTarget);
+
+                $.ajax({
+                    url: '@Url.Action("Signin", "Account", values: new{area=""})',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.error == false) {
+                            $('#modalLoginForm').modal('hide');
+                            toastr.success(response.message, "Uğur!");
+                        }
+                        else {
+                            toastr.error(response.message, "Xəta");
+                        }
+
+                    }
+                });
+            });
+
+
+        })
+    </script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("addjs",required:false)

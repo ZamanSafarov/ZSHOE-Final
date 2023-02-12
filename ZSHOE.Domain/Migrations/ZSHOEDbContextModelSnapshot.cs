@@ -19,6 +19,34 @@ namespace ZSHOE.Domain.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entites.Subscribe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("ApprovedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Subscribes");
+                });
+
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.AboutCustomer", b =>
                 {
                     b.Property<int>("Id")
@@ -235,6 +263,34 @@ namespace ZSHOE.Domain.Migrations
                     b.HasIndex("ParentId");
 
                     b.ToTable("BlogPostComments");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPostLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogPostId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogPostId");
+
+                    b.HasIndex("CreatedByUserId");
+
+                    b.ToTable("BlogPostLikes");
                 });
 
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPostTagItem", b =>
@@ -650,6 +706,25 @@ namespace ZSHOE.Domain.Migrations
                     b.Navigation("Parent");
                 });
 
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPostLike", b =>
+                {
+                    b.HasOne("ZSHOE.Domain.Models.Entities.BlogPost", "BlogPost")
+                        .WithMany("Likes")
+                        .HasForeignKey("BlogPostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ZSHOE.Domain.Models.Entities.Membership.ZSHOEUser", "CreatedByUser")
+                        .WithMany()
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BlogPost");
+
+                    b.Navigation("CreatedByUser");
+                });
+
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPostTagItem", b =>
                 {
                     b.HasOne("ZSHOE.Domain.Models.Entities.BlogPost", "BlogPost")
@@ -732,6 +807,8 @@ namespace ZSHOE.Domain.Migrations
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.BlogPost", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Likes");
 
                     b.Navigation("TagCloud");
                 });

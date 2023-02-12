@@ -30,6 +30,8 @@ namespace ZSHOE.Domain.Models.Entities
 
         public ICollection<BlogPostComment> Comments { get; set; }
 
+        public ICollection<BlogPostLike> Likes { get; set; }
+
         public virtual ICollection<BlogPostTagItem> TagCloud { get; set; }
 
         public int? CategoryId { get; set; }

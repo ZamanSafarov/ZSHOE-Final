@@ -47,8 +47,15 @@ using ZSHOE.Domain.Business.CategoryModule;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Areas\Admin\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Models.FormModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1fb90e06b6d6f6dbe745331ee86b65b4f40308d6", @"/Areas/Admin/Views/ContactPosts/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"24052f3053e0b1e1e21e1f8279c0143e774c61f0", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d781d62263dc3efd17c97c75ade6f1a7ef3b682e", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Admin_Views_ContactPosts_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<ZSHOE.Domain.Models.Entities.ContactPost>>
     #nullable disable
@@ -267,7 +274,7 @@ using ZSHOE.Domain.Business.CategoryModule;
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1fb90e06b6d6f6dbe745331ee86b65b4f40308d612374", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1fb90e06b6d6f6dbe745331ee86b65b4f40308d612576", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -314,7 +321,7 @@ using ZSHOE.Domain.Business.CategoryModule;
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1fb90e06b6d6f6dbe745331ee86b65b4f40308d615052", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1fb90e06b6d6f6dbe745331ee86b65b4f40308d615254", async() => {
                 WriteLiteral("Details");
             }
             );
@@ -361,7 +368,7 @@ using ZSHOE.Domain.Business.CategoryModule;
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1fb90e06b6d6f6dbe745331ee86b65b4f40308d617735", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1fb90e06b6d6f6dbe745331ee86b65b4f40308d617937", async() => {
                 WriteLiteral("Delete");
             }
             );
