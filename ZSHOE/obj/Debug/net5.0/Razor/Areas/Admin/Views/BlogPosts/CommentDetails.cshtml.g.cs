@@ -49,13 +49,27 @@ using ZSHOE.Domain.Business.CategoryModule;
 #nullable disable
 #nullable restore
 #line 8 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Areas\Admin\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Business.ProductModule;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Areas\Admin\Views\_ViewImports.cshtml"
 using ZSHOE.Domain.Models.FormModels;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Areas\Admin\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Business.BrandModule;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1c1e477d2a516f91b3b11e78b34b33afa8feb03b", @"/Areas/Admin/Views/BlogPosts/CommentDetails.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d781d62263dc3efd17c97c75ade6f1a7ef3b682e", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4db9c9d18359068f6063fac77767f87f2d8056e5", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Admin_Views_BlogPosts_CommentDetails : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<BlogPostComment>
     #nullable disable
@@ -109,7 +123,7 @@ using ZSHOE.Domain.Models.FormModels;
                 <ul class=""breadcrumb-title"">
                     <li class=""breadcrumb-item"" style=""float: left;"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c1e477d2a516f91b3b11e78b34b33afa8feb03b6442", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c1e477d2a516f91b3b11e78b34b33afa8feb03b6855", async() => {
                 WriteLiteral(" <i class=\"feather icon-home\"></i> ");
             }
             );
@@ -127,7 +141,7 @@ using ZSHOE.Domain.Models.FormModels;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                    </li>\n                    <li class=\"breadcrumb-item\" style=\"float: left;\">\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c1e477d2a516f91b3b11e78b34b33afa8feb03b7958", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c1e477d2a516f91b3b11e78b34b33afa8feb03b8371", async() => {
                 WriteLiteral("All comments");
             }
             );
@@ -177,7 +191,7 @@ using ZSHOE.Domain.Models.FormModels;
             <div>
                 <div class=""form-group row"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c1e477d2a516f91b3b11e78b34b33afa8feb03b10658", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c1e477d2a516f91b3b11e78b34b33afa8feb03b11071", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -232,7 +246,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
 #line hidden
 #nullable disable
             WriteLiteral("\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"form-group row\">\n                <div class=\"col-12 d-flex justify-content-end\">\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c1e477d2a516f91b3b11e78b34b33afa8feb03b13746", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c1e477d2a516f91b3b11e78b34b33afa8feb03b14159", async() => {
                 WriteLiteral("Cancel");
             }
             );

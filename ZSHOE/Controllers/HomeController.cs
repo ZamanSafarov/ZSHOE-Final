@@ -83,6 +83,7 @@ namespace ZSHOE.WebUI.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
         public async Task<IActionResult> About()
         {
             var aboutInfo = await db.AboutInfos.FirstOrDefaultAsync(ai => ai.DeletedDate == null);

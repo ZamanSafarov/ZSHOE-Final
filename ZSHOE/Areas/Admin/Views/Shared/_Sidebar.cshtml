@@ -155,6 +155,53 @@
                 </ul>
             </li>
             <li>
+                    @if (User.HasAccess("admin.brands.index"))
+                    {
+                    <a asp-controller="brands" asp-action="index">
+                        <span class="pcoded-micon">
+                            <i class="fa-brands fa-elementor"></i>
+                        </span>
+                        <span class="pcoded-mtext">Brands</span>
+                    </a>
+                    }
+
+            </li>
+            <li>
+                    @if (User.HasAccess("admin.productcolors.index"))
+                    {
+                    <a asp-controller="products" asp-action="index">
+                        <span class="pcoded-micon">
+                            <i class="fa-solid fa-shop"></i>
+                        </span>
+                        <span class="pcoded-mtext">Products</span>
+                    </a>
+                    }
+
+            </li>
+            <li>
+                    @if (User.HasAccess("admin.productcolors.index"))
+                    {
+                    <a asp-controller="productcolors" asp-action="index">
+                        <span class="pcoded-micon">
+                            <i class="fa-solid fa-palette"></i>
+                        </span>
+                        <span class="pcoded-mtext">Product Colors</span>
+                    </a>
+                    }
+
+            </li>
+            <li>
+                    @if (User.HasAccess("admin.productmaterials.index"))
+                    {
+                    <a asp-controller="productsizes" asp-action="index">
+                        <span class="pcoded-micon">
+                            <i class="fa-solid fa-recycle"></i>
+                        </span>
+                        <span class="pcoded-mtext">Product Sizes</span>
+                    </a>
+                    }
+            </li>
+            <li>
                     @if (User.HasAccess("admin.subscribes.index"))
                     {
                     <a asp-controller="subscribes" asp-action="index">

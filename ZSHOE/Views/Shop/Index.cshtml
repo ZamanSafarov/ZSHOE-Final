@@ -1,0 +1,677 @@
+﻿@model PagedViewModel<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <div class="container">
+            <h1 class="page-title">Shop</h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Shop</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="toolbox">
+                        <div class="toolbox-left">
+                            <div class="toolbox-info">
+                                Showing <span>9 of 56</span> Products
+                            </div><!-- End .toolbox-info -->
+                        </div><!-- End .toolbox-left -->
+
+                        <div class="toolbox-right">
+                            <div class="toolbox-sort">
+                                <label for="sortby">Sort by:</label>
+                                <div class="select-custom">
+                                    <select name="sortby" id="sortby" class="form-control">
+                                        <option value="popularity" selected="selected">Most Popular</option>
+                                        <option value="rating">Most Rated</option>
+                                        <option value="date">Date</option>
+                                    </select>
+                                </div>
+                            </div><!-- End .toolbox-sort -->
+                        </div><!-- End .toolbox-right -->
+                    </div><!-- End .toolbox -->
+
+                    <div class="products mb-3">
+                        <div class="row justify-content-center">
+                            <div id="products">
+                                <partial name="_Products" model="@Model" />
+                            </div>
+
+                        </div><!-- End .row -->
+                    </div><!-- End .products -->
+@*
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                                    <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+                                </a>
+                            </li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item-total">of 6</li>
+                            <li class="page-item">
+                                <a class="page-link page-link-next" href="#" aria-label="Next">
+                                    Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>*@
+                    <!-- Pagination -->
+                    <div class="div mb-40" style="text-align:center">
+                        <div class="col-12">
+                            @Model.GetPager(Url, "Index", paginateFunction: "goPage")
+                        </div>
+                    </div>
+                </div><!-- End .col-lg-9 -->
+                <aside class="col-lg-3 order-lg-first">
+                    @await Component.InvokeAsync("SearchPanel")
+                    <!-- End .sidebar sidebar-shop -->
+                </aside><!-- End .col-lg-3 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
+@section addcss{
+
+    <style>
+
+
+        .pagination {
+            display: inline-block;
+            padding-left: 12px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+            .pagination li {
+                display: inline-block;
+                text-transform: uppercase;
+            }
+
+            .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span {
+                border-radius: 0;
+            }
+
+            .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span, pagination > li > a:hover {
+                color: #777;
+                cursor: not-allowed;
+                background-color: #fff;
+                border-color: #ddd;
+            }
+
+            .pagination > li a {
+                font-size: 15px;
+                font-weight: bold;
+                padding: 6px 14px;
+                transition: all 0.15s linear;
+            }
+
+            .pagination > li > a, .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.42857143;
+                color: #337ab7;
+                text-decoration: none;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                color: #888;
+                border-radius: 50%;
+            }
+
+            .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+                z-index: 2;
+                color: #fff;
+                cursor: default;
+                background-color: black;
+                border-color: black;
+            }
+
+            .pagination a {
+                color: #fff;
+                font-size: 12px;
+                margin: 0 10px;
+            }
+
+            .pagination > li > a:hover {
+                color: #fff;
+                background-color: black;
+                transition: all 0.15s linear;
+            }
+
+
+            .pagination a i {
+                margin: 0 5px;
+            }
+
+
+        .widget li {
+            list-style: none;
+            line-height: 28px;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .list-category-item {
+            margin-left: 10px;
+            border-bottom: 1px solid #eee;
+            border: none;
+        }
+
+        .category-input {
+            transform: scale(1.4);
+            margin-right: 8px;
+            accent-color: #403b3b;
+        }
+
+
+
+
+        .category-hover-item:hover .label-text, .widget li:hover .show-children {
+            color: lightgray;
+        }
+
+        .show-children {
+            cursor: pointer;
+            padding-top: 5px;
+            position: absolute;
+            right: 10px;
+        }
+
+
+
+
+        .border-none {
+            border: none;
+        }
+
+
+        .widget_filter_price .ui-widget-content {
+            background: #ddd;
+            border-radius: 2px;
+            height: 4px;
+            border: none;
+        }
+
+        .widget_filter_price .ui-slider .ui-slider-range {
+            background: #ab8e66;
+        }
+
+        .widget_filter_price .ui-slider .ui-slider-handle {
+            width: 0;
+            height: 0;
+            border: none;
+            top: -6px;
+            border-radius: 1em;
+            cursor: ew-resize;
+            margin-left: -0.3em;
+            outline: 0 none;
+            position: absolute;
+            z-index: 2;
+            border-color: #ab8e66 transparent;
+        }
+
+            .widget_filter_price .ui-slider .ui-slider-handle::before {
+                content: "";
+                border-style: solid;
+                border-width: 8px 6px 0 6px;
+                border-color: #ab8e66 transparent;
+            }
+
+        .widget_filter_price .price-slider-amount {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #666666;
+            overflow: hidden;
+        }
+
+        .price-slider-amount span {
+            display: inline-block;
+            font-size: 15px;
+            color: #0a0a0a;
+            border: 1px solid #eeeeee;
+            padding: 4px 10px;
+            font-weight: 600;
+            border-radius: 0;
+        }
+
+
+
+
+
+
+
+
+
+
+        .woof_Widget .price-slider-amount span:first-child {
+            margin-right: 10px;
+        }
+
+        .widget_filter_price .ui-widget-content {
+            background: #ddd;
+            border-radius: 2px;
+            height: 4px;
+            border: none;
+        }
+
+        .widget_filter_price .ui-slider .ui-slider-range {
+            background: #ab8e66;
+        }
+
+        .widget_filter_price .ui-slider .ui-slider-handle {
+            width: 0;
+            height: 0;
+            border: none;
+            top: -6px;
+            border-radius: 1em;
+            cursor: ew-resize;
+            margin-left: -0.3em;
+            outline: 0 none;
+            position: absolute;
+            z-index: 2;
+            border-color: #ab8e66 transparent;
+        }
+
+            .widget_filter_price .ui-slider .ui-slider-handle::before {
+                content: "";
+                border-style: solid;
+                border-width: 8px 6px 0 6px;
+                border-color: #ab8e66 transparent;
+            }
+
+        .widget_filter_price .price-slider-amount {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #666666;
+            overflow: hidden;
+        }
+
+
+
+
+
+
+        [data-entity-type] {
+            position: relative;
+            padding-left: 30px;
+            display: block;
+            cursor: pointer;
+        }
+
+            [data-entity-type]:not(.filled)::before {
+                content: "";
+                font-size: 0.7em;
+                font-weight: 900;
+                font-family: "Font Awesome 5 Free";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+                top: 50%;
+                left: 0px;
+                transform: translateY(-50%);
+                text-align: center;
+                text-indent: 1px;
+                line-height: 1.7em;
+                border-radius: 50%;
+                border: 1px solid #343a40;
+            }
+
+            [data-entity-type].active:not(.filled)::before {
+                content: "✓";
+                color: #ffffff;
+                background-color: #343a40;
+                border-color: #343a40;
+            }
+
+            [data-entity-type].filled {
+                width: 30px;
+                height: 25px;
+                border-radius: 2px;
+                border: 1px solid #cccccc85;
+            }
+
+                [data-entity-type].filled::before {
+                    content: "";
+                    display: inline-block;
+                    padding-left: 1px;
+                    line-height: 7pt;
+                    font-size: 5pt;
+                    font-weight: 900;
+                    font-family: "Font Awesome 5 Free";
+                    position: absolute;
+                    top: 1px;
+                    right: 1px;
+                }
+
+                [data-entity-type].filled.active::before {
+                    content: "\f00c";
+                    color: #000000c4;
+                    background-color: #ffffff;
+                    border: 1px solid #000000c4;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 100%;
+                }
+
+        #price-range[range]::before {
+            content: attr(range);
+            display: flex;
+            justify-content: center;
+            padding-top: 15px;
+        }
+
+        .def-item {
+            padding-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .def-cap {
+            font-size: 22px;
+            font-weight: 400;
+            color: #fff;
+            width: 100%;
+            padding: 0 20px;
+            border-radius: 5px;
+            background: #484848;
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        .border-default .def-list {
+            overflow-y: scroll;
+            max-height: 206px;
+        }
+
+        .def-color-name {
+            display: inline-block;
+            padding-left: 15px;
+            width: 100px;
+            font-size: 16px;
+            color: black;
+        }
+
+        .def-link {
+            color: black;
+        }
+
+            .def-link:hover, .def-link:focus, .def-link:active {
+                outline: none;
+                text-decoration: none;
+                color: black;
+            }
+
+
+
+        .rate {
+            display: flex;
+        }
+
+            .rate li {
+                color: #f9ba48;
+                margin-right: 1px;
+                list-style: none;
+                font-family: "Font Awesome 5 Free";
+                cursor: pointer;
+            }
+
+                .rate li::before {
+                    content: "\f005";
+                    font-weight: 400;
+                }
+
+            .rate.rate-half1 li:nth-child(1)::before {
+                content: "\f5c0";
+                font-weight: 900;
+            }
+
+            .rate.rate-1 li:nth-child(1)::before,
+            .rate.rate-half2 li:nth-child(1)::before,
+            .rate.rate-3 li:nth-child(1)::before,
+            .rate.rate-3 li:nth-child(2)::before,
+            .rate.rate-half3 li:nth-child(1)::before,
+            .rate.rate-half3 li:nth-child(2)::before,
+            .rate.rate-half4 li:nth-child(1)::before,
+            .rate.rate-half4 li:nth-child(2)::before,
+            .rate.rate-half4 li:nth-child(3)::before,
+            .rate.rate-4 li:nth-child(1)::before,
+            .rate.rate-4 li:nth-child(2)::before,
+            .rate.rate-4 li:nth-child(3)::before,
+            .rate.rate-half5 li:nth-child(1)::before,
+            .rate.rate-half5 li:nth-child(2)::before,
+            .rate.rate-half5 li:nth-child(3)::before,
+            .rate.rate-half5 li:nth-child(4)::before,
+            .rate.rate-5 li:nth-child(1)::before,
+            .rate.rate-5 li:nth-child(2)::before,
+            .rate.rate-5 li:nth-child(3)::before,
+            .rate.rate-5 li:nth-child(4)::before {
+                content: "\f005";
+                font-weight: 900;
+            }
+
+            .rate.rate-half2 li:nth-child(2)::before {
+                content: "\f5c0";
+                font-weight: 900;
+            }
+
+            .rate.rate-2 li:nth-child(1)::before,
+            .rate.rate-2 li:nth-child(2)::before {
+                content: "\f005";
+                font-weight: 900;
+            }
+
+            .rate.rate-half3 li:nth-child(3)::before {
+                content: "\f5c0";
+                font-weight: 900;
+            }
+
+            .rate.rate-3 li:nth-child(3)::before {
+                content: "\f005";
+                font-weight: 900;
+            }
+
+            .rate.rate-half4 li:nth-child(4)::before {
+                content: "\f5c0";
+                font-weight: 900;
+            }
+
+            .rate.rate-4 li:nth-child(4)::before {
+                content: "\f005";
+                font-weight: 900;
+            }
+
+            .rate.rate-half5 li:nth-child(5)::before {
+                content: "\f5c0";
+                font-weight: 900;
+            }
+
+            .rate.rate-5 li:nth-child(5)::before {
+                content: "\f005";
+                font-weight: 900;
+            }
+    
+    </style>
+
+}
+    @section addjs{
+
+    <script>
+        $(document).ready(function () {
+            $(`.show-children`).click(function () {
+
+                let btnId = $(this).data("btn-id");
+
+                $(".children-categories").each(function () {
+
+                    let categoryId = $(this).data("id");
+
+                    if (btnId == categoryId) {
+                        $(`.children-categories.ul-${categoryId}`).slideToggle({ duration: 250 });
+                        $(`.show-children-${btnId}`).toggleClass("rotate");
+                    }
+                })
+
+            })
+
+            $(".label-text").click(function () {
+                let entityId = $(this).data("entity-id");
+
+                $(`.category-hover-item .label-text-${entityId}`).toggleClass("checked");
+            })
+
+
+            $(".category-input").click(function () {
+                let entityId = $(".label-text-category").data("entity-id");
+
+                $(`.category-hover-item .label-text-category-${entityId}`).toggleClass("checked");
+            })
+
+            $('li div input.category-input').click(function () {
+
+                setFilter();
+            });
+        })
+
+        const priceRangeData = $("#price-slider").data();
+
+
+        const searchModel = {
+            categories: [],
+            brands: [],
+            colors: [],
+            sizes: [],
+            min: priceRangeData.priceMin,
+            max: priceRangeData.priceMax
+        };
+
+        $(document).ready(function () {
+            $('.blog-pagination.ptb-20')
+                .removeClass('blog-pagination')
+                .removeClass('ptb-20')
+                .addClass('list-inline');
+
+
+
+
+            //var priceSlider = document.getElementById('price-slider');
+
+
+
+            //priceSlider.setAttribute('range', `${searchModel.min}₼ - ${searchModel.max}₼`);
+            //var slider = document.querySelector("#price-slider");
+            //if (!slider.classList.contains('noUi-target')) {
+            //    noUiSlider.create(slider, {
+            //        start: [0, searchModel.max],
+            //        connect: true,
+            //        values: [searchModel.min, searchModel.max],
+            //        range: {
+            //            'min':0,
+            //            'max': searchModel.max
+            //        },
+            //        format: wNumb({
+            //            decimals: 0,
+            //            prefix: '$'
+            //        })
+            //    });
+            //} else {
+            //    slider.noUiSlider.updateOptions({
+            //        start: [0, searchModel.max],
+            //        range: {
+            //            'min': 0,
+            //            'max': searchModel.max
+            //        },
+            //        format: wNumb({
+            //            decimals: 0
+            //        })
+            //    });
+            //}
+
+           
+
+            //// Update Price Range
+            //priceSlider.noUiSlider.on('update', function (e, ui) {
+            //    $('#filter-price-range').text(e.join(' - '));
+            //    $(e.target).attr('range', `${ui.values[0]}₼ - ${ui.values[1]}₼`);
+            //    searchModel.min = ui.values[0];
+            //    searchModel.max = ui.values[1];
+
+            //    filterProducts();
+            //});
+
+
+
+            $('[data-entity-type]').click(function (e) {
+
+                e.preventDefault();
+
+                let model = $(e.currentTarget).data();  //entityType  id
+
+                if ($(e.currentTarget).hasClass('active') == true) {
+                    $(e.currentTarget).removeClass('active');
+                    searchModel[`${model.entityType}`] = searchModel[`${model.entityType}`].filter(item => item != model.id);
+                }
+                else {
+                    $(e.currentTarget).addClass('active');
+
+                    if (searchModel[`${model.entityType}`].filter(item => item == model.id).length == 0) {
+                        searchModel[`${model.entityType}`].push(model.id);
+                    }
+                }
+
+                filterProducts();
+            });
+        });
+
+        function filterProducts() {
+            if ($.pid != undefined) {
+                clearTimeout($.pid);
+            }
+
+            $.pid = setTimeout(function () {
+                console.log(searchModel);
+
+                $.ajax({
+                    type: 'POST',
+                    data: searchModel,
+                    contentType: 'application/x-www-form-urlencoded',
+                    success: function (response) {
+
+                        $('#products').html(response);
+                        //console.log(response);
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+                });
+            }, 1500);
+        }
+
+
+        $(".forColors").click(function () {
+            $(this).toggleClass("selected")
+        })
+
+
+    </script>
+
+
+
+
+    @*<script src="~/assets/js/main.js"></script>*@
+    }

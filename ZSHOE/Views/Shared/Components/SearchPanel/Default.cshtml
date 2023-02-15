@@ -1,0 +1,155 @@
+﻿@model SearchPanelViewModel
+
+<div class="sidebar sidebar-shop">
+    <div class="widget widget-clean">
+        <label>Filters:</label>
+        <a href="#" class="sidebar-filter-clear">Clean All</a>
+    </div><!-- End .widget widget-clean -->
+
+    <div class="widget widget-collapsible">
+        <h3 class="widget-title">
+            <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true" aria-controls="widget-1">
+                Category
+            </a>
+        </h3><!-- End .widget-title -->
+
+        <div class="collapse show" id="widget-1">
+            <div class="widget-body">
+                <div class="filter-items filter-items-count">
+                    <div class="filter-item">
+                        @foreach (var item in Model.Categories)
+                        {
+                            <div class="custom-control custom-checkbox">
+                                <a class="custom-control-label" data-entity-type="categories" data-id="@item.Id">
+                                    @item.Name
+                                </a>
+                            </div>
+
+                            <!-- End .custom-checkbox -->
+                        }
+
+                    </div><!-- End .filter-item -->
+
+                </div><!-- End .filter-items -->
+            </div><!-- End .widget-body -->
+        </div><!-- End .collapse -->
+    </div><!-- End .widget -->
+
+    <div class="widget widget-collapsible">
+        <h3 class="widget-title">
+            <a data-toggle="collapse" href="#widget-2" role="button" aria-expanded="true" aria-controls="widget-2">
+                Size
+            </a>
+        </h3><!-- End .widget-title -->
+
+        <div class="collapse show" id="widget-2">
+            <div class="widget-body">
+                <div class="filter-items">
+                    <div class="filter-item">
+                        @foreach (var item in Model.Sizes)
+                        {
+                            <div class="custom-control custom-checkbox">
+                                <a class="custom-control-label" data-id="@item.Id" data-entity-type="sizes">
+                                    @item.Name
+                                </a>
+                            </div>
+                        }
+                    </div><!-- End .filter-item -->
+
+                </div><!-- End .filter-items -->
+            </div><!-- End .widget-body -->
+        </div><!-- End .collapse -->
+    </div><!-- End .widget -->
+
+    <div class="widget widget-collapsible">
+        <h3 class="widget-title">
+            <a data-toggle="collapse" href="#widget-3" role="button" aria-expanded="true" aria-controls="widget-3">
+                Colour
+            </a>
+        </h3><!-- End .widget-title -->
+
+        <div class="collapse show" id="widget-3">
+            <div class="widget-body">
+                <div class="filter-colors">
+                    @foreach (var item in Model.Colors)
+                    {
+                        <a class="forColors" data-id="@item.Id" data-entity-type="colors" style="background-color:@item.HexCode"><span class="sr-only">@item.Name</span></a>
+                    }
+                </div><!-- End .filter-colors -->
+            </div><!-- End .widget-body -->
+        </div><!-- End .collapse -->
+    </div><!-- End .widget -->
+
+    <div class="widget widget-collapsible">
+        <h3 class="widget-title">
+            <a data-toggle="collapse" href="#widget-4" role="button" aria-expanded="true" aria-controls="widget-4">
+                Brand
+            </a>
+        </h3><!-- End .widget-title -->
+
+        <div class="collapse show" id="widget-4">
+            <div class="widget-body">
+                <div class="filter-items">
+                    @foreach (var item in Model.Brands)
+                    {
+                        <div class="custom-control custom-checkbox">
+                            <a class="custom-control-label" data-id="@item.Id" data-entity-type="brands">
+                                @item.Name
+                            </a>
+                        </div>
+
+                        <!-- End .custom-checkbox -->
+                    }
+
+
+                </div><!-- End .filter-items -->
+            </div><!-- End .widget-body -->
+        </div><!-- End .collapse -->
+    </div><!-- End .widget -->
+
+    <div class="widget widget-collapsible">
+        <h3 class="widget-title">
+            <a data-toggle="collapse" href="#widget-5" role="button" aria-expanded="true" aria-controls="widget-5">
+                Price
+            </a>
+        </h3><!-- End .widget-title -->
+
+        <div class="collapse show" id="widget-5">
+            <div class="widget-body">
+                <div class="filter-price">
+                    <div class="filter-price-text">
+                        Price Range:
+                        <span id="filter-price-range"></span>
+                    </div><!-- End .filter-price-text -->
+
+                    <div id="price-slider" data-price-min="@Model.Min" data-price-max="@Model.Max"></div><!-- End #price-slider -->
+                </div><!-- End .filter-price -->
+            </div><!-- End .widget-body -->
+        </div><!-- End .collapse -->
+    </div><!-- End .widget -->
+</div>
+
+
+
+
+
+<style>
+    [data-entity-type]:not(.filled)::before {
+        width: 14px;
+        height: 14px;
+        border-radius: 30%;
+    }
+
+    .forColors{
+        padding-left:unset !important;
+    }
+
+    .forColors:before{
+        visibility:hidden ;
+        width: 2.4rem;
+        height: 2.4rem;
+       
+    }
+</style>
+
+

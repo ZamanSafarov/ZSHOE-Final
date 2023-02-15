@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZSHOE.Domain.Models.Entites;
 using ZSHOE.Domain.Models.Entities;
 using ZSHOE.Domain.Models.Entities.Membership;
 
@@ -20,41 +21,8 @@ namespace ZSHOE.Domain.Models.DataContexts
         {
 
         }
+     
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-            builder.Entity<ZSHOEUser>(e =>
-            {
-                e.ToTable("Users", "Membership");
-            });
-            builder.Entity<ZSHOERole>(e =>
-            {
-                e.ToTable("Roles", "Membership");
-            });
-            builder.Entity<ZSHOEUserRole>(e =>
-            {
-                e.ToTable("UserRoles", "Membership");
-
-            });
-            builder.Entity<ZSHOEUserClaim>(e =>
-            {
-                e.ToTable("UserClaims", "Membership");
-            });
-            builder.Entity<ZSHOERoleClaim>(e =>
-            {
-                e.ToTable("RoleClaims", "Membership");
-
-            });
-            builder.Entity<ZSHOEUserLogin>(e =>
-            {
-                e.ToTable("UserLogins", "Membership");
-            });
-            builder.Entity<ZSHOEUserToken>(e =>
-            {
-                e.ToTable("UserTokens", "Membership");
-            });
-        }
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<BlogPostLike> BlogPostLikes { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
@@ -70,5 +38,37 @@ namespace ZSHOE.Domain.Models.DataContexts
         public DbSet<AboutTeam> AboutTeam { get; set; }
         public DbSet<AboutCustomer> AboutCustomers { get; set; }
         public DbSet<AboutWhoWeAre> AboutWhoWeAre { get; set; }
+
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductColor> Colors { get; set; }
+
+        public DbSet<ProductSize> Size { get; set; }
+        public DbSet<Basket> Basket { get; set; }
+
+        public DbSet<ProductImage> ProductImages { get; set; }
+
+        public DbSet<ProductCatalogItem> ProductCatalogItems { get; set; }
+        public DbSet<ProductRate> ProductRates { get; set; }
+
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ProductCatalogItem>(cfg =>
+            {
+                cfg.HasKey(k => new {
+                    k.ProductId,
+                    k.ColorId,
+                    k.SizeId
+                });
+
+                cfg.Property(p => p.Id).UseIdentityColumn();
+            });
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ZSHOEDbContext).Assembly);
+        }
     }
 }

@@ -22,26 +22,28 @@
             <div class="page-content">
                 <div class="container">
                 	<h2 class="title text-center mb-3">Questions</h2><!-- End .title -->
-        			<div class="accordion accordion-rounded" id="accordion-1">
+        		
 						 @foreach (var item in Model)
 						{
+                <div class="accordion accordion-rounded" id="accordion-@item.Id">
 					      <div class="card card-box card-sm bg-light">
-						        <div class="card-header" id="heading-1">
+                        <div class="card-header" id="heading-@item.Id">
 						        	<h2 class="card-title">
-						        		<a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-@item.Id" aria-expanded="true" aria-controls="collapse-@item.Id">
 						        			@item.Question
 						        		</a>
 						        	</h2>
 						        </div><!-- End .card-header -->
-						        <div id="collapse-1" class="collapse show" aria-labelledby="heading-1" data-parent="#accordion-1">
+                        <div  id="collapse-@item.Id" class="collapse" aria-labelledby="heading-@item.Id" data-parent="#accordion-@item.Id">
 							        <div class="card-body">
 								        @Html.Raw(item.Answer)
 							        </div><!-- End .card-body -->
 						        </div><!-- End .collapse -->
 					      </div>
 					         <!-- End .card -->
+                             </div><!-- End .accordion -->
 						}
-					</div><!-- End .accordion -->
+					
 
 
                 </div><!-- End .container -->

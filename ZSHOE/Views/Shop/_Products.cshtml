@@ -1,0 +1,91 @@
+﻿@model PagedViewModel<Product>
+
+@foreach (var item in Model.Items)
+{
+    var imagePath = item.ProductImages.FirstOrDefault()?.Name;
+
+    <div class="col-6 col-md-4 col-lg-4">
+        <div class="product product-7 text-center">
+            <figure class="product-media">
+                <span class="product-label label-new">New</span>
+                <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id">
+                    <img src="~/uploads/images/@imagePath" alt="Product image" class="product-image">
+                </a>
+
+                <div class="product-action-vertical">
+                    <a href="javascript:addToFavorites(@item.Id)" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                </div><!-- End .product-action-vertical -->
+
+                <div class="product-action">
+                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                </div><!-- End .product-action -->
+            </figure><!-- End .product-media -->
+
+            <div class="product-body">
+                <div class="product-cat">
+                    <a href="#">@item.Category.Name</a>
+                </div><!-- End .product-cat -->
+                <h3 class="product-title"><a href="product.html">@item.Name</a></h3><!-- End .product-title -->
+                <div class="product-price">
+                    $@item.Price
+                </div><!-- End .product-price -->
+                <div class="ratings-container">
+                    <rate rate-value="@item.Rate" rate-product-id="@item.Id"></rate>
+                </div><!-- End .rating-container -->
+
+                <div class="product-nav product-nav-thumbs">
+                    @*
+                @for (int i = 1; i <= item.ProductImages.Select(pi => pi.IsMain == false).Count; i++)
+                {
+                var imagePathUp = item.ProductImages.Where(pi => pi.IsMain == false).ToArray();
+
+                <a href="#" class="active">
+                <img src="~/uploads/images/@imagePathUp[i]" alt="product desc">
+                </a>
+
+                }*@
+                    @foreach (var itemImage in item.ProductImages.Where(pi => pi.IsMain == false))
+                    {
+
+
+                        <a href="#" class="active">
+                            <img style="  width: 100%; height: 100%;" src="~/uploads/images/@itemImage.Name" alt="product desc">
+                        </a>
+
+
+                    }
+
+
+                </div><!-- End .product-nav -->
+            </div><!-- End .product-body -->
+        </div><!-- End .product -->
+    </div>
+
+    <!-- End .col-sm-6 col-lg-4 -->
+}
+
+
+<div class="div mb-40" style="text-align:center">
+    <div class="col-12">
+        @Model.GetPager(Url, "Index")
+    </div>
+</div>
+
+
+
+<script>
+    function addToFavorites(productId) {
+        const favorites = ($.cookie('favorites') || '').split(',').filter(item => item.length > 0);
+
+        if (favorites.filter(item => item == productId).length == 0) {
+            favorites.push(productId);
+
+            $.cookie('favorites', favorites.toString(), { path: '/' });
+        }
+
+        console.log($.cookie('favorites'))
+
+
+
+    }
+</script>

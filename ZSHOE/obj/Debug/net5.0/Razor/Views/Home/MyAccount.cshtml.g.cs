@@ -13,36 +13,43 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+#line 4 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
 using ZSHOE;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+#line 5 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
 using ZSHOE.Domain.Models.Entities;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+#line 6 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
 using ZSHOE.Domain.Models.Entities.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+#line 7 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
 using ZSHOE.Domain.Models.FormModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+#line 8 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
 using ZSHOE.Domain.AppCode.Infrastructure;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Models.ViewModels;
 
 #line default
 #line hidden
@@ -55,7 +62,7 @@ using ZSHOE.Domain.AppCode.Extensions;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"105a3f374c1fb188bb09cf0a2758fb43a4b85eaa", @"/Views/Home/MyAccount.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"475fba674f1a07948c5d1292978b86116bfa4b90", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e5b4d27f5f6fdc7ad58997ee0466065c2d215a79", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_MyAccount : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<RegisterFormModel>
     #nullable disable
@@ -148,7 +155,7 @@ using ZSHOE.Domain.AppCode.Extensions;
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t\t\t<li class=\"nav-item\">\r\n\t\t\t\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "105a3f374c1fb188bb09cf0a2758fb43a4b85eaa8138", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "105a3f374c1fb188bb09cf0a2758fb43a4b85eaa8328", async() => {
                 WriteLiteral("Sign Out");
             }
             );
@@ -238,7 +245,7 @@ using ZSHOE.Domain.AppCode.Extensions;
 
 							<div class=""tab-pane fade"" id=""tab-account"" role=""tabpanel"" aria-labelledby=""tab-account-link"">
 								");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "105a3f374c1fb188bb09cf0a2758fb43a4b85eaa12917", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "105a3f374c1fb188bb09cf0a2758fb43a4b85eaa13107", async() => {
                 WriteLiteral("\r\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\r\n\t\t\t\t\t\t\t\t\t\t\t<label>First Name *</label>\r\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"");
                 BeginWriteAttribute("value", " value=\"", 5395, "\"", 5403, 0);
                 EndWriteAttribute();

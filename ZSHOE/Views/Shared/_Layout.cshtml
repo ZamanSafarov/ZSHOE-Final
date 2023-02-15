@@ -12,7 +12,16 @@
     <link rel="stylesheet" href="~/assets/css/plugins/nouislider/nouislider.css">
     <link rel="stylesheet" href="~/libs/toastr.js/toastr.min.css" />
     <link rel="stylesheet" href="~/libs/toastr.js/toastr.css" />
+
     <link rel="stylesheet" href="https://kit.fontawesome.com/cf7085364a.css" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/black-tie/jquery-ui.min.css"
+          integrity="sha512-+Z63RrG0zPf5kR9rHp9NlTMM29nxf02r1tkbfwTRGaHir2Bsh4u8A79PiUKkJq5V5QdugkL+KPfISvl67adC+Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/black-tie/theme.min.css"
+          integrity="sha512-pRXxoDFasJ7vmpKnFluI1tFoIQvfjxvfYSxJY7/2li9EM0RY1NlibP6K3CvyzppFY90Co/HvkEGd1W17LbaiRw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
     @RenderSection("addcss",required:false)
 </head>
 <body>
@@ -81,7 +90,7 @@
 
                                 </li>
                                 <li>
-                                    <a href="category.html" class="sf-with-ul">Shop</a>
+                                    <a asp-controller="shop" asp-for="index" class="sf-with-ul">Shop</a>
 
                                     <div class="megamenu megamenu-md">
                                         <div class="row no-gutters">
@@ -106,7 +115,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="banner banner-overlay">
-                                                    <a href="category.html" class="banner banner-menu">
+                                                    <a asp-controller="shop" asp-for="index" class="banner banner-menu">
                                                         <img src="~/assets/images/menu/banner-1.jpg" alt="Banner">
 
                                                         <div class="banner-content banner-content-top">
@@ -119,7 +128,7 @@
                                     </div><!-- End .megamenu megamenu-md -->
                                 </li>
                                 <li>
-                                    <a href="product.html">Product</a>
+                                    <a asp-controller="home" asp-action="about">Product</a>
 
 
                                 </li>
@@ -151,15 +160,7 @@
                     </div><!-- End .header-left -->
 
                     <div class="header-right">
-                        <div class="header-search">
-                            <a href="#" class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a>
-                            <form action="#" method="get">
-                                <div class="header-search-wrapper">
-                                    <label for="q" class="sr-only">Search</label>
-                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search in..." required>
-                                </div><!-- End .header-search-wrapper -->
-                            </form>
-                        </div><!-- End .header-search -->
+                        <partial name="_SearchProducts" /><!-- End .header-search -->
                         <div class="dropdown compare-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
                                 <i class="icon-random"></i>
@@ -169,11 +170,11 @@
                                 <ul class="compare-products">
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">Blue Night Dress</a></h4>
+                                        <h4 class="compare-product-title"><a asp-controller="home" asp-action="about">Blue Night Dress</a></h4>
                                     </li>
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">White Long Skirt</a></h4>
+                                        <h4 class="compare-product-title"><a asp-controller="home" asp-action="about">White Long Skirt</a></h4>
                                     </li>
                                 </ul>
 
@@ -195,7 +196,7 @@
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Beige knitted elastic runner shoes</a>
+                                                <a asp-controller="home" asp-action="about">Beige knitted elastic runner shoes</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -205,7 +206,7 @@
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a asp-controller="home" asp-action="about" class="product-image">
                                                 <img src="~/assets/images/products/cart/product-1.jpg" alt="product">
                                             </a>
                                         </figure>
@@ -215,7 +216,7 @@
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Blue utility pinafore denim dress</a>
+                                                <a asp-controller="home" asp-action="about">Blue utility pinafore denim dress</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -225,7 +226,7 @@
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a asp-controller="home" asp-action="about" class="product-image">
                                                 <img src="~/assets/images/products/cart/product-2.jpg" alt="product">
                                             </a>
                                         </figure>
@@ -255,6 +256,7 @@
         <footer class="footer">
             <div class="footer-middle">
                 <div class="container">
+                     <partial name="_SubscribeForm" />
                     <div class="row">
                         <div class="col-sm-6 col-lg-3">
                             <div class="widget widget-about">
@@ -277,7 +279,7 @@
                         <div class="col-sm-6 col-lg-3">
                             <div class="widget">
                                 <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
-                                <partial name="_SubscribeForm" />
+                               
                                 <ul class="widget-list">
                                     <li><a asp-controller="home" asp-action="about">About ZSHOE</a></li>
                                     <li><a href="#">How to shop on ZSHOE</a></li>
@@ -350,7 +352,7 @@
                         <a asp-controller="home" asp-action="index">Home</a>
                     </li>
                     <li>
-                        <a href="category.html" class="sf-with-ul">Shop</a>
+                        <a asp-controller="shop" asp-for="index" class="sf-with-ul">Shop</a>
                         <ul>
                             <li><a href="cart.html">Cart</a></li>
                             <li><a href="checkout.html">Checkout</a></li>
@@ -359,7 +361,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="product.html" >Product</a>
+                        <a asp-controller="home" asp-action="about" >Product</a>
                     </li>
                     <li>
                         <a href="#" class="sf-with-ul">Pages</a>
@@ -534,7 +536,10 @@
 
         })
     </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
+            integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("addjs",required:false)
 </body>
