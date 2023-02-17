@@ -27,6 +27,10 @@ namespace ZSHOE.Domain.Business.ProductModule
             public async Task<Product> Handle(ProductSingleQuery request, CancellationToken cancellationToken)
             {
                 var data = await db.Products
+                    .Include(p=>p.ProductCatalog)
+                    .ThenInclude(p=>p.Size)
+                    .Include(p => p.ProductCatalog)
+                    .ThenInclude(p=>p.Color)
                     .Include(p=>p.ProductImages.Where(i=>i.DeletedDate == null))
                     .Include(p=>p.Brand)
                     .Include(p=>p.Category)

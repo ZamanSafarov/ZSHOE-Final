@@ -9,6 +9,9 @@ using ZSHOE.Domain.AppCode.Extensions;
 using ZSHOE.Domain.Business.BasketModule;
 using ZSHOE.Domain.Business.ProductModule;
 using ZSHOE.Domain.Models.DataContexts;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using ZSHOE.Domain.Models.Entities.ViewModels;
+using ZSHOE.Domain.Models.Entities;
 
 namespace ZSHOE.WebUI.Controllers
 {
@@ -46,20 +49,28 @@ namespace ZSHOE.WebUI.Controllers
 
 
         [AllowAnonymous]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(ProductSingleQuery query)
         {
 
-            var product = await db.Products
-                 .Include(p => p.ProductImages)
-                 .FirstOrDefaultAsync(p => p.Id == id && p.DeletedDate == null);
+            var product = await mediator.Send(query);
 
+            var productCatalog = await db.ProductCatalogItems.FirstOrDefaultAsync(bpl => bpl.ProductId == product.Id);
+
+
+            var vm = new ProductDetailsViewModel()
+            {
+                Product = product,
+                ProductCatalog = productCatalog,
+
+
+            };
 
             if (product == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(vm);
         }
 
 
