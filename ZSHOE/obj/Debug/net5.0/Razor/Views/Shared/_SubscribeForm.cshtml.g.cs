@@ -61,8 +61,15 @@ using ZSHOE.Domain.AppCode.Extensions;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3506c14dc48b8ec63836f9be39598f2c7e0ede45", @"/Views/Shared/_SubscribeForm.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e5b4d27f5f6fdc7ad58997ee0466065c2d215a79", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5b75e3addd3941780439529914c0b2c6fb62ab8d", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared__SubscribeForm : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -96,7 +103,7 @@ using ZSHOE.Domain.AppCode.Extensions;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3506c14dc48b8ec63836f9be39598f2c7e0ede455261", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3506c14dc48b8ec63836f9be39598f2c7e0ede455467", async() => {
                 WriteLiteral("\r\n    <input class=\"footer__form__input\"\r\n           type=\"text\"\r\n           name=\"email\" id=\"email\"\r\n           placeholder=\"Subscribe to our newsletter...\">\r\n    <input class=\"footer__form__btn\" type=\"submit\" value=\"Submit\" />\r\n");
             }
             );

@@ -12,6 +12,8 @@ using ZSHOE.Domain.Models.DataContexts;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using ZSHOE.Domain.Models.Entities.ViewModels;
 using ZSHOE.Domain.Models.Entities;
+using System.Collections.Generic;
+using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 
 namespace ZSHOE.WebUI.Controllers
 {
@@ -137,11 +139,6 @@ namespace ZSHOE.WebUI.Controllers
         #endregion
 
 
-        [Route("/checkout")]
-        public IActionResult Checkout()
-        {
-            return View();
-        }
 
         [HttpPost]
         public async Task<IActionResult> SetProductRate(SetRateCommand command)
@@ -149,6 +146,59 @@ namespace ZSHOE.WebUI.Controllers
             var response = await mediator.Send(command);
 
             return Json(response);
+        }
+
+        [Route("/checkout")]
+        public async Task<IActionResult> Checkout(ProductBasketQuery query)
+        {
+            var response = await mediator.Send(query);
+
+            return View(new OrderViewModel
+            {
+                BasketProducts = response
+            });
+        }
+
+        [HttpPost]
+        [Route("/checkout")]
+        public async Task<IActionResult> Checkout(OrderViewModel vm, int[] productIds, int[] quantities)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Orders.Add(vm.OrderDetails);
+
+                await db.SaveChangesAsync();
+
+                vm.OrderDetails.OrderProducts = new List<OrderProduct>();
+
+                for (int i = 0; i < productIds.Length; i++)
+                {
+                    var product = db.Products.Find(productIds[i]);
+                    vm.OrderDetails.OrderProducts.Add(new OrderProduct
+                    {
+                        OrderId = vm.OrderDetails.Id,
+                        ProductId = product.Id,
+                        Quantity = quantities[i]
+                    });
+                }
+                await db.SaveChangesAsync();
+
+                var response = new
+                {
+                    error = false,
+                    message = "Your order was completed"
+                };
+
+                return Json(response);
+            }
+
+            var responseError = new
+            {
+                error = true,
+                message = "The error was occurred while completing your order",
+                state = ModelState.GetError()
+            };
+            return Json(responseError);
         }
 
         //[AllowAnonymous]

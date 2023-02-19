@@ -61,8 +61,15 @@ using ZSHOE.Domain.AppCode.Extensions;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dd40e5b923259ecdb0fb45e4a2e2616115e1c3f7", @"/Views/Home/Faq.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e5b4d27f5f6fdc7ad58997ee0466065c2d215a79", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5b75e3addd3941780439529914c0b2c6fb62ab8d", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_Faq : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Faq>>
     #nullable disable
@@ -248,7 +255,7 @@ WriteAttributeValue("", 1787, item.Id, 1787, 8, false);
 
                                 <div class=""col-auto"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd40e5b923259ecdb0fb45e4a2e2616115e1c3f711955", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd40e5b923259ecdb0fb45e4a2e2616115e1c3f712161", async() => {
                 WriteLiteral("<span>CONTACT US</span><i class=\"icon-long-arrow-right\"></i>");
             }
             );

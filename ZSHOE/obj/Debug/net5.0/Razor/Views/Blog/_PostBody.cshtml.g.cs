@@ -61,8 +61,15 @@ using ZSHOE.Domain.AppCode.Extensions;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b6df9de6ebf748c2bc1758915b4996b7c1270306", @"/Views/Blog/_PostBody.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e5b4d27f5f6fdc7ad58997ee0466065c2d215a79", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5b75e3addd3941780439529914c0b2c6fb62ab8d", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Blog__PostBody : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PagedViewModel<BlogPost>>
     #nullable disable
@@ -106,9 +113,9 @@ using ZSHOE.Domain.AppCode.Extensions;
 #line hidden
 #nullable disable
             WriteLiteral("<article class=\"entry\">\r\n    <figure class=\"entry-media\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6df9de6ebf748c2bc1758915b4996b7c12703065851", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6df9de6ebf748c2bc1758915b4996b7c12703066057", async() => {
                 WriteLiteral("\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b6df9de6ebf748c2bc1758915b4996b7c12703066122", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b6df9de6ebf748c2bc1758915b4996b7c12703066328", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -182,7 +189,7 @@ AddHtmlAttributeValue("", 288, item.ImagePath, 288, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("</a>\r\n            <span class=\"meta-separator\">|</span>\r\n            <a href=\"#\">2 Comments</a>\r\n        </div><!-- End .entry-meta -->\r\n\r\n        <h2 class=\"entry-title\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6df9de6ebf748c2bc1758915b4996b7c127030611226", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6df9de6ebf748c2bc1758915b4996b7c127030611432", async() => {
 #nullable restore
 #line 20 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\Blog\_PostBody.cshtml"
                                                                                                              Write(item.Title);
@@ -265,7 +272,7 @@ AddHtmlAttributeValue("", 288, item.ImagePath, 288, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("</p>\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6df9de6ebf748c2bc1758915b4996b7c127030615951", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6df9de6ebf748c2bc1758915b4996b7c127030616157", async() => {
                 WriteLiteral("Continue Reading");
             }
             );

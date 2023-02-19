@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ZSHOE.Domain.Business.BrandModule;
 using ZSHOE.Domain.Models.DataContexts;
-using ZSHOE.Domain.Models.Entites;
+using ZSHOE.Domain.Models.Entities;
 
 namespace ZSHOE.WebUI.Areas.Admin.Controllers
 {

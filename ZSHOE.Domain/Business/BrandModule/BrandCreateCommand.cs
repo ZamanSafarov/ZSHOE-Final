@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using ZSHOE.Domain.Models.DataContexts;
-using ZSHOE.Domain.Models.Entites;
+using ZSHOE.Domain.Models.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Threading.Tasks;

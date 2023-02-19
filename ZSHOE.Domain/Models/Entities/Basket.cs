@@ -1,7 +1,7 @@
 ﻿using ZSHOE.Domain.Models.Entities;
 using ZSHOE.Domain.Models.Entities.Membership;
 
-namespace ZSHOE.Domain.Models.Entites
+namespace ZSHOE.Domain.Models.Entities
 {
     public class Basket
     {

@@ -248,3 +248,12 @@ D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\ProductSizes\Index.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\_SearchProducts.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shop\Details.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shop\Wishlist.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shop\_WishlistBody.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\_BasketScriptsPartial.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shop\Basket.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shop\Checkout.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Orders\CancelledOrders.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Orders\DeliveredOrders.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Orders\Details.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Orders\Index.cshtml.g.cs

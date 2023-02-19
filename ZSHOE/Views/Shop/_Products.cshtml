@@ -17,7 +17,7 @@
                 </div><!-- End .product-action-vertical -->
 
                 <div class="product-action">
-                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                    <a data-product-id="@item.Id" onclick="addToBasket(event)" class="btn-product btn-cart"><span>add to cart</span></a>
                 </div><!-- End .product-action -->
             </figure><!-- End .product-media -->
 
@@ -71,21 +71,3 @@
     </div>
 </div>
 
-
-
-<script>
-    function addToFavorites(productId) {
-        const favorites = ($.cookie('favorites') || '').split(',').filter(item => item.length > 0);
-
-        if (favorites.filter(item => item == productId).length == 0) {
-            favorites.push(productId);
-
-            $.cookie('favorites', favorites.toString(), { path: '/' });
-        }
-
-        console.log($.cookie('favorites'))
-
-
-
-    }
-</script>

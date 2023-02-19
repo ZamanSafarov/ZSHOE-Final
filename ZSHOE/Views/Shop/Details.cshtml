@@ -89,7 +89,7 @@
                                 <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
 
                                 <div class="details-action-wrapper">
-                                    <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
+                                    <a href="javascript:addToFavorites(@Model.Product.Id)" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
                                 </div><!-- End .details-action-wrapper -->
                             </div><!-- End .product-details-action -->
 
@@ -174,7 +174,7 @@
                         </div><!-- End .product-action-vertical -->
 
                         <div class="product-action">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                            <a data-product-id="@Model.Product.Id" onclick="addToBasket(event)" class="btn-product btn-cart"><span>add to cart</span></a>
                         </div><!-- End .product-action -->
                     </figure><!-- End .product-media -->
 

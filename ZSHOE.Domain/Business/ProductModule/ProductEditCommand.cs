@@ -1,5 +1,5 @@
 ﻿using ZSHOE.Domain.Models.DataContexts;
-using ZSHOE.Domain.Models.Entites;
+using ZSHOE.Domain.Models.Entities;
 using ZSHOE.Domain.AppCode.Extensions;
 using MediatR;
 using Microsoft.Extensions.Hosting;

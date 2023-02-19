@@ -61,11 +61,10 @@
                                                         <div class="col-md-12">
                                                             <div class="menu-title">Shop Pages</div><!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="cart.html">Cart</a></li>
-                                                                <li><a href="checkout.html">Checkout</a></li>
-                                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                                <li><a asp-controller="shop" asp-action="basket">Cart</a></li>
+                                                                <li><a asp-controller="shop" asp-action="checkout">Checkout</a></li>
+                                                                <li><a asp-controller="shop" asp-action="wishlist">Wishlist</a></li>
                                                                 <li><a asp-action="MyAccount">My Account</a></li>
-                                                                <li><a href="#">Lookbook</a></li>
                                                             </ul>
                                                         </div><!-- End .col-md-6 -->
                                                     </div><!-- End .row -->
@@ -118,7 +117,7 @@
                             </form>
                         </div><!-- End .header-search -->
                         
-                        <a href="wishlist.html" class="wishlist-link">
+                        <a asp-controller="shop" asp-action="wishlist" class="wishlist-link">
                             <i class="icon-heart-o"></i>
                             <span class="wishlist-count">3</span>
                         </a>
@@ -135,7 +134,7 @@
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a asp-controller="home" asp-action="about">Beige knitted elastic runner shoes</a>
+                                                <a asp-controller="shop" asp-action="index">Beige knitted elastic runner shoes</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -145,7 +144,7 @@
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a asp-controller="home" asp-action="about" class="product-image">
+                                            <a asp-controller="shop" asp-action="index" class="product-image">
                                                 <img src="assets/images/products/cart/product-1.jpg" alt="product">
                                             </a>
                                         </figure>
@@ -165,7 +164,7 @@
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a asp-controller="home" asp-action="about" class="product-image">
+                                            <a asp-controller="shop" asp-action="index" class="product-image">
                                                 <img src="assets/images/products/cart/product-2.jpg" alt="product">
                                             </a>
                                         </figure>
@@ -180,8 +179,8 @@
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                                    <a asp-controller="shop" asp-action="cart" class="btn btn-primary">View Cart</a>
+                                    <a asp-controller="shop" asp-action="checkout" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
@@ -644,10 +643,9 @@
                     <li>
                         <a asp-controller="shop" asp-for="index" class="sf-with-ul">Shop</a>
                         <ul>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
-                            <li><a href="#">Lookbook</a></li>
+                            <li><a asp-controller="shop" asp-action="cart">Cart</a></li>
+                            <li><a asp-controller="shop" asp-action="checkout">Checkout</a></li>
+                            <li><a asp-controller="shop" asp-action="wishlist">Wishlist</a></li>
                         </ul>
                     </li>
                  

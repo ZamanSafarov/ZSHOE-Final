@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ZSHOE.Domain.Models.Entites;
 using ZSHOE.Domain.Models.Entities;
 using ZSHOE.Domain.Models.Entities.Membership;
 
@@ -50,7 +50,8 @@ namespace ZSHOE.Domain.Models.DataContexts
 
         public DbSet<ProductCatalogItem> ProductCatalogItems { get; set; }
         public DbSet<ProductRate> ProductRates { get; set; }
-
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderProduct> OrderProducts { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

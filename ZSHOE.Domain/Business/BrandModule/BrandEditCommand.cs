@@ -1,11 +1,10 @@
 ﻿using ZSHOE.Domain.Models.DataContexts;
-using ZSHOE.Domain.Models.Entites;
+using ZSHOE.Domain.Models.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Threading.Tasks;
-using ZSHOE.Domain.Models.Entities;
 
 namespace ZSHOE.Domain.Business.BrandModule
 {

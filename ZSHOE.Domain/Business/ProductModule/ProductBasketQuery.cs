@@ -1,6 +1,6 @@
 ﻿using ZSHOE.Domain.AppCode.Extensions;
 using ZSHOE.Domain.Models.DataContexts;
-using ZSHOE.Domain.Models.Entites;
+using ZSHOE.Domain.Models.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;

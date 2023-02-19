@@ -1,4 +1,4 @@
-﻿using ZSHOE.Domain.Models.Entites;
+﻿using ZSHOE.Domain.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

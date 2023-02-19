@@ -1,6 +1,6 @@
 ﻿using ZSHOE.Domain.AppCode.Infrastructure;
 using ZSHOE.Domain.Models.DataContexts;
-using ZSHOE.Domain.Models.Entites;
+using ZSHOE.Domain.Models.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
