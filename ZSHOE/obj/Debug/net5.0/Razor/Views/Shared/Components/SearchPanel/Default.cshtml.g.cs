@@ -69,7 +69,7 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"26ede56d2fd26787a4c046769501346fd9e5aa96", @"/Views/Shared/Components/SearchPanel/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5b75e3addd3941780439529914c0b2c6fb62ab8d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d0c45f6ef369160357c8390ee92cfca89c78a328", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared_Components_SearchPanel_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<SearchPanelViewModel>
     #nullable disable

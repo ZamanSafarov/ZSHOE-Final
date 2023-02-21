@@ -32,7 +32,8 @@ namespace ZSHOE.Domain.Business.ProductModule
 
             public async Task<PagedViewModel<Product>> Handle(ProductFilterQuery request, CancellationToken cancellationToken)
             {
-                var query = db.ProductCatalogItems.AsQueryable();
+                var query = db.ProductCatalogItems
+                    .AsQueryable();
 
                
 

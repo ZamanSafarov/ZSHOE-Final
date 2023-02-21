@@ -27,12 +27,12 @@ namespace ZSHOE.Domain.AppCode.Infrastructure
         public virtual int PageSize {
             get
             {
-                return this.pageSize < 5 ? 5 : this.pageSize; 
+                return this.pageSize < 6 ? 6 : this.pageSize; 
             
             } 
             set 
             { 
-                if(value >= 5)
+                if(value >= 6)
                 {
                     pageSize = value;
                 }

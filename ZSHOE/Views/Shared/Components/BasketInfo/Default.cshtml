@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Basket>
+
+
+@{
+    var info = Model.GroupBy(g => g.UserId).Select(g => new
+    {
+        TotalSum = g.Sum(m => m.Quantity * m.Product.Price),
+        TotalCount = g.Count()
+    })
+            .FirstOrDefault();
+}
+
+<a asp-controller="shop" asp-action="basket" class="dropdown-toggle" role="button" >
+    <i class="icon-shopping-cart"></i>
+    
+        @if (info?.TotalCount > 0)
+        {
+            <span class="cart-count">@Model.Count()</span>
+        }
+   
+    
+   
+</a>
+@if (info?.TotalCount > 0)
+{
+    <div class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-cart-products">
+            @foreach (var item in Model)
+            {
+                <div class="product basket-item-@item.ProductId">
+                    <div class="product-cart-details">
+                        <h4 class="product-title">
+                            <a asp-controller="shop" asp-action="details" asp-route-id="@item.Product.Id">@item.Product.Name</a>
+                        </h4>
+
+                        <span class="cart-product-info">
+                            <span class="cart-product-qty">@item.Quantity</span>
+                            x @item.Product.Price
+                        </span>
+                    </div><!-- End .product-cart-details -->
+
+                    <figure class="product-image-container">
+                        <a asp-controller="shop" asp-action="details" asp-route-id="@item.Product.Id" class="product-image">
+                            <img src="~/uploads/images/@item.Product.ProductImages.FirstOrDefault()?.Name" alt="product">
+                        </a>
+                    </figure>
+                    <a onclick="removeFromBasket(this,'@item.Product.Name');return;" data-product-id="@item.ProductId" area-remove-target=".basket-item-@item.ProductId" style="cursor:pointer" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                   
+                </div>
+
+                <!-- End .product -->
+            }
+
+
+        </div><!-- End .cart-product -->
+
+        <div class="dropdown-cart-total">
+            <span>Total</span>
+
+            <span class="cart-total-price total-price">@info.TotalSum.ToString("0.00$")</span>
+        </div><!-- End .dropdown-cart-total -->
+
+        <div class="dropdown-cart-action">
+            <a asp-controller="shop" asp-action="basket" class="btn btn-primary">View Cart</a>
+            <a asp-controller="shop" asp-action="checkout" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+        </div><!-- End .dropdown-cart-total -->
+    </div>
+
+    <!-- End .dropdown-menu -->
+}
+

@@ -1,13 +1,26 @@
 ﻿@model PagedViewModel<Product>
 
+
+
 @foreach (var item in Model.Items)
 {
+    int intValue = Convert.ToInt32(item.Rate);
     var imagePath = item.ProductImages.FirstOrDefault()?.Name;
 
     <div class="col-6 col-md-4 col-lg-4">
         <div class="product product-7 text-center">
             <figure class="product-media">
-                <span class="product-label label-new">New</span>
+               
+                @if (item.CreatedDate < DateTime.Now.AddDays(-7))
+                {
+                    <span class="product-label label-new">New</span>
+                }
+                @if(intValue>1)
+                {
+                   
+                    <span class="product-label label-top">Top</span>
+                }
+               
                 <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id">
                     <img src="~/uploads/images/@imagePath" alt="Product image" class="product-image">
                 </a>
@@ -17,7 +30,7 @@
                 </div><!-- End .product-action-vertical -->
 
                 <div class="product-action">
-                    <a data-product-id="@item.Id" onclick="addToBasket(event)" class="btn-product btn-cart"><span>add to cart</span></a>
+                    <a style="cursor:pointer" data-product-id="@item.Id" onclick="addToBasket(event)" class="btn-product btn-cart"><span>add to cart</span></a>
                 </div><!-- End .product-action -->
             </figure><!-- End .product-media -->
 
@@ -48,7 +61,7 @@
                     {
 
 
-                        <a href="#" class="active">
+                        <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id" class="active">
                             <img style="  width: 100%; height: 100%;" src="~/uploads/images/@itemImage.Name" alt="product desc">
                         </a>
 
@@ -63,11 +76,4 @@
 
     <!-- End .col-sm-6 col-lg-4 -->
 }
-
-
-<div class="div mb-40" style="text-align:center">
-    <div class="col-12">
-        @Model.GetPager(Url, "Index")
-    </div>
-</div>
 

@@ -19,7 +19,7 @@ namespace ZSHOE.Domain.Models.Entities.Configuration.Membership
                 key.CreatedByUserId
             });
 
-            builder.ToTable("BookRates");
+            builder.ToTable("ProductRates");
         }
     }
 }

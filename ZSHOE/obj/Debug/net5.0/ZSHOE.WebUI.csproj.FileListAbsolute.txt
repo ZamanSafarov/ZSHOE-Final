@@ -257,3 +257,4 @@ D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Orders\DeliveredOrders.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Orders\Details.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Orders\Index.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\BasketInfo\Default.cshtml.g.cs

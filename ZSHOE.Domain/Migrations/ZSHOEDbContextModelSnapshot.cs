@@ -971,7 +971,7 @@ namespace ZSHOE.Domain.Migrations
 
                     b.HasIndex("DeletedByUserId");
 
-                    b.ToTable("BookRates");
+                    b.ToTable("ProductRates");
                 });
 
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.ProductSize", b =>

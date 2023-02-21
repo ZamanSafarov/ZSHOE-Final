@@ -34,26 +34,25 @@
                                 }
 
                                 //if (response.value.count == undefined) {
-                                //    $('.cart-counter').text('')
+                                //    $('.item-countt').text('')
                                 //}
                                 //else {
-                                //    $('.cart-counter').text(`${response.value.count}`) //basket header
+                                //    $('.item-count').text(`${response.value.count}`) //basket header
                                 //}
 
 
                                 if (response.value?.count == null) {
-                                    $('.item-count').text("");
+                                    $('.cart-count').text("");
                                 } else {
-                                    $('.item-count').text(response.value.count);
+                                    $('.cart-count').text(response.value.count);
                                 }
 
                                 if (response.value?.total == null) {
                                     $('.total-price').add(".Price-amount").text("0.00$");
                                 } else {
-                                    $('.total-price').add(".Price-amount").text(`${response.value.total}`);
+                                    $('.total-price').add(".Price-amount").text(`${response.value.total}.00$`);
                                 }
 
-                                $(element).closest('tr.cartItem').remove();
                                 toastr.success(response.message, 'Success');
                                 return;
                             }
@@ -114,12 +113,12 @@
                             $(`.amount-${response.value.id}`).text(`${response.value.price},00$`)
                         }
 
-                        //if(response.value?.quantity == null){
-                        //    $(`.info-product-${response.value.product.product.id}`).text(``)
-                        //}
-                        //else{
-                        //    $(`.info-product-${elementData.productId}`).text(`${response.value.quantity} x ${response.value.price},00 $`)
-                        //}
+                        if(response.value?.quantity == null){
+                            $(`.info-product-${response.value.product.product.id}`).text(``)
+                        }
+                        else{
+                            $(`.info-product-${elementData.productId}`).text(`${response.value.quantity} x ${response.value.price},00 $`)
+                        }
 
                         if (response.value?.total == null) {
                             $('.total-price').add('.info-amount').text("");
@@ -187,35 +186,30 @@
                 if (response.error == false) {
                     //$(e.target).closest('div.card').remove();
 
-                    //var newBasketProduct = `<ul class='list d-flex single-cart-box basket-item-${response.value.product.productId}' >
-                    //        <li class='list__img'>
-                    //                <a class='list__img__link d-block' asp-controller='shop' asp-action='details' asp-route-id='${response.value.product.productId}'>
-                    //                     <img src='/uploads/images/${response.value.product.product.productImages[0].name}' alt='img'>
-                    //            </a>
-                    //        </li>
-                    //        <li class='item-info'>
-                    //            <ul class='d-flex'>
-                    //                <li>
-                    //                    <h6 class='single-product-name'>
-                    //                               <a asp-controller='shop' asp-action='details' asp-route-id='${response.value.product.productId}'>${response.value.product.product.name}</a>
-                    //                    </h6>
-                    //                                        <span>${response.value.product.quantity} x ${response.value.product.product.price}₼</span>
-                    //                </li>
-                    //                <li class='s-remove'>
-                    //                    <a
-                    //                        class='d-inline-block del-icon'
-                    //                                         aria-remove-target='.basket-item-${response.value.product.productId}'
-                    //                                         data-product-id='${response.value.product.productId}'
-                    //                           onclick='removeFromBasket(this,"${response.value.product.product.name}");return;'>
+                    //var newBasketProduct = `<div class='product basket-item-${response.value.product.productId}>
+                    //    <div class='product-cart-details'>
+                    //        <h4 class='product-title'>
+                    //            <a asp-controller='shop' asp-action='details' asp-route-id='${response.value.product.productId}>${response.value.product.product.name}</a>
+                    //        </h4>
 
-                    //                        <i class='far fa-trash-alt'></i>
-                    //                    </a>
-                    //                </li>
-                    //            </ul>
-                    //        </li>
-                    //    </ul>`;
+                    //        <span class='cart-product-info'>
+                    //            <span class='cart-product-qty'>${response.value.product.quantity}</span>
+                    //            x ${response.value.product.product.price}
+                    //        </span>
+                    //    </div><!-- End .product-cart-details -->
 
-                    //$(".shop-cart-content").append(newBasketProduct);
+                    //    <figure class='product-image-container'>
+                    //        <a asp-controller='shop' asp-action='details' asp-route-id='${response.value.product.productId} class='product-image'>
+                    //            <img src='/uploads/images/${response.value.product.product.productImages[0].name}' alt='product'>
+                    //        </a>
+                    //    </figure>
+                    //    <a onclick='removeFromBasket(this,"${response.value.product.product.name}");return;' data-product-id='${response.value.product.productId}' area-remove-target='.basket-item-${response.value.product.productId}' style='cursor:pointer' class='btn-remove' title='Remove Product'><i class='icon-close'></i></a>
+
+                    //</div>`;
+
+                    //$(".dropdown-cart-products").append(newBasketProduct);
+
+
 
                     console.log(response)
 
