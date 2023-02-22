@@ -201,38 +201,40 @@ namespace ZSHOE.WebUI.Controllers
             return Json(responseError);
         }
 
-        //[AllowAnonymous]
-        //public async Task<IActionResult> SearchProducts(string searchTerm)
-        //{
-        //    var products = await mediator.Send(new SearchProductQuery { SearchTerm = searchTerm });
+        [AllowAnonymous]
+        public async Task<IActionResult> SearchProducts(string searchTerm)
+        {
+            var products = await mediator.Send(new SearchProductQuery { SearchTerm = searchTerm });
 
-        //    if (Request.IsAjaxRequest())
-        //    {
-        //        return PartialView("_SearchResults", products);
-        //    }
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_SearchResults", products.OrderByDescending(p=>p.CreatedDate));
+            }
+
+            return View(products);
 
 
-        //    var brands = await db.Brands.Where(b => b.DeletedDate == null).ToListAsync();
+            //var brands = await db.Brands.Where(b => b.DeletedDate == null).ToListAsync();
 
-        //    var categories = await db.Categories
-        //        .Include(c => c.Children)
-        //        .ThenInclude(c => c.Children)
-        //        .ThenInclude(c => c.Children)
-        //        .ThenInclude(c => c.Children)
-        //        .Where(c => c.DeletedDate == null && c.ParentId == null).ToListAsync();
+            //var categories = await db.Categories
+            //    .Include(c => c.Children)
+            //    .ThenInclude(c => c.Children)
+            //    .ThenInclude(c => c.Children)
+            //    .ThenInclude(c => c.Children)
+            //    .Where(c => c.DeletedDate == null && c.ParentId == null).ToListAsync();
 
-        //    var maxPrice = Math.Ceiling(db.Products.Where(p => p.DeletedDate == null).Select(p => p.Price).Max());
+            //var maxPrice = Math.Ceiling(db.Products.Where(p => p.DeletedDate == null).Select(p => p.Price).Max());
 
-        //    var vm = new ProductViewModel()
-        //    {
-        //        Brands = brands,
-        //        Categories = categories,
-        //        Products = products.ToList(),
-        //        MaxPrice = maxPrice
-        //    };
+            //var vm = new ProductViewModel()
+            //{
+            //    Brands = brands,
+            //    Categories = categories,
+            //    Products = products.ToList(),
+            //    MaxPrice = maxPrice
+            ////};
 
-        //    return View("Index", vm);
-        //}
+
+        }
 
 
     }

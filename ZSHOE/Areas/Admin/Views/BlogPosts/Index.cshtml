@@ -20,6 +20,9 @@
                                 Body
                             </th>
                             <th>
+                               Short Description
+                            </th>
+                            <th>
                                 PublishedDate
                             </th>
                             <th class="operations">
@@ -51,12 +54,18 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.PublishedDate)
                                 </td>
-                                <td class="operations" style="max-width: 200px;">
+                                <td class="operations" style="max-width: 312px;">
 
                                     @if (item.PublishedDate == null)
                                     {
                                         <a class="btn btn-sm btn-secondary" onclick="publishDate(@item.Id, '@item.Title')">
                                             Publish
+                                        </a>
+                                    }
+                                    @if (User.HasAccess("admin.blogposts.getlikes"))
+                                    {
+                                        <a asp-action="GetLikes" asp-route-blogpostid="@item.Id" class="btn btn-sm btn-danger">
+                                            <i class="fa fa-thumbs-up"></i>
                                         </a>
                                     }
 

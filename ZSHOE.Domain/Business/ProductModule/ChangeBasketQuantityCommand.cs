@@ -89,7 +89,7 @@ namespace ZSHOE.Domain.Business.BasketModule
                     Price = product2.Price,
                     Total = (basketItem.Quantity * product2.Price).ToString("0.00"),
                     Summary = await db.Basket.Where(b => b.UserId == userId).Include(b => b.Product).SumAsync(b => b.Quantity * b.Product.Price, cancellationToken),
-                    //Quantity = (db.Basket.FirstOrDefault(b => b.UserId == userId && b.ProductId == product2.Id)).Quantity
+                    Quantity = (db.Basket.FirstOrDefault(b => b.UserId == userId && b.ProductId == product2.Id)).Quantity
                 };
 
                 return response2;

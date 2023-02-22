@@ -80,52 +80,52 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
         }
 
         [Authorize(Policy = "admin.aboutinfoes.edit")]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, AboutInfoEditCommand command)
         {
-            if (id == null)
+            if (id != command.Id)
             {
                 return NotFound();
             }
 
-            var aboutInfo = await db.AboutInfos.FindAsync(id);
-            if (aboutInfo == null)
+            var entity = await db.AboutInfos.FirstOrDefaultAsync(bp => bp.Id == id);
+
+            if (entity == null)
             {
                 return NotFound();
             }
-            return View(aboutInfo);
+
+
+
+            command.ImagePath = entity.ImagePath;
+            command.OurMission = entity.OurMission;
+            command.OurVision = entity.OurVision;
+
+
+            return View(command);
         }
 
         [Authorize(Policy = "admin.aboutinfoes.edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ImagePath,OurVision,OurMission,Id,CreatedDate,DeletedDate")] AboutInfo aboutInfo)
+        public async Task<IActionResult> Edit( AboutInfoEditCommand command)
         {
-            if (id != aboutInfo.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                try
+             
+                var response = await mediator.Send(command);
+
+                if (response == null)
                 {
-                    db.Update(aboutInfo);
-                    await db.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+
+                if (response.Error == false)
                 {
-                    if (!AboutInfoExists(aboutInfo.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(aboutInfo);
+
+            return View(command);
         }
 
         [Authorize(Policy = "admin.aboutinfoes.delete")]

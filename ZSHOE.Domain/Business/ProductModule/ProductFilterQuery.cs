@@ -57,7 +57,7 @@ namespace ZSHOE.Domain.Business.ProductModule
 
                 var productQuery = db.Products
                     .Include(p => p.ProductImages)
-                    .Where(p => productIds.Contains(p.Id))
+                    .Where(p => productIds.Contains(p.Id)&& p.DeletedDate==null)
                     .AsQueryable();
 
                 if (request.Categories != null && request.Categories.Length > 0)

@@ -25,14 +25,14 @@
                     {
                         <tr>
                             <th scope="row" class="d-flex">
-                                <div class="order-image-container">
-                                    <img class="order-product-image" src="~/uploads/images/@item.Product.ProductImages.FirstOrDefault().Name">
+                                <div style="width:70px;" class="order-image-container">
+                                    <img style="width:100%;" class="order-product-image" src="~/uploads/images/@item.Product.ProductImages.FirstOrDefault().Name">
                                 </div>
                                 <span class="product-name-center">@item.Product.Name</span>
                             </th>
                             <td>x @item.Quantity</td>
-                            <td>@item.Product.Price ₼</td>
-                            <td>@(item.Quantity * item.Product.Price) ₼</td>
+                            <td>@item.Product.Price $</td>
+                            <td>@(item.Quantity * item.Product.Price) $</td>
                         </tr>
                     }
                 </tbody>

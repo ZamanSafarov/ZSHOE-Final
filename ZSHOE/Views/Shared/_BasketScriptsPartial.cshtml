@@ -99,7 +99,7 @@
 
                     if (response.error == false) {
                       
-                        $("#summary").text(`${response.value.summary},00$`);
+                        $(".total-price").text(`${response.value.summary},00$`);
 
                         if (response.value?.total == null) {
                             $(`.product-subtotal-${response.value.id}`).text(``)
@@ -114,10 +114,10 @@
                         }
 
                         if(response.value?.quantity == null){
-                            $(`.info-product-${response.value.product.product.id}`).text(``)
+                            $(`.info-product-${response.value.id}`).text(``)
                         }
                         else{
-                            $(`.info-product-${elementData.productId}`).text(`${response.value.quantity} x ${response.value.price},00 $`)
+                            $(`.info-product-${response.value.id}`).text(`${response.value.quantity}`)
                         }
 
                         if (response.value?.total == null) {
@@ -186,31 +186,36 @@
                 if (response.error == false) {
                     //$(e.target).closest('div.card').remove();
 
-                    //var newBasketProduct = `<div class='product basket-item-${response.value.product.productId}>
-                    //    <div class='product-cart-details'>
-                    //        <h4 class='product-title'>
-                    //            <a asp-controller='shop' asp-action='details' asp-route-id='${response.value.product.productId}>${response.value.product.product.name}</a>
-                    //        </h4>
+                    var newBasketProduct = `
+                    <div class='product basket-item-${response.value.product.productId}'>
+                        <div class='product-cart-details'>
+                            <h4 class='product-title'>
+                                <a asp-controller='shop' asp-action='details' asp-route-id='${response.value.product.productId}'>${response.value.product.product.name}</a>
+                            </h4>
 
-                    //        <span class='cart-product-info'>
-                    //            <span class='cart-product-qty'>${response.value.product.quantity}</span>
-                    //            x ${response.value.product.product.price}
-                    //        </span>
-                    //    </div><!-- End .product-cart-details -->
+                            <span class='cart-product-info'>
+                                <span class='cart-product-qty'>${response.value.product.quantity}</span>
+                                x ${response.value.product.product.price}
+                            </span>
+                        </div>
 
-                    //    <figure class='product-image-container'>
-                    //        <a asp-controller='shop' asp-action='details' asp-route-id='${response.value.product.productId} class='product-image'>
-                    //            <img src='/uploads/images/${response.value.product.product.productImages[0].name}' alt='product'>
-                    //        </a>
-                    //    </figure>
-                    //    <a onclick='removeFromBasket(this,"${response.value.product.product.name}");return;' data-product-id='${response.value.product.productId}' area-remove-target='.basket-item-${response.value.product.productId}' style='cursor:pointer' class='btn-remove' title='Remove Product'><i class='icon-close'></i></a>
+                        <figure class='product-image-container'>
+                            <a asp-controller='shop' asp-action='details' asp-route-id='${response.value.product.productId} class='product-image'>
+                                <img src='/uploads/images/${response.value.product.product.productImages[0].name}' alt='product'>
+                            </a>
+                        </figure>
+                        <a onclick='removeFromBasket(this,"${response.value.product.product.name}");return;' data-product-id='${response.value.product.productId}' area-remove-target='.basket-item-${response.value.product.productId}' style='cursor:pointer' class='btn-remove' title='Remove Product'><i class='icon-close'></i></a>
 
-                    //</div>`;
+                    </div>`;
 
-                    //$(".dropdown-cart-products").append(newBasketProduct);
+                    $(".dropdown-cart-products").append(newBasketProduct);
 
 
 
+                    $(".cart-count").text(response.value.basketInfo.count);
+                    $(".total-price").text(`${response.value.basketInfo.total}.00 $`);
+
+                   
                     console.log(response)
 
                     toastr.success(response.message, 'Success');
@@ -228,5 +233,61 @@
     }
 
 
+    $(document).ready(function () {
 
+        if ($.searchProductId != undefined) {
+            clearTimeout($.searchProductId);
+        }
+
+
+        $.searchProductId = setTimeout(function () {
+            
+
+            $(".input-search").on("input", function (e) {
+                var searchTerm = e.currentTarget.value
+                
+
+                var obj = { "searchTerm": searchTerm }
+
+                //console.log(obj)
+
+                $.ajax({
+                    url: '@Url.Action("SearchProducts", "Shop")',
+                    type: 'POST',
+                    data: obj,
+                    dataType: 'html',
+                    contentType: 'application/x-www-form-urlencoded',
+                    success: function (res) {
+                        setTimeout(function () {
+                            //console.log(res)
+
+                            $("ul.search-results").html(res).css("display", "block");
+
+                            if ($(".input-search").val = '') {
+                                $("ul.search-results").css("display", "none !important");
+                                return;
+                            }
+
+                            if ($("ul.search-results").children().length == 0) {
+                                var noProduct = "<div class='searched-item'><span>No product found</span></div>"
+                                $("ul.search-results").html(noProduct);
+
+                                var interval = setInterval(function () {
+                                    $("ul.search-results").css("display", "none");
+                                    clearInterval(interval);
+                                }, 2000);
+                            }
+
+                        }, 1000);
+
+                    },
+                    error: function (res) {
+                        //console.warn(res);
+                    }
+
+                })
+            })
+
+        }, 2000);
+    })
 </script>

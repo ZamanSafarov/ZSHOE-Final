@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using ZSHOE.Domain.AppCode.Providers;
 using ZSHOE.Domain.AppCode.Extensions;
+using Newtonsoft.Json;
 
 namespace ZSHOE.WebUI
 {
@@ -43,7 +44,7 @@ namespace ZSHOE.WebUI
                 cfg.Filters.Add(new AuthorizeFilter(policy));
 
                 cfg.ModelBinderProviders.Insert(0, new BooleanBinderProvider());
-            });
+            }).AddNewtonsoftJson(cfg => cfg.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
             services.AddDbContext<ZSHOEDbContext>(cfg =>
             {
