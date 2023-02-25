@@ -103,7 +103,7 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
         }
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper;
         private global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper;
-        private global::ZSHOE.WebUI.AppCode.TagHelpers.RateStarTagHelper __ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper;
+        private global::ZSHOE.Domain.AppCode.TagHelpers.RateStarTagHelper __ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -154,9 +154,9 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 #line hidden
 #nullable disable
             WriteLiteral("               \n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a10f00f867b7a704e1723b511d2ef2efc684edc78529", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a10f00f867b7a704e1723b511d2ef2efc684edc78531", async() => {
                 WriteLiteral("\n                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a10f00f867b7a704e1723b511d2ef2efc684edc78802", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a10f00f867b7a704e1723b511d2ef2efc684edc78804", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -266,27 +266,27 @@ WriteAttributeValue("", 1004, item.Id, 1004, 8, false);
 #line hidden
 #nullable disable
             WriteLiteral("\n                </div><!-- End .product-price -->\n                <div class=\"ratings-container\">\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("rate", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a10f00f867b7a704e1723b511d2ef2efc684edc715146", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("rate", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a10f00f867b7a704e1723b511d2ef2efc684edc715148", async() => {
             }
             );
-            __ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper = CreateTagHelper<global::ZSHOE.WebUI.AppCode.TagHelpers.RateStarTagHelper>();
-            __tagHelperExecutionContext.Add(__ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper);
+            __ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper = CreateTagHelper<global::ZSHOE.Domain.AppCode.TagHelpers.RateStarTagHelper>();
+            __tagHelperExecutionContext.Add(__ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper);
 #nullable restore
 #line 46 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\Shop\_Products.cshtml"
-__ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper.RateValue = item.Rate;
+__ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper.RateValue = item.Rate;
 
 #line default
 #line hidden
 #nullable disable
-            __tagHelperExecutionContext.AddTagHelperAttribute("rate-value", __ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper.RateValue, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __tagHelperExecutionContext.AddTagHelperAttribute("rate-value", __ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper.RateValue, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #nullable restore
 #line 46 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\Shop\_Products.cshtml"
-__ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper.ProductId = item.Id;
+__ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper.ProductId = item.Id;
 
 #line default
 #line hidden
 #nullable disable
-            __tagHelperExecutionContext.AddTagHelperAttribute("rate-product-id", __ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper.ProductId, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __tagHelperExecutionContext.AddTagHelperAttribute("rate-product-id", __ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper.ProductId, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
             if (!__tagHelperExecutionContext.Output.IsContentModified)
             {
@@ -306,9 +306,9 @@ __ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper.ProductId = item.Id;
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a10f00f867b7a704e1723b511d2ef2efc684edc717412", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a10f00f867b7a704e1723b511d2ef2efc684edc717421", async() => {
                 WriteLiteral("\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a10f00f867b7a704e1723b511d2ef2efc684edc717694", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a10f00f867b7a704e1723b511d2ef2efc684edc717703", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

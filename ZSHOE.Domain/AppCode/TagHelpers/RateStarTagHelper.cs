@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace ZSHOE.WebUI.AppCode.TagHelpers
+namespace ZSHOE.Domain.AppCode.TagHelpers
 {
-    // You may need to install the Microsoft.AspNetCore.Razor.Runtime package into your project
     [HtmlTargetElement("rate")]
     public class RateStarTagHelper : TagHelper
     {

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -19,12 +20,14 @@ namespace ZSHOE.WebUI.Controllers
         private readonly ZSHOEDbContext db;
         private readonly CryptoService cryptoService;
         private readonly EmailService emailService;
+        private readonly ILogger<HomeController> logger;
 
-        public HomeController(ZSHOEDbContext db, CryptoService cryptoService, EmailService emailService)
+        public HomeController(ZSHOEDbContext db, CryptoService cryptoService, EmailService emailService,ILogger<HomeController> logger)
         {
             this.db = db;
             this.cryptoService = cryptoService;
             this.emailService = emailService;
+            this.logger = logger;
         }
         [AllowAnonymous]
 

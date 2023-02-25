@@ -94,7 +94,7 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
                 return __backed__tagHelperScopeManager;
             }
         }
-        private global::ZSHOE.WebUI.AppCode.TagHelpers.RateStarTagHelper __ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper;
+        private global::ZSHOE.Domain.AppCode.TagHelpers.RateStarTagHelper __ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -243,27 +243,27 @@ WriteAttributeValue("", 2422, Url.Content("~/uploads/images/" + itemImage.Name),
 #line hidden
 #nullable disable
             WriteLiteral("</h1><!-- End .product-title -->\r\n\r\n\r\n                            <div class=\"ratings-container\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("rate", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf4e01bac85c859180464c35f1f12729dbe89f4010775", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("rate", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf4e01bac85c859180464c35f1f12729dbe89f4010777", async() => {
             }
             );
-            __ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper = CreateTagHelper<global::ZSHOE.WebUI.AppCode.TagHelpers.RateStarTagHelper>();
-            __tagHelperExecutionContext.Add(__ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper);
+            __ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper = CreateTagHelper<global::ZSHOE.Domain.AppCode.TagHelpers.RateStarTagHelper>();
+            __tagHelperExecutionContext.Add(__ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper);
 #nullable restore
 #line 59 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\Shop\Details.cshtml"
-__ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper.RateValue = Model.Product.Rate;
+__ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper.RateValue = Model.Product.Rate;
 
 #line default
 #line hidden
 #nullable disable
-            __tagHelperExecutionContext.AddTagHelperAttribute("rate-value", __ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper.RateValue, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __tagHelperExecutionContext.AddTagHelperAttribute("rate-value", __ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper.RateValue, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #nullable restore
 #line 59 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\Shop\Details.cshtml"
-__ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper.ProductId = Model.Product.Id;
+__ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper.ProductId = Model.Product.Id;
 
 #line default
 #line hidden
 #nullable disable
-            __tagHelperExecutionContext.AddTagHelperAttribute("rate-product-id", __ZSHOE_WebUI_AppCode_TagHelpers_RateStarTagHelper.ProductId, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __tagHelperExecutionContext.AddTagHelperAttribute("rate-product-id", __ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper.ProductId, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
             if (!__tagHelperExecutionContext.Output.IsContentModified)
             {

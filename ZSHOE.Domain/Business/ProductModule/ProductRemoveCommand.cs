@@ -42,9 +42,9 @@ namespace ZSHOE.Domain.Business.ProductModule
                 data.DeletedDate = DateTime.UtcNow.AddHours(4);
                 data.DeletedByUserId = ctx.GetCurrentUserId();
 
-                var seyfi = await db.ProductCatalogItems.Where(pc => pc.ProductId == data.Id).ToListAsync();
+                var productItems = await db.ProductCatalogItems.Where(pc => pc.ProductId == data.Id).ToListAsync();
 
-                foreach (var item in seyfi)
+                foreach (var item in productItems)
                 {
                     item.DeletedDate = DateTime.UtcNow.AddHours(4);
                 }

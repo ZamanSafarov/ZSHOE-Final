@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ZSHOE.Domain.AppCode.Extensions;
 using System.Reflection;
+using Serilog;
 
 namespace ZSHOE.WebUI
 {
@@ -18,6 +19,14 @@ namespace ZSHOE.WebUI
     {
         public static void Main(string[] args)
         {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(config)
+                .CreateLogger();
+
             ReadAllPolicies();
             CreateHostBuilder(args).Build().Run();
 
@@ -47,6 +56,9 @@ namespace ZSHOE.WebUI
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                 .UseSerilog((context, services, configuration) => configuration
+                    .ReadFrom.Configuration(context.Configuration)
+                    .ReadFrom.Services(services))
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

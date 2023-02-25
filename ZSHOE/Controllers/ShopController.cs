@@ -2,17 +2,15 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
-using System;
 using System.Threading.Tasks;
 using ZSHOE.Domain.AppCode.Extensions;
 using ZSHOE.Domain.Business.BasketModule;
 using ZSHOE.Domain.Business.ProductModule;
 using ZSHOE.Domain.Models.DataContexts;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using ZSHOE.Domain.Models.Entities.ViewModels;
 using ZSHOE.Domain.Models.Entities;
-using System.Collections.Generic;
+using ZSHOE.Domain.Models.Entities.ViewModels;
 using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 
 namespace ZSHOE.WebUI.Controllers

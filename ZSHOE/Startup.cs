@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using ZSHOE.Domain.AppCode.Providers;
 using ZSHOE.Domain.AppCode.Extensions;
 using Newtonsoft.Json;
+using ZSHOE.Domain.AppCode.Behaviors;
 
 namespace ZSHOE.WebUI
 {
@@ -122,6 +123,7 @@ namespace ZSHOE.WebUI
             var asemblies = AppDomain.CurrentDomain.GetAssemblies().AsEnumerable().Where(a => a.FullName.StartsWith("ZSHOE."));
 
             services.AddMediatR(asemblies.ToArray());
+            //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LogBehavior<,>));
 
         }
 
