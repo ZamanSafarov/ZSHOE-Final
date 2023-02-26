@@ -521,8 +521,6 @@
             brands: [],
             colors: [],
             sizes: [],
-            min: priceRangeData.priceMin,
-            max: priceRangeData.priceMax
         };
 
         $(document).ready(function () {
@@ -534,51 +532,7 @@
 
 
 
-            //var priceSlider = document.getElementById('price-slider');
-
-
-
-            //priceSlider.setAttribute('range', `${searchModel.min}₼ - ${searchModel.max}₼`);
-            //var slider = document.querySelector("#price-slider");
-            //if (!slider.classList.contains('noUi-target')) {
-            //    noUiSlider.create(slider, {
-            //        start: [0, searchModel.max],
-            //        connect: true,
-            //        values: [searchModel.min, searchModel.max],
-            //        range: {
-            //            'min':0,
-            //            'max': searchModel.max
-            //        },
-            //        format: wNumb({
-            //            decimals: 0,
-            //            prefix: '$'
-            //        })
-            //    });
-            //} else {
-            //    slider.noUiSlider.updateOptions({
-            //        start: [0, searchModel.max],
-            //        range: {
-            //            'min': 0,
-            //            'max': searchModel.max
-            //        },
-            //        format: wNumb({
-            //            decimals: 0
-            //        })
-            //    });
-            //}
-
-           
-
-            //// Update Price Range
-            //priceSlider.noUiSlider.on('update', function (e, ui) {
-            //    $('#filter-price-range').text(e.join(' - '));
-            //    $(e.target).attr('range', `${ui.values[0]}₼ - ${ui.values[1]}₼`);
-            //    searchModel.min = ui.values[0];
-            //    searchModel.max = ui.values[1];
-
-            //    filterProducts();
-            //});
-
+          
 
 
             $('[data-entity-type]').click(function (e) {

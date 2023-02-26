@@ -32,6 +32,7 @@ namespace ZSHOE.Domain.Business.BlogPostModule
                 .Where(bp => bp.DeletedDate == null && bp.PublishedDate != null)
                 .Include(bp => bp.TagCloud)
                 .ThenInclude(bpc=>bpc.Tag)
+                .Distinct()
                 .OrderByDescending(bp => bp.PublishedDate)
                 .AsQueryable();
 

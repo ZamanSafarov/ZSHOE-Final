@@ -38,7 +38,7 @@
                 <div class="product-cat">
                     <a href="#">@item.Category.Name</a>
                 </div><!-- End .product-cat -->
-                <h3 class="product-title"><a href="product.html">@item.Name</a></h3><!-- End .product-title -->
+                <h3 class="product-title"><a asp-controller="shop" asp-action="details" asp-route-id="@item.Id">@item.Name</a></h3><!-- End .product-title -->
                 <div class="product-price">
                     $@item.Price
                 </div><!-- End .product-price -->

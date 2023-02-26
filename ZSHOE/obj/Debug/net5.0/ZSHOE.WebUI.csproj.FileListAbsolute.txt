@@ -277,3 +277,4 @@ D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\bin\Debug\net5.0\Serilog.Sinks.MSSq
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\bin\Debug\net5.0\Serilog.Sinks.PeriodicBatching.dll
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\RecentPostsDetail\Default.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\PopularPosts\Default.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\RecentArrivals\Default.cshtml.g.cs

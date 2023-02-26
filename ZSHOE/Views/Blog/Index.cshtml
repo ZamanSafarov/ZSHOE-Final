@@ -41,16 +41,25 @@
                             <h3 class="widget-title">Browse Tags</h3><!-- End .widget-title -->
 
                             <div class="tagcloud">
+                                @{
+                                    var uniqueTags = new List<Tag>();
+                                }
                                 @foreach (var item in Model.Items)
                                 {
-                                    foreach (var tags in item.TagCloud)
+                                    foreach (var tag in item.TagCloud.Select(bpt => bpt.Tag))
                                     {
-                                        <a href="#">@tags.Tag.Text</a>
+                                        if (!uniqueTags.Any(t => t.Id == tag.Id))
+                                        {
+                                            uniqueTags.Add(tag);
+                                        }
                                     }
 
                                 }
 
-
+                                @foreach (var tag in uniqueTags)
+                                {
+                                    <a href="#">@tag.Text</a>
+                                }
 
                             </div><!-- End .tagcloud -->
                         </div><!-- End .widget -->

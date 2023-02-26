@@ -50,7 +50,7 @@
                                 <span class="meta-separator">|</span>
                                 <a href="#">@Model.BlogPost.PublishedDate?.ToString("MMM dd, yyyy")</a>
                                 <span class="meta-separator">|</span>
-                                <a href="#">@Model.BlogPost.Comments.Count() Comments</a>
+                                <a class="comment-count" href="#">@Model.BlogPost.Comments.Count() Comments</a>
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     <input type="hidden" data-user-id="@User.GetCurrentUserId()" data-blogpost-id="@Model.BlogPost.Id" />
@@ -137,7 +137,7 @@
                     </div><!-- End .related-posts -->
 
                     <div class="comments">
-                        <h3 class="title">@Model.BlogPost.Comments.Count() Comments</h3><!-- End .title -->
+                        <h3 class="title comment-count">@Model.BlogPost.Comments.Count() Comments</h3><!-- End .title -->
                        
                         <ul class="commentAppend">
                             @foreach (var comment in Model.BlogPost.Comments.Where(c => c.ParentId == null))
@@ -258,6 +258,9 @@
                                 $("div.comments ul.commentAppend").append($(response.responseText))
                                 $("#comment-text").val("");
                             }
+                            var commentCount = $(".commentAppend").find("li").length;
+                             $('.comment-count').text(commentCount + " Comments");
+                        
                         }
 
                         console.warn(response);

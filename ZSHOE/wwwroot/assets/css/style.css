@@ -1,5 +1,99 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800");
+
+.search-info {
+    padding-left: 8px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-align: left;
+    font-size: 17px;
+    line-height: 12px;
+    color: #515151;
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.search-results {
+    display: none;
+    z-index: 8889;
+    list-style-type: none;
+    width: 500px;
+    margin: 0;
+    background: #ffffff;
+    /*border: 1px solid #cccccc;*/
+    border-radius: 0px;
+    -webkit-box-shadow: 0px 4px 7px 0px rgb(0 0 0 / 10%);
+    box-shadow: 0px 4px 7px 0px rgb(0 0 0 / 10%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 22px;
+    max-height: 283px;
+}
+
+    .search-results li {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        line-height: 38px;
+        overflow: hidden;
+        transition: 0.4s ease-in-out;
+        margin-bottom: 15px;
+    }
+
+.search-line {
+    margin: 15px 0;
+}
+
+.search-results li:last-child {
+    margin-bottom: 0;
+}
+
+.search-results li:hover {
+    margin-left: 25px;
+}
+
+
+.search-results .thumbnail {
+    float: left;
+    display: block;
+    width: 70px;
+    height: 60px;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 0px;
+    margin-bottom: unset;
+}
+
+.search-results li:hover .title {
+    color: #c96;
+}
+.search-results .searched-item{
+    color:#c96;
+    font-size:20px;
+}
+
+.search-results li .title {
+    transition: 0.4s ease-in;
+    font-size: 1.4rem;
+}
+
+.search-results li .searchPrice {
+    font-size: 15px;
+}
+
+
 .cart-count:empty{
     display:none !important;
 }
@@ -3080,7 +3174,7 @@
   .btn-product:hover {
     outline: none !important; }
     .btn-product:hover span {
-      color: #c96;
+      color: #fff;
       box-shadow: 0 1px 0 0 #c96; }
   .btn-product:focus {
     outline: none !important; }
@@ -5679,7 +5773,7 @@ blockquote.text-white cite {
 
 .header.header-9 .main-nav {
   margin-left: 0;
-  margin-right: 10rem; }
+  margin-right: 23rem; }
 
 .header.header-9 .wishlist-link {
   font-size: 2.8rem; }

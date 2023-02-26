@@ -36,6 +36,7 @@ namespace ZSHOE.Domain.Business.BlogPostModule
                      .Include(bp => bp.Category)
                      .Include(bp => bp.TagCloud)
                      .ThenInclude(bp => bp.Tag)
+                     
 
                      .Include(bp => bp.Comments.Where(bpc => bpc.DeletedDate == null))
                      .ThenInclude(c => c.Children.Where(bpc => bpc.DeletedDate == null))

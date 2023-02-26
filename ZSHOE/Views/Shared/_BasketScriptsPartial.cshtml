@@ -259,7 +259,7 @@
                     contentType: 'application/x-www-form-urlencoded',
                     success: function (res) {
                         setTimeout(function () {
-                            //console.log(res)
+                            
 
                             $("ul.search-results").html(res).css("display", "block");
 
@@ -273,10 +273,13 @@
                                 $("ul.search-results").html(noProduct);
 
                                 var interval = setInterval(function () {
-                                    $("ul.search-results").css("display", "none");
+                                    $("ul.search-results").css("display", "none !important");
                                     clearInterval(interval);
                                 }, 2000);
                             }
+                            $(document).click(function (event) {
+                                $("ul.search-results").css("display", "none");
+                            })
 
                         }, 1000);
 
@@ -287,6 +290,7 @@
 
                 })
             })
+           
 
         }, 2000);
     })
