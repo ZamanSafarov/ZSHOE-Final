@@ -1,0 +1,24 @@
+﻿@model IEnumerable<BlogPost>
+@{
+    ViewData["Title"] = "Default";
+}
+
+
+<ul class="posts-list">
+    @foreach (var item in Model)
+    {
+        <li>
+            <figure>
+                <a asp-action="details" asp-controller="blog" asp-route-id="@item.Id"asp-route-slug="@item.Slug">
+                    <img style="height:80px;" src="~/uploads/images/@item.ImagePath" alt="post">
+                </a>
+            </figure>
+
+            <div>
+                <span>@item.PublishedDate?.ToString("MMMM d, yyyy ")</span>
+                <h4><a asp-action="details" asp-controller="blog" asp-route-id="@item.Id" asp-route-slug="@item.Slug">@item.Title</a></h4>
+            </div>
+        </li>
+    }
+   
+</ul>

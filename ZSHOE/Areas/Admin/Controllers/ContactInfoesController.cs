@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ZSHOE.Domain.Business.BlogPostModule;
 using ZSHOE.Domain.Models.DataContexts;
 using ZSHOE.Domain.Models.Entities;
 
@@ -15,10 +17,12 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
     public class ContactInfoesController : Controller
     {
         private readonly ZSHOEDbContext _context;
+        private readonly IMediator mediator;
 
-        public ContactInfoesController(ZSHOEDbContext context)
+        public ContactInfoesController(ZSHOEDbContext context,IMediator mediator)
         {
             _context = context;
+            this.mediator = mediator;
         }
 
         [Authorize(Policy = "admin.contactinfoes.index")]
@@ -54,15 +58,23 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
         [Authorize(Policy = "admin.contactinfoes.create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Location,PhoneNumber,CompanyEmail,Id,CreatedDate,DeletedDate")] ContactInfo contactInfo)
+        public async Task<IActionResult> Create(ContactPostPostCommand command)
         {
+            if (command.Image == null)
+            {
+                ModelState.AddModelError("ImagePath", "Shekil Gonderilmelidir");
+            }
+
             if (ModelState.IsValid)
             {
-                _context.Add(contactInfo);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var response = await mediator.Send(command);
+                if (response.Error == false)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            return View(contactInfo);
+
+            return View(command);
         }
 
         [Authorize(Policy = "admin.contactinfoes.edit")]

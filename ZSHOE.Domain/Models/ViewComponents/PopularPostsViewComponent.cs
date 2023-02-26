@@ -5,18 +5,19 @@ using System.Threading.Tasks;
 
 namespace ZSHOE.Domain.AppCode.ViewComponents
 {
-    public class RecentPostsViewComponent : ViewComponent
+    public class PopularPostsViewComponent : ViewComponent
     {
         private readonly IMediator mediator;
 
-        public RecentPostsViewComponent(IMediator mediator)
+        public PopularPostsViewComponent(IMediator mediator)
         {
             this.mediator = mediator;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var query = new BlogPostRecentQuery() { Size = 4 };
+            var query = new BlogPostPopularQuery() { Size = 4 };
+
             var posts = await mediator.Send(query);
 
             return View(posts);

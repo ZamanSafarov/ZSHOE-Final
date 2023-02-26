@@ -220,7 +220,6 @@ D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Home\S
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\_SubscribeForm.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Subscribes\Index.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Areas\Admin\Views\Account\Signin.cshtml.g.cs
-D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\RecentPosts\Default.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shop\Index.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\SearchPanel\Default.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shop\_Products.cshtml.g.cs
@@ -276,3 +275,5 @@ D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\bin\Debug\net5.0\Microsoft.Identity
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\bin\Debug\net5.0\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\bin\Debug\net5.0\Serilog.Sinks.MSSqlServer.dll
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\bin\Debug\net5.0\Serilog.Sinks.PeriodicBatching.dll
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\RecentPostsDetail\Default.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\PopularPosts\Default.cshtml.g.cs

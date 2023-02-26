@@ -9,7 +9,8 @@ namespace ZSHOE.Domain.Models.Entities
 {
     public class ContactInfo : BaseEntity
     {
-
+        public string ImagePath { get; set; }
+        public string Slug { get; set; }
         public string Location { get; set; }
 
         public string PhoneNumber { get; set; }

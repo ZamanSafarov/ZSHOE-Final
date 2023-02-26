@@ -82,7 +82,7 @@ namespace ZSHOE.Domain.Business.BlogPostModule
 
               
 
-                env.ArchiveImage(entity.ImagePath);
+                //env.ArchiveImage(entity.ImagePath);
 
                 entity.ImagePath = request.ImagePath;
 
