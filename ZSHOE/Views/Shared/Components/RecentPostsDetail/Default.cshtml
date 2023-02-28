@@ -41,11 +41,15 @@
                 </h2><!-- End .entry-title -->
 
                 <div class="entry-cats">
-                    in LifeStyle
-                    @*@foreach (var tag in Model)
+                    in 
+                    @foreach (var tag in item.TagCloud)
                     {
-                    <a href="#">@tag.TagCloud.Select(s=>s.Tag.Text !=null)</a>
-                    }*@
+                        <li>
+                            <a class="blog-tag__link d-inline-block" href="#">
+                                @tag.Tag?.Text
+                            </a>
+                        </li>
+                    }
                 </div><!-- End .entry-cats -->
             </div><!-- End .entry-body -->
         </article>

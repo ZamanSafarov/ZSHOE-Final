@@ -39,7 +39,7 @@
                             <i class="icon-bars"></i>
                         </button>
                         
-                        <a href="index.html" class="logo">
+                        <a asp-action="index" asp-controller="home" class="logo">
                             <img src="assets/images/zshoe-home.png" alt="zshoe Logo" width="100" height="25">
                         </a>
                     </div><!-- End .header-left -->
@@ -48,10 +48,10 @@
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
                                 <li class="megamenu-container active">
-                                    <a href="index.html">Home</a>
+                                    <a asp-action="index" asp-controller="home">Home</a>
                                 </li>
                                 <li>
-                                    <a asp-controller="shop" asp-for="index" class="sf-with-ul">Shop</a>
+                                    <a asp-controller="shop" asp-action="index" class="sf-with-ul">Shop</a>
 
                                     <div class="megamenu megamenu-md">
                                         <div class="row no-gutters">
@@ -73,7 +73,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="banner banner-overlay">
-                                                    <a asp-controller="shop" asp-for="index" class="banner banner-menu">
+                                                    <a asp-controller="shop" asp-action="index" class="banner banner-menu">
                                                         <img src="assets/images/menu/banner-1.jpg" alt="Banner">
 
                                                         <div class="banner-content banner-content-top">
@@ -105,20 +105,8 @@
                             </ul><!-- End .menu -->
                         </nav><!-- End .main-nav -->
 
-                        <div class="header-search">
-                            <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                            <form action="#" method="get">
-                                <div class="header-search-wrapper">
-                                    <label for="q" class="sr-only">Search</label>
-                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search in..." required>
-                                </div><!-- End .header-search-wrapper -->
-                            </form>
-                        </div><!-- End .header-search -->
-                        
-                        <a asp-controller="shop" asp-action="wishlist" class="wishlist-link">
-                            <i class="icon-heart-o"></i>
-                            <span class="wishlist-count">3</span>
-                        </a>
+                        <partial name="_SearchProducts" />
+                    
 
                         <div class="dropdown cart-dropdown">
                              @await Component.InvokeAsync("BasketInfo")
@@ -165,71 +153,11 @@
 
             <div class="container">
                 <div class="heading text-center mb-4">
-                    <h2 class="title">Popular Categories</h2><!-- End .title -->
+                    <h2 class="title">Our Categories</h2><!-- End .title -->
                     <p class="title-desc">Vestibulum auctor dapibus neque</p><!-- End .title-desc -->
                 </div><!-- End .heading -->
 
-                <div class="row">
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="banner banner-display banner-link-anim">
-                            <a href="#">
-                                <img src="assets/images/demos/demo-12/banners/banner-4.jpg" alt="Banner">
-                            </a>
-
-                            <div class="banner-content banner-content-center">
-                                <h3 class="banner-title text-white"><a href="#">Accessories</a></h3><!-- End .banner-title -->
-                                <h4 class="banner-subtitle text-white"><a href="#">16 Items</a></h4><!-- End .banner-subtitle -->
-                                <a href="#" class="btn btn-outline-white banner-link">Shop Now</a>
-                            </div><!-- End .banner-content -->
-                        </div><!-- End .banner -->
-                    </div><!-- End .col-sm-6 -->
-
-                    <div class="col-sm-6 col-lg-4 order-lg-last">
-                        <div class="banner banner-display banner-link-anim">
-                            <a href="#">
-                                <img src="assets/images/demos/demo-12/banners/banner-5.jpg" alt="Banner">
-                            </a>
-
-                            <div class="banner-content banner-content-center">
-                                <h3 class="banner-title text-white"><a href="#">Jewellery</a></h3><!-- End .banner-title -->
-                                <h4 class="banner-subtitle text-white"><a href="#">8 Items</a></h4><!-- End .banner-subtitle -->
-                                <a href="#" class="btn btn-outline-white banner-link">Shop Now</a>
-                            </div><!-- End .banner-content -->
-                        </div><!-- End .banner -->
-                    </div><!-- End .col-sm-6 -->
-
-                    <div class="col-lg-4">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-12">
-                                <div class="banner banner-display banner-link-anim">
-                                    <a href="#">
-                                        <img src="assets/images/demos/demo-12/banners/banner-6.jpg" alt="Banner">
-                                    </a>
-
-                                    <div class="banner-content banner-content-center">
-                                        <h3 class="banner-title text-white"><a href="#">Clothing</a></h3><!-- End .banner-title -->
-                                        <h4 class="banner-subtitle text-white"><a href="#">24 Items</a></h4><!-- End .banner-subtitle -->
-                                        <a href="#" class="btn btn-outline-white banner-link">Discover Now</a>
-                                    </div><!-- End .banner-content -->
-                                </div><!-- End .banner -->
-                            </div><!-- End .col-sm-6 -->
-
-                            <div class="col-sm-6 col-lg-12">
-                                <div class="banner banner-display banner-link-anim">
-                                    <a href="#">
-                                        <img src="assets/images/demos/demo-12/banners/banner-7.jpg" alt="Banner">
-                                    </a>
-
-                                    <div class="banner-content banner-content-center">
-                                        <h3 class="banner-title text-white"><a href="#">Shoes</a></h3><!-- End .banner-title -->
-                                        <h4 class="banner-subtitle text-white"><a href="#">6 Items</a></h4><!-- End .banner-subtitle -->
-                                        <a href="#" class="btn btn-outline-white banner-link">Shop Now</a>
-                                    </div><!-- End .banner-content -->
-                                </div><!-- End .banner -->
-                            </div><!-- End .col-sm-6 -->
-                        </div><!-- End .row -->
-                    </div><!-- End .col-lg-6 -->
-                </div><!-- End .row -->
+               @await Component.InvokeAsync("OurCategories")
 
                 <div class="icon-boxes-container bg-transparent">
                     <div class="container">
@@ -292,9 +220,9 @@
 
         <footer class="footer footer-2">
             <div class="footer-bottom">
-                <div class="container" style="margin-bottom:-38px;">
+
                     <partial name="_SubscribeForm" />
-                </div>
+            
                 <div class="container">
                     <p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p><!-- End .footer-copyright -->
                     <ul class="footer-menu">
@@ -321,12 +249,6 @@
     <div class="mobile-menu-container mobile-menu-light">
         <div class="mobile-menu-wrapper">
             <span class="mobile-menu-close"><i class="icon-close"></i></span>
-
-            <form action="#" method="get" class="mobile-search">
-                <label for="mobile-search" class="sr-only">Search</label>
-                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
-                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-            </form>
             
             <nav class="mobile-nav">
                 <ul class="mobile-menu">

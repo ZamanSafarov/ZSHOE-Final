@@ -61,11 +61,21 @@
                             <li>
                                 <a href="#">Links</a>
                                 <ul>
-                                    <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
-                                    <li><a asp-controller="shop" asp-action="wishlist"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
+                                    <li><a href="tel:+994 050 413 56 82"><i class="icon-phone"></i>Call: +994 050 413 56 82</a></li>
+                                    <li><a asp-controller="shop" asp-action="wishlist"><i class="icon-heart-o"></i>Wishlist</a></li>
                                     <li><a asp-controller="home" asp-action="about">About Us</a></li>
                                     <li><a asp-controller="home" asp-action="contact">Contact Us</a></li>
-                                    <li><a asp-controller="account" asp-action="signin"><i class="icon-user"></i>Login</a></li>
+
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a asp-controller="Home" asp-action="myaccount"><i class="icon-user"></i>@User.GetPrincipalName()</a></li>
+                                      
+                                    }
+                                    else
+                                    {
+                                        <li><a asp-controller="account" asp-action="signin"><i class="icon-user"></i>Login</a></li>
+                                    }
+
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
@@ -253,12 +263,6 @@
     <div class="mobile-menu-container">
         <div class="mobile-menu-wrapper">
             <span class="mobile-menu-close"><i class="icon-close"></i></span>
-
-            <form action="#" method="get" class="mobile-search">
-                <label for="mobile-search" class="sr-only">Search</label>
-                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
-                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-            </form>
             
             <nav class="mobile-nav">
                 <ul class="mobile-menu">

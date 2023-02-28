@@ -26,6 +26,7 @@ namespace ZSHOE.Domain.Business.BlogPostModule
             public async Task<List<BlogPost>> Handle(BlogPostRecentQuery request, CancellationToken cancellationToken)
             {
                 var posts = await db.BlogPosts
+                    .Include(bp =>bp.TagCloud)
                      .Where(bp => bp.DeletedDate == null && bp.PublishedDate != null)
                      .OrderByDescending(bp => bp.PublishedDate)
                      .Take(request.Size < 4 ? 4 : request.Size)
