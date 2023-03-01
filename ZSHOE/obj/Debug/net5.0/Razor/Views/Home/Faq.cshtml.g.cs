@@ -68,8 +68,15 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Models.Entities.Membership;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ff596a8bdb25297d298e9b240624d5c7f40cf01d", @"/Views/Home/Faq.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d0c45f6ef369160357c8390ee92cfca89c78a328", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"85c7c3eccd49f15a409992bb20d1e6d2c543a396", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_Faq : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Faq>>
     #nullable disable
@@ -273,7 +280,7 @@ WriteAttributeValue("", 2326, Url.Content("~/assets/images/backgrounds/cta/bg-7.
 
                                 <div class=""col-auto"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff596a8bdb25297d298e9b240624d5c7f40cf01d13202", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff596a8bdb25297d298e9b240624d5c7f40cf01d13402", async() => {
                 WriteLiteral("<span>CONTACT US</span><i class=\"icon-long-arrow-right\"></i>");
             }
             );

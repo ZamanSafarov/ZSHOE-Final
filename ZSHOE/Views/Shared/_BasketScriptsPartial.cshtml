@@ -211,9 +211,11 @@
                     $(".dropdown-cart-products").append(newBasketProduct);
 
 
-
+                    $(".cart-count").css('display', 'block !important');
                     $(".cart-count").text(response.value.basketInfo.count);
                     $(".total-price").text(`${response.value.basketInfo.total}.00 $`);
+
+
 
                    
                     console.log(response)

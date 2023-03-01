@@ -752,3 +752,11 @@ $(document).ready(function () {
         }, 10000)
     }
 });
+
+
+
+$(window).on('load', function () {
+
+    $('#preloader').fadeOut('slow');
+
+});

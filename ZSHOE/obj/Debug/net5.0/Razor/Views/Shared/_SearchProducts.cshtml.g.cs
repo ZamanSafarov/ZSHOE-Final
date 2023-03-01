@@ -68,8 +68,15 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Models.Entities.Membership;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d337f168dd7501d1e3453efe9ed1b9dc78ea281e", @"/Views/Shared/_SearchProducts.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d0c45f6ef369160357c8390ee92cfca89c78a328", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"85c7c3eccd49f15a409992bb20d1e6d2c543a396", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared__SearchProducts : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -102,7 +109,7 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<div class=\"header-search\">\r\n    <button type=\"submit\"  class=\"search-toggle btn-remove\"  title=\"Search\"><i class=\"icon-search\"></i></button>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d337f168dd7501d1e3453efe9ed1b9dc78ea281e5237", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d337f168dd7501d1e3453efe9ed1b9dc78ea281e5437", async() => {
                 WriteLiteral(@"
         <div  class=""header-search-wrapper"">
             <label for=""q"" class=""sr-only"">Search</label>

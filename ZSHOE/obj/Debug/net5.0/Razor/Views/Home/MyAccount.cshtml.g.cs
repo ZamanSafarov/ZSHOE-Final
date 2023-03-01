@@ -68,8 +68,15 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Models.Entities.Membership;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"79581d5d0eacd6e81e2fe1bd43e42f6ce4f97bb5", @"/Views/Home/MyAccount.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d0c45f6ef369160357c8390ee92cfca89c78a328", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"85c7c3eccd49f15a409992bb20d1e6d2c543a396", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_MyAccount : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<RegisterFormModel>
     #nullable disable
@@ -163,7 +170,7 @@ WriteAttributeValue("", 166, Url.Content("~/assets/images/page-header-bg.jpg"), 
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t\t\t<li class=\"nav-item\">\r\n\t\t\t\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79581d5d0eacd6e81e2fe1bd43e42f6ce4f97bb58462", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79581d5d0eacd6e81e2fe1bd43e42f6ce4f97bb58662", async() => {
                 WriteLiteral("Sign Out");
             }
             );
@@ -213,7 +220,7 @@ WriteAttributeValue("", 166, Url.Content("~/assets/images/page-header-bg.jpg"), 
 #line hidden
 #nullable disable
             WriteLiteral("</span>? ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79581d5d0eacd6e81e2fe1bd43e42f6ce4f97bb511198", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79581d5d0eacd6e81e2fe1bd43e42f6ce4f97bb511398", async() => {
                 WriteLiteral("Log out");
             }
             );
@@ -277,7 +284,7 @@ WriteAttributeValue("", 166, Url.Content("~/assets/images/page-header-bg.jpg"), 
 
 							<div class=""tab-pane fade"" id=""tab-account"" role=""tabpanel"" aria-labelledby=""tab-account-link"">
 								");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79581d5d0eacd6e81e2fe1bd43e42f6ce4f97bb514361", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79581d5d0eacd6e81e2fe1bd43e42f6ce4f97bb514561", async() => {
                 WriteLiteral("\r\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\r\n\t\t\t\t\t\t\t\t\t\t\t<label>First Name *</label>\r\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"");
                 BeginWriteAttribute("value", " value=\"", 4019, "\"", 4051, 1);
 #nullable restore

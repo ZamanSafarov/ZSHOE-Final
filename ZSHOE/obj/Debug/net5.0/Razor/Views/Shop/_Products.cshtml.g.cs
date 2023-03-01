@@ -68,8 +68,15 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Models.Entities.Membership;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"016d3e3349ba5aca7b800d4299af24d7b58608bb", @"/Views/Shop/_Products.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d0c45f6ef369160357c8390ee92cfca89c78a328", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"85c7c3eccd49f15a409992bb20d1e6d2c543a396", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shop__Products : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PagedViewModel<Product>>
     #nullable disable
@@ -154,9 +161,9 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 #line hidden
 #nullable disable
             WriteLiteral("               \n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "016d3e3349ba5aca7b800d4299af24d7b58608bb8531", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "016d3e3349ba5aca7b800d4299af24d7b58608bb8731", async() => {
                 WriteLiteral("\n                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "016d3e3349ba5aca7b800d4299af24d7b58608bb8804", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "016d3e3349ba5aca7b800d4299af24d7b58608bb9004", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -250,7 +257,7 @@ WriteAttributeValue("", 1004, item.Id, 1004, 8, false);
 #line hidden
 #nullable disable
             WriteLiteral("</a>\n                </div><!-- End .product-cat -->\n                <h3 class=\"product-title\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "016d3e3349ba5aca7b800d4299af24d7b58608bb14408", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "016d3e3349ba5aca7b800d4299af24d7b58608bb14608", async() => {
 #nullable restore
 #line 41 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\Shop\_Products.cshtml"
                                                                                                            Write(item.Name);
@@ -297,7 +304,7 @@ WriteAttributeValue("", 1004, item.Id, 1004, 8, false);
 #line hidden
 #nullable disable
             WriteLiteral("\n                </div><!-- End .product-price -->\n                <div class=\"ratings-container\">\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("rate", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "016d3e3349ba5aca7b800d4299af24d7b58608bb17490", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("rate", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "016d3e3349ba5aca7b800d4299af24d7b58608bb17690", async() => {
             }
             );
             __ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper = CreateTagHelper<global::ZSHOE.Domain.AppCode.TagHelpers.RateStarTagHelper>();
@@ -337,9 +344,9 @@ __ZSHOE_Domain_AppCode_TagHelpers_RateStarTagHelper.ProductId = item.Id;
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "016d3e3349ba5aca7b800d4299af24d7b58608bb19763", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "016d3e3349ba5aca7b800d4299af24d7b58608bb19963", async() => {
                 WriteLiteral("\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "016d3e3349ba5aca7b800d4299af24d7b58608bb20045", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "016d3e3349ba5aca7b800d4299af24d7b58608bb20245", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

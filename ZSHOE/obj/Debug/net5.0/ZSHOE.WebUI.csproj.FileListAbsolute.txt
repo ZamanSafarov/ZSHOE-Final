@@ -280,3 +280,8 @@ D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\RecentArrivals\Default.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\OurCategories\Default.cshtml.g.cs
 D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Shared\Components\RatedProducts\Default.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\bin\Debug\net5.0\libman.json
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Account\ForgotPassword.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Account\ForgotPasswordConfirmation.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Account\ResetPasswordConfirmation.cshtml.g.cs
+D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\obj\Debug\net5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs

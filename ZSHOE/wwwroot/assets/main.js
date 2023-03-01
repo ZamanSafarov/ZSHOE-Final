@@ -53,10 +53,15 @@ jQuery(document).ready(function($) {
 		$('html, body').animate({scrollTop: $('.section-support').offset().top}, 1200);
 	});
 
+		
+	
 	
 });
 
-jQuery(window).on('load', function() {
+$(window).on('load', function () {
+
+	$('#preloader').fadeOut('slow');
+
 	jQuery('.demos').isotope({
 		filter: '.homepages',
 		initLayout: true,

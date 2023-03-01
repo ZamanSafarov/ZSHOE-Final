@@ -68,8 +68,15 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\_ViewImports.cshtml"
+using ZSHOE.Domain.Models.Entities.Membership;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d4f657b4d62117a3f9b02cb83a3b5da5556fc455", @"/Views/Shop/_WishlistBody.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d0c45f6ef369160357c8390ee92cfca89c78a328", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"85c7c3eccd49f15a409992bb20d1e6d2c543a396", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shop__WishlistBody : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Product>>
     #nullable disable
@@ -114,9 +121,9 @@ using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
 #line hidden
 #nullable disable
             WriteLiteral("    <tr>\r\n        <td class=\"product-col\">\r\n            <div class=\"product\">\r\n                <figure class=\"product-media\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4f657b4d62117a3f9b02cb83a3b5da5556fc4555905", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4f657b4d62117a3f9b02cb83a3b5da5556fc4556105", async() => {
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d4f657b4d62117a3f9b02cb83a3b5da5556fc4556184", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d4f657b4d62117a3f9b02cb83a3b5da5556fc4556384", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -171,7 +178,7 @@ AddHtmlAttributeValue("", 428, imagePath, 428, 10, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </figure>\r\n\r\n                <h3 class=\"product-title\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4f657b4d62117a3f9b02cb83a3b5da5556fc45510061", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4f657b4d62117a3f9b02cb83a3b5da5556fc45510261", async() => {
 #nullable restore
 #line 19 "D:\Coding\Final-Project\ZSHOE-Solution\ZSHOE\Views\Shop\_WishlistBody.cshtml"
                                                                                      Write(item.Name);

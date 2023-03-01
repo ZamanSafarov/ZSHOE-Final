@@ -29,6 +29,7 @@ namespace ZSHOE.Domain.Business.CategoryModule
             public async Task<List<Category>> Handle(OurCategoriesQuery request, CancellationToken cancellationToken)
             {
                 var posts = await db.Categories
+                    .Include(c=>c.Products)
                      .Where(c => c.DeletedDate == null && c.CreatedDate != null)
                      .OrderByDescending(c => c.CreatedDate)
                      .Take(request.Size < 3 ? 3 : request.Size)
