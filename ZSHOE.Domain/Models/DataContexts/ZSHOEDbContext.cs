@@ -53,6 +53,7 @@ namespace ZSHOE.Domain.Models.DataContexts
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderProduct> OrderProducts { get; set; }
         public DbSet<ZSHOEForgotPassword> ZSHOEForgetPasswords{ get; set; }
+        public DbSet<Coupon> Coupons{ get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

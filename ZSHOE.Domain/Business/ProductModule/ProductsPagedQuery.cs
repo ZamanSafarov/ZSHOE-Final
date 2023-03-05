@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ZSHOE.Domain.Models.Entities;
 
 namespace ZSHOE.Domain.Business.ProductModule
 {
@@ -27,8 +26,6 @@ namespace ZSHOE.Domain.Business.ProductModule
                     .Include(p => p.ProductImages.Where(i => i.DeletedDate == null))
                     .Include(p=>p.Brand)
                     .Include(p=>p.Category)
-                    
-                
                     .Where(m => m.DeletedDate == null)
                     .OrderByDescending(p=>p.Id)
                     .AsQueryable();

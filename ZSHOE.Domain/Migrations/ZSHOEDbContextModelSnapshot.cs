@@ -478,6 +478,33 @@ namespace ZSHOE.Domain.Migrations
                     b.ToTable("ContactPosts");
                 });
 
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Coupon", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeletedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("DiscountAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Coupons");
+                });
+
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Faq", b =>
                 {
                     b.Property<int>("Id")
@@ -505,6 +532,31 @@ namespace ZSHOE.Domain.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Faqs");
+                });
+
+            modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Membership.ZSHOEForgotPassword", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeletedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ZSHOEForgetPasswords");
                 });
 
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Membership.ZSHOERole", b =>
@@ -1254,7 +1306,7 @@ namespace ZSHOE.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("ZSHOE.Domain.Models.Entities.Category", "Category")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1349,6 +1401,8 @@ namespace ZSHOE.Domain.Migrations
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Category", b =>
                 {
                     b.Navigation("Children");
+
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("ZSHOE.Domain.Models.Entities.Order", b =>

@@ -1,17 +1,21 @@
-﻿using MediatR;
+﻿using Azure.Core;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ZSHOE.Domain.AppCode.Extensions;
+using ZSHOE.Domain.AppCode.Infrastructure;
 using ZSHOE.Domain.Business.BasketModule;
 using ZSHOE.Domain.Business.ProductModule;
 using ZSHOE.Domain.Models.DataContexts;
 using ZSHOE.Domain.Models.Entities;
 using ZSHOE.Domain.Models.Entities.ViewModels;
 using ZSHOE.Domain.Models.ViewModels.OrderViewModel;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ZSHOE.WebUI.Controllers
 {
@@ -233,6 +237,42 @@ namespace ZSHOE.WebUI.Controllers
 
 
         }
+
+        [AllowAnonymous]
+        public IActionResult SortBy(string sortOrder,ProductsPagedQuery request)
+        {
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["PriceSortParm"] = sortOrder == "priceLow" ? "priceHigh" : "priceLow"; 
+
+
+            var products = db.Products
+                .Include(p => p.ProductImages.Where(pi => pi.IsMain == true))
+                .Include(p=>p.Category)
+                .Where(p => p.DeletedDate == null)
+                .OrderByDescending(p => p.CreatedDate)
+                .AsQueryable();
+
+            var pagedDate = new PagedViewModel<Product>(products, request);
+
+            switch (sortOrder)
+            {
+                case "priceLow":
+                    products = products.OrderBy(p => p.Price);
+                    pagedDate = new PagedViewModel<Product>(products, request);
+                    break;
+                case "priceHigh":
+                    products = products.OrderByDescending(p => p.Price);
+                    pagedDate = new PagedViewModel<Product>(products, request);
+                    break;
+                default:
+                    products = products.OrderByDescending(p => p.CreatedDate);
+                    pagedDate = new PagedViewModel<Product>(products, request);
+                    break;
+            }
+
+            return PartialView("_Products", pagedDate);
+        }
+
 
        
 
