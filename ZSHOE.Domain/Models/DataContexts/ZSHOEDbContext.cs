@@ -73,5 +73,10 @@ namespace ZSHOE.Domain.Models.DataContexts
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ZSHOEDbContext).Assembly);
         }
+
+        internal Task GetCouponByCodeAsync(string couponCode)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

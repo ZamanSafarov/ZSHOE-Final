@@ -294,7 +294,7 @@ namespace ZSHOE.WebUI.Controllers
         }
 
         [AllowAnonymous]
-        [Route("/accesdenied.html")]
+        [Route("/NotFound")]
         public IActionResult AccesDenied()
         {
             return View();
@@ -310,5 +310,19 @@ namespace ZSHOE.WebUI.Controllers
             }
 
         }
+
+
+        //public IActionResult HandleAction(string actionName)
+        //{
+        //    if (string.IsNullOrEmpty(actionName))
+        //    {
+        //        // Redirect to the Access Denied action
+        //        return RedirectToAction("AccessDenied");
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("Index", "home");
+        //    }
+        //}
     }
 }

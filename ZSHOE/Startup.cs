@@ -21,6 +21,7 @@ using ZSHOE.Domain.AppCode.Providers;
 using ZSHOE.Domain.AppCode.Extensions;
 using Newtonsoft.Json;
 using ZSHOE.Domain.AppCode.Behaviors;
+using Microsoft.AspNetCore.Http;
 
 namespace ZSHOE.WebUI
 {
@@ -71,11 +72,11 @@ namespace ZSHOE.WebUI
             services.ConfigureApplicationCookie(cfg =>
             {
                 cfg.LoginPath = "/signin.html";
-                cfg.AccessDeniedPath = "/accesdenied.html";
+                cfg.AccessDeniedPath = "/NotFound";
 
                 cfg.Cookie.Name = "ZSHOE";
                 cfg.Cookie.HttpOnly = true;
-                cfg.ExpireTimeSpan = new TimeSpan(0, 15, 0);
+                cfg.ExpireTimeSpan = new TimeSpan(0, 30, 0);
             });
 
 
@@ -144,21 +145,43 @@ namespace ZSHOE.WebUI
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path.StartsWithSegments("/admin", StringComparison.OrdinalIgnoreCase) && !context.User.Identity.IsAuthenticated)
+                {
+                    context.Response.Redirect("/NotFound");
+                    return;
+                }
+                if (context.Request.Path.StartsWithSegments("/admin", StringComparison.OrdinalIgnoreCase) && context.User.IsInRole("User"))
+                {
+                    context.Response.Redirect("/NotFound");
+                    return;
+                }
+
+                await next();
+            });
+
             app.UseEndpoints(cfg =>
             {
+
+              
                 cfg.MapAreaControllerRoute("defaultAdmin", "admin", "admin/{controller=account}/{action=signin}/{id?}");
+          
+              
 
                 cfg.MapControllerRoute(
-                name: "default-accesdenied",
-                pattern: "accesdenied.html",
+                name: "default-notfound",
+                pattern: "/NotFound",
                 defaults: new
                 {
                     area = "",
                     controller = "account",
-                    action = "accesdenied"
+                    action = "AccesDenied"
                 });
 
                 cfg.MapControllerRoute("default", "{controller=home}/{action=index}/{id?}");
+
+
             });
         }
     }

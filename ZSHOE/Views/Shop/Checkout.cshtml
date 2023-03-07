@@ -27,7 +27,8 @@
                     <div class="row">
                         <div class="col-lg-9">
 
-                            <div class="cart-discount">
+
+                           @* <div class="cart-discount">
                                
                                 <form asp-action="ApplyCoupon" method="post">
                                     <div class="input-group">
@@ -37,7 +38,7 @@
                                         </div><!-- .End .input-group-append -->
                                     </div><!-- End .input-group -->
                                 </form>
-                            </div><!-- End .cart-discount -->
+                            </div><!-- End .cart-discount -->*@
                             <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
                             <div class="row">
                                 <div class="col-sm-6">
@@ -207,6 +208,8 @@
                         <input type="hidden" name="quantities" value="@Model.BasketProducts.ElementAt(i).Quantity">
                     }
                 </form>
+
+              
             </div><!-- End .container -->
         </div><!-- End .checkout -->
     </div><!-- End .page-content -->
@@ -286,6 +289,10 @@
                 $(errorInput).addClass("novalidated")
             });
         }
+
+
+
+      
 
          
        

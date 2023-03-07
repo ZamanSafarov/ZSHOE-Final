@@ -4,12 +4,14 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ZSHOE.Domain.AppCode.Extensions;
 using ZSHOE.Domain.AppCode.Infrastructure;
 using ZSHOE.Domain.Business.BasketModule;
+using ZSHOE.Domain.Business.OrderModule;
 using ZSHOE.Domain.Business.ProductModule;
 using ZSHOE.Domain.Models.DataContexts;
 using ZSHOE.Domain.Models.Entities;
@@ -202,6 +204,8 @@ namespace ZSHOE.WebUI.Controllers
             };
             return Json(responseError);
         }
+
+
 
         [AllowAnonymous]
         public async Task<IActionResult> SearchProducts(string searchTerm)
