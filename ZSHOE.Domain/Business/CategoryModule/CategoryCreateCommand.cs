@@ -23,6 +23,7 @@ namespace ZSHOE.Domain.Business.CategoryModule
 
         public int? ParentId { get; set; }
 
+
         public class CategoryCreateCommandHandler : IRequestHandler<CategoryCreateCommand, Category>
         {
             private readonly ZSHOEDbContext db;

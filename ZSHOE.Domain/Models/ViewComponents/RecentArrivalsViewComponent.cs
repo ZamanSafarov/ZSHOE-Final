@@ -1,7 +1,8 @@
-﻿using ZSHOE.Domain.Business.BlogPostModule;
+﻿
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using ZSHOE.Domain.Business.ProductModule;
 
 namespace ZSHOE.Domain.AppCode.ViewComponents
 {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ZSHOE.Domain.Business.BlogPostModule
+namespace ZSHOE.Domain.Business.ProductModule
 {
     public class ProductRecentArrivalsQuery : IRequest<List<Product>>
     {

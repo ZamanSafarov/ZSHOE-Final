@@ -63,6 +63,8 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
         [Authorize(Policy = "admin.categories.create")]
         public async Task<IActionResult> Create(CategoryCreateCommand command)
         {
+          
+
             if (ModelState.IsValid)
             {
                 var response = await mediator.Send(command);
