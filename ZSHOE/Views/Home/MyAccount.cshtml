@@ -1,5 +1,4 @@
-﻿
-@model RegisterFormModel
+﻿@model ZSHOEUser
 
 @{
     ViewData["Title"] = "MyAccount";
@@ -47,9 +46,9 @@
 						<div class="tab-content">
 							<div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel" aria-labelledby="tab-dashboard-link">
 								<p>
-									Hello <span class="font-weight-normal text-dark">@User.GetPrincipalName()</span> (not <span class="font-weight-normal text-dark">@User.GetPrincipalName()</span>? <a asp-controller="account" asp-action="logout">Log out</a>)
+									Hello <span class="font-weight-normal text-dark">@Model.Name @Model.Surname</span> (not <span class="font-weight-normal text-dark">@Model.Name @Model.Surname</span>? <a asp-controller="account" asp-action="logout">Log out</a>)
 									<br>
-									From your account dashboard you can view your <a href="#tab-account" class="tab-trigger-link">edit your password and account details</a>.
+									From your account dashboard you can view your <a href="#tab-account" class="tab-trigger-link">account details</a>.
 								</p>
 							</div><!-- .End .tab-pane -->
 
@@ -96,31 +95,19 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<label>First Name *</label>
-											<input type="text" class="form-control" value="@User.GetPrincipalName()">
+											<input type="text" class="form-control" value="@Model.Name" readonly>
 										</div><!-- End .col-sm-6 -->
 
 										<div class="col-sm-6">
 											<label>Last Name *</label>
-											<input type="text" class="form-control" value="" required>
+											<input type="text" class="form-control" value="@Model.Surname"  readonly>
 										</div><!-- End .col-sm-6 -->
 									</div><!-- End .row -->
 
 									<label>Email address *</label>
-									<input type="email" class="form-control" value="">
+									<input type="email" class="form-control" value="@Model.Email" readonly>
 
-									<label>Current password (leave blank to leave unchanged)</label>
-									<input type="password" class="form-control">
 
-									<label>New password (leave blank to leave unchanged)</label>
-									<input type="password" class="form-control">
-
-									<label>Confirm new password</label>
-									<input type="password" class="form-control mb-2">
-
-									<button type="submit" class="btn btn-outline-primary-2">
-										<span>SAVE CHANGES</span>
-										<i class="icon-long-arrow-right"></i>
-									</button>
 								</form>
 							</div><!-- .End .tab-pane -->
 						</div>

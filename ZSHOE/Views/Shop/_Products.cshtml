@@ -57,7 +57,7 @@
                 </a>
 
                 }*@
-                    @foreach (var itemImage in item.ProductImages.Where(pi => pi.IsMain == false))
+                    @foreach (var itemImage in item.ProductImages.Where(pi => pi.IsMain == false && pi.DeletedDate == null))
                     {
 
 

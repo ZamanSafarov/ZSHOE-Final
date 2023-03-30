@@ -11,6 +11,7 @@ using ZSHOE.Domain.AppCode.Extensions;
 using ZSHOE.Domain.AppCode.Services;
 using ZSHOE.Domain.Models.DataContexts;
 using ZSHOE.Domain.Models.Entities;
+using ZSHOE.Domain.Models.Entities.Membership;
 using ZSHOE.Domain.Models.Entities.ViewModels;
 
 namespace ZSHOE.WebUI.Controllers
@@ -81,10 +82,10 @@ namespace ZSHOE.WebUI.Controllers
 
         }
 
-        [AllowAnonymous]
         public IActionResult MyAccount()
         {
-            return View();
+            var data = db.Users.FirstOrDefault(u=>u.Id == User.GetCurrentUserId()); 
+            return View(data);
         }
         [AllowAnonymous]
         public async Task<IActionResult> About()

@@ -49,7 +49,7 @@
                 }
                 <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id">
                     <img src="~/uploads/images/@imagePath" alt="Product image" class="product-image">
-                    @foreach (var itemImage in item.ProductImages.Where(pi => pi.IsMain == false))
+                    @foreach (var itemImage in item.ProductImages.Where(pi => pi.IsMain == false && pi.DeletedDate == null))
                     {
                         <img src="~/uploads/images/@itemImage.Name" alt="Product image" class="product-image-hover">
                     }

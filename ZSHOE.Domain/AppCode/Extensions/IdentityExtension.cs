@@ -25,7 +25,7 @@ namespace ZSHOE.Domain.AppCode.Extensions
                 return $"{name} {surname}";
             }
 
-            return principal.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.Name))?.Value;
+            return principal.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.Email))?.Value;
         }
 
         public static int GetCurrentUserId(this ClaimsPrincipal principal)

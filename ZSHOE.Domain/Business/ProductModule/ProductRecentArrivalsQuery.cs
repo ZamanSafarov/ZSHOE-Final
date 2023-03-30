@@ -18,7 +18,7 @@ namespace ZSHOE.Domain.Business.ProductModule
         public class ProductRecentArrivalsQueryHandler : IRequestHandler<ProductRecentArrivalsQuery, List<Product>>
         {
             private readonly ZSHOEDbContext db;
-
+            
             public ProductRecentArrivalsQueryHandler(ZSHOEDbContext db)
             {
                 this.db = db;
