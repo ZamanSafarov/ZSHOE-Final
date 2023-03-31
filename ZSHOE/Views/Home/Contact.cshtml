@@ -132,13 +132,13 @@
 
                         if (response.error == true) {
 
-                            toastr.error(response.message, "Xeta");
+                            toastr.error(response.message, "Error!");
                             showError(response.state);
 
                             return;
                         }
 
-                        toastr.success(response.message, "Ugur!");
+                        toastr.success(response.message, "Succes!");
 
                         ev.currentTarget.reset();
                     },

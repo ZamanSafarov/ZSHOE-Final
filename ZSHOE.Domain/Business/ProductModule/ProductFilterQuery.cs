@@ -56,7 +56,7 @@ namespace ZSHOE.Domain.Business.ProductModule
                     .ToArrayAsync(cancellationToken);
 
                 var productQuery = db.Products
-                    .Include(p => p.ProductImages.Where(i=>i.IsMain == true && i.DeletedDate==null))
+                    .Include(p => p.ProductImages.Where(i=>i.DeletedDate==null))
                     .Where(p => productIds.Contains(p.Id)&& p.DeletedDate==null)
                     .AsQueryable();
 

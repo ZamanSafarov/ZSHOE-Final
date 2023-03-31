@@ -245,8 +245,6 @@ namespace ZSHOE.WebUI.Controllers
         [AllowAnonymous]
         public IActionResult SortBy(string sortOrder,ProductsPagedQuery request)
         {
-            ViewData["CurrentSort"] = sortOrder;
-            ViewData["PriceSortParm"] = sortOrder == "priceLow" ? "priceHigh" : "priceLow"; 
 
 
             var products = db.Products
@@ -260,6 +258,10 @@ namespace ZSHOE.WebUI.Controllers
 
             switch (sortOrder)
             {
+                case "standart":
+                    products = products.OrderByDescending(p => p.CreatedDate);
+                    pagedDate = new PagedViewModel<Product>(products, request);
+                    break;
                 case "priceLow":
                     products = products.OrderBy(p => p.Price);
                     pagedDate = new PagedViewModel<Product>(products, request);

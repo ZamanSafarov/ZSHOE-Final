@@ -117,10 +117,10 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
 
             }).ToArray();
 
-            ViewData["BrandId"] = new SelectList(db.Brands, "Id", "Name", product.BrandId);
-            ViewData["CategoryId"] = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
-            ViewBag.ColorId = new SelectList(db.Colors, "Id", "Name");
-            ViewBag.SizeId = new SelectList(db.Size, "Id", "Name");
+            ViewData["BrandId"] = new SelectList(db.Brands.Where(b => b.DeletedDate == null), "Id", "Name", product.BrandId);
+            ViewData["CategoryId"] = new SelectList(db.Categories.Where(b => b.DeletedDate == null), "Id", "Name", product.CategoryId);
+            ViewBag.ColorId = new SelectList(db.Colors.Where(b => b.DeletedDate == null), "Id", "Name");
+            ViewBag.SizeId = new SelectList(db.Size.Where(b => b.DeletedDate == null), "Id", "Name");
             ViewBag.GetColorId = new Func<int, int>(GetColorId);
             ViewBag.GetSizeId = new Func<int, int>(GetSizeId);
             return View(command);

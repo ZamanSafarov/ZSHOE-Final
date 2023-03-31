@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,12 +23,14 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductColors
+        [Authorize(Policy = "admin.productcolors.index")]
         public async Task<IActionResult> Index()
         {
             return View(await db.Colors.ToListAsync());
         }
 
         // GET: Admin/ProductColors/Details/5
+        [Authorize(Policy = "admin.productcolors.details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,12 +49,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductColors/Create
+        [Authorize(Policy = "admin.productcolors.create")]
         public IActionResult Create()
         {
             return View();
         }
 
-  
+        [Authorize(Policy = "admin.productcolors.create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("HexCode,Name,Description,CreatedByUserId,DeletedByUserId,Id,CreatedDate,DeletedDate")] ProductColor productColor)
@@ -66,6 +70,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductColors/Edit/5
+        [Authorize(Policy = "admin.productcolors.edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,9 +86,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(productColor);
         }
 
-        // POST: Admin/ProductColors/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.productcolors.edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("HexCode,Name,Description,CreatedByUserId,DeletedByUserId,Id,CreatedDate,DeletedDate")] ProductColor productColor)
@@ -116,7 +119,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(productColor);
         }
 
-        // GET: Admin/ProductColors/Delete/5
+        [Authorize(Policy = "admin.productcolors.delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +137,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(productColor);
         }
 
-        // POST: Admin/ProductColors/Delete/5
+        [Authorize(Policy = "admin.productcolors.delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

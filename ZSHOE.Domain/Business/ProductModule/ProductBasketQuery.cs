@@ -35,6 +35,7 @@ namespace ZSHOE.Domain.Business.ProductModule
                 var data = await db.Basket
                     .Include(b => b.Product)
                     .ThenInclude(p => p.ProductImages.Where(i => i.IsMain == true && i.DeletedDate == null))
+                     .Where(b => b.Product.DeletedDate == null)
                     .Where(b => b.UserId == userId)
                     .ToListAsync(cancellationToken);
 

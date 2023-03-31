@@ -42,14 +42,24 @@
 
                 <div class="entry-cats">
                     in 
+
                     @foreach (var tag in item.TagCloud)
                     {
-                        <li>
-                            <a class="blog-tag__link d-inline-block" href="#">
-                                @tag.Tag?.Text
-                            </a>
-                        </li>
+                        if (tag.Tag?.Text==null)
+                        {
+                            
+                        }
+                        else
+                        {
+                            <li>
+                                <a class="blog-tag__link d-inline-block" href="#">
+                                    @tag.Tag?.Text
+                                </a>
+                            </li>
+                        }
+                       
                     }
+                   
                 </div><!-- End .entry-cats -->
             </div><!-- End .entry-body -->
         </article>

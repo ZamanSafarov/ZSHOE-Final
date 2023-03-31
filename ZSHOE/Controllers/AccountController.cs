@@ -47,11 +47,11 @@ namespace ZSHOE.WebUI.Controllers
                     return Json(new
                     {
                         error = true,
-                        message = "İstifadəçi adınız və ya şifrəniz yanlışdır"
+                        message = "Email or Password is invalid,please try valid one"
                     });
                 }
 
-                ViewBag.Message = "İstifadəçi adınız və ya şifrəniz yanlışdır";
+                ViewBag.Message = "Email or Password is invalid,please try valid one";
                 goto end;
             }
 
@@ -71,18 +71,18 @@ namespace ZSHOE.WebUI.Controllers
                     return Json(new
                     {
                         error = true,
-                        message = "İstifadəçi adınız və ya şifrəniz yanlışdır"
+                        message = "Email or Password is invalid,please try valid one"
                     });
                 }
 
-                ViewBag.Message = "İstifadəçi adınız və ya şifrəniz yanlışdır";
+                ViewBag.Message = "Email or Password is invalid,please try valid one";
                 goto end;
             }
 
 
             if (foundedUser.EmailConfirmed == false)
             {
-                ViewBag.Message = "Zəhmət olmasa emailinizə gələn təsdiq linkindən hesabınızı doğrulayın";
+                ViewBag.Message = "Please verify your account from the confirmation link sent to your email";
                 goto end;
             }
 
@@ -97,11 +97,11 @@ namespace ZSHOE.WebUI.Controllers
                     return Json(new
                     {
                         error = true,
-                        message = "İstifadəçi adınız və ya şifrəniz yanlışdır"
+                        message = "Email or Password is invalid,please try valid one"
                     });
                 }
 
-                ViewBag.Message = "İstifadəçi adınız və ya şifrəniz yanlışdır";
+                ViewBag.Message = "Email or Password is invalid,please try valid one";
                 goto end;
             }
 
@@ -110,7 +110,7 @@ namespace ZSHOE.WebUI.Controllers
                 return Json(new
                 {
                     error = false,
-                    message = "Daxil oldunuz"
+                    message = "You are Signed in"
                 });
             }
 
@@ -157,15 +157,15 @@ namespace ZSHOE.WebUI.Controllers
                     var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
                     string path = $"{Request.Scheme}://{Request.Host}/registration-confirm.html?email={user.Email}&token={token}";
 
-                    var emailResponse = await emailService.SendMailAsync(user.Email, "Registration for ZSHOE e-commerce Shoe website", $"Zəhmət olmasa abunəliyinizi <a href='{path}'>link</a> vasitəsilə təsdiq edin");
+                    var emailResponse = await emailService.SendMailAsync(user.Email, "Registration for ZSHOE e-commerce website", $"Please verify your account with this <a href='{path}'>link</a>.");
 
                     if (emailResponse)
                     {
-                        ViewBag.Message = "Qeydiyyat uğurla tamamlandı";
+                        ViewBag.Message = "Registration completed successfully";
                     }
                     else
                     {
-                        ViewBag.Message = " E-mail' göndərərkən xəta baş verdi, zəhmət olmasa yenidən cəhd edin";
+                        ViewBag.Message = "There was an error sending to email, please try again";
                     }
 
                     await userManager.AddToRoleAsync(user, "User");
@@ -192,7 +192,7 @@ namespace ZSHOE.WebUI.Controllers
             var foundedUser = await userManager.FindByEmailAsync(email);
             if (foundedUser == null)
             {
-                ViewBag.Message = "Xətalı token";
+                ViewBag.Message = "Incorrect Token";
                 goto end;
             }
             token = token.Replace(" ", "+");
@@ -200,11 +200,11 @@ namespace ZSHOE.WebUI.Controllers
 
             if (!result.Succeeded)
             {
-                ViewBag.Message = "Xətalı token";
+                ViewBag.Message = "Incorrect Token";
                 goto end;
             }
 
-            ViewBag.Message = "Hesabınız təsdiqləndi";
+            ViewBag.Message = "Your account has been verified";
         end:
             return RedirectToAction(nameof(Signin));
         }
@@ -233,7 +233,7 @@ namespace ZSHOE.WebUI.Controllers
                 token = token.Replace(" ", "+");
                 string path = $"{Request.Scheme}://{Request.Host}/reset-password.html?email={foundedUser.Email}&token={token}";
 
-                var emailResponse = await emailService.SendMailAsync(foundedUser.Email, "Login for ZSHOE", $"Şifrənizi <a href='{path}'>link</a> vasitəsilə yeniləyin!");
+                var emailResponse = await emailService.SendMailAsync(foundedUser.Email, "Login for ZSHOE", $"Update your password via <a href='{path}'>link</a>!");
                 return View("ForgotPasswordConfirmation");
             }
             return View(model);

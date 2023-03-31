@@ -114,7 +114,7 @@ namespace ZSHOE.WebUI.Controllers
                 return Json(new
                 {
                     error = true,
-                    message = "Boş göndərilə bilməz"
+                    message = "Should Not Be Empty"
                 });
             }
 
@@ -123,7 +123,7 @@ namespace ZSHOE.WebUI.Controllers
                 return Json(new
                 {
                     error = true,
-                    message = "Məlumat düzgün göndərilməyib"
+                    message = "Email is not avaible or correct, please try again"
                 });
             }
 
@@ -145,7 +145,7 @@ namespace ZSHOE.WebUI.Controllers
                 return Json(new
                 {
                     error = false,
-                    message = "Siz artıq abunə olmusunuz"
+                    message = "You have already subscribed"
                 });
             }
 
@@ -164,7 +164,7 @@ namespace ZSHOE.WebUI.Controllers
             token = cryptoService.Encrypt(token, true);
 
 
-            string message = $"Zəhmət olmasa <a href='{Request.Scheme}://{Request.Host}/approve-subscribe?token={token}'>link</a> vasitəsilə abunəliyinizi təsdiq edin";
+            string message = $"Please approve your subscription with this <a href='{Request.Scheme}://{Request.Host}/approve-subscribe?token={token}'>link</a> ";
 
 
             await emailService.SendMailAsync(model.Email, "Subscribe Approve Message", message);
@@ -172,7 +172,7 @@ namespace ZSHOE.WebUI.Controllers
             return Json(new
             {
                 error = false,
-                message = "E-mailinizə təsdiq mesajı göndərildi"
+                message = "We sent a confirmation message to your Email"
             });
 
         }
@@ -199,13 +199,13 @@ namespace ZSHOE.WebUI.Controllers
 
                 if (entity == null)
                 {
-                    ViewBag.Message = Tuple.Create(true, "Token xətası");
+                    ViewBag.Message = Tuple.Create(true, "Token Error");
                     goto end;
                 }
 
                 if (entity.IsApproved)
                 {
-                    ViewBag.Message = Tuple.Create(true, "Sizin müraciətiniz artıq təsdiq edilib");
+                    ViewBag.Message = Tuple.Create(true, "Your request was already confirmed");
 
                     goto end;
                 }
@@ -215,12 +215,12 @@ namespace ZSHOE.WebUI.Controllers
                 db.SaveChanges();
 
 
-                ViewBag.Message = Tuple.Create(false, "Sizin abunəliyiniz təsdiq edildi");
+                ViewBag.Message = Tuple.Create(false, "Your request confirmed");
 
             }
             else
             {
-                ViewBag.Message = Tuple.Create(true, "Token xətası");
+                ViewBag.Message = Tuple.Create(true, "Token Error");
             }
 
         end:

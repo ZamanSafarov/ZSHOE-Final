@@ -1,11 +1,11 @@
 ﻿@model PagedViewModel<Product>
 
 
-
+   
 @foreach (var item in Model.Items)
 {
     int intValue = Convert.ToInt32(item.Rate);
-    var imagePath = item.ProductImages.FirstOrDefault()?.Name;
+    var imagePath = item.ProductImages.FirstOrDefault(i=>i.IsMain == true)?.Name;
 
     <div class="col-6 col-md-4 col-lg-4">
         <div class="product product-7 text-center">
@@ -15,7 +15,7 @@
                 {
                     <span class="product-label label-new">New</span>
                 }
-                @if(intValue>1)
+                @if(intValue>3)
                 {
                    
                     <span class="product-label label-top">Top</span>
@@ -38,7 +38,10 @@
                 <div class="product-cat">
                     <a href="#">@item.Category.Name</a>
                 </div><!-- End .product-cat -->
-                <h3 class="product-title"><a asp-controller="shop" asp-action="details" asp-route-id="@item.Id">@item.Name</a></h3><!-- End .product-title -->
+                <h3 class="product-title" style="    width: 92%;
+    margin: 0 auto;">
+                    <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id">@item.Name</a>
+                </h3><!-- End .product-title -->
                 <div class="product-price">
                     $@item.Price
                 </div><!-- End .product-price -->

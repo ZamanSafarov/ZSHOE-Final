@@ -356,11 +356,11 @@
                     success: function (response) {
 
                         if (response.error == false) {
-                            toastr["success"](response.message, "Uğur")
+                            toastr["success"](response.message, "Succes!")
                         }
 
                         if (response.error == true) {
-                            toastr["error"](response.message, "Xəta");
+                            toastr["error"](response.message, "Error!");
                         }
 
                         e.currentTarget.reset();

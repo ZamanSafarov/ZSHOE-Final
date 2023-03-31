@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,13 +22,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             this.db = db;
         }
 
-        // GET: Admin/ProductSizes
+        [Authorize(Policy = "admin.productsizes.index")]
         public async Task<IActionResult> Index()
         {
             return View(await db.Size.ToListAsync());
         }
 
-        // GET: Admin/ProductSizes/Details/5
+        [Authorize(Policy = "admin.productsizes.details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,15 +46,13 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(productSize);
         }
 
-        // GET: Admin/ProductSizes/Create
+        [Authorize(Policy = "admin.productsizes.create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/ProductSizes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.productsizes.create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Id,CreatedDate,DeletedDate")] ProductSize productSize)
@@ -67,7 +66,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(productSize);
         }
 
-        // GET: Admin/ProductSizes/Edit/5
+        [Authorize(Policy = "admin.productsizes.edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,9 +82,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(productSize);
         }
 
-        // POST: Admin/ProductSizes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.productsizes.edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Name,Id,CreatedDate,DeletedDate")] ProductSize productSize)
@@ -118,7 +115,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(productSize);
         }
 
-        // GET: Admin/ProductSizes/Delete/5
+        [Authorize(Policy = "admin.productsizes.delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,7 +133,7 @@ namespace ZSHOE.WebUI.Areas.Admin.Controllers
             return View(productSize);
         }
 
-        // POST: Admin/ProductSizes/Delete/5
+        [Authorize(Policy = "admin.productsizes.delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
